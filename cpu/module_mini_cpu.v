@@ -24,8 +24,8 @@ localparam[2:0]
 
 localparam[2:0] //estados da FSM
     OFF = 3'd0,
-    DECODE = 3'd1,
-    SEND_WAIT = 3'd2, //enquanto n tem o trig do botao
+    SEND_WAIT = 3'd1, //enquanto n tem o trig do botao
+    DECODE = 3'd2,
     SEND = 3'd3,
     STORE = 3'd4,
 
@@ -47,24 +47,24 @@ always @(posedge clk, posedge on, posedge send)begin //alternancia dos estados, 
             if(on)
                 estadoAtual <= OFF;
             else begin
-                estadoAtual <= DECODE;
+                estadoAtual <= SEND_WAIT;
                 ativo = 1;
             end
         end
-        DECODE: begin
-            estadoAtual <= SEND_WAIT; //passa somente um pulso para fazer o decode
-        end 
         SEND_WAIT: begin
             if(send)
                 estadoAtual <= SEND_WAIT;
             else
-                estadoAtual <= SEND;
+                estadoAtual <= DECODE;
         end
-        SEND: begin
+        DECODE: begin
+            estadoAtual <= SEND_WAIT; //passa somente um pulso para fazer o decode
+        end 
+        SEND: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
             estadoAtual <= STORE;
         end
-        STORE: begin
-            estadoAtual <= DECODE;
+        STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
+            estadoAtual <= SEND_WAIT;
         end
     endcase
 end
