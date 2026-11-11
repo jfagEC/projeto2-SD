@@ -1,4 +1,4 @@
-module module_alu(input wire[2:0] sel, input wire[6:0] n1, input wire[6:0] n2, output wire[7:0] out);
+module module_alu(input wire[2:0] sel, input wire[7:0] n1, input wire[7:0] n2, output wire[8:0] out);
 	parameter ADD=1, ADDI=2, SUB=3, SUBI=4, MUL=5;
 
 	integer res = 8'd0;
