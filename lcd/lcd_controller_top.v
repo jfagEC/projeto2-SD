@@ -15,6 +15,9 @@ module lcd_controller_top (
     input  wire       clk,
     input  wire       rst,
 	 input wire[2:0] 	 Opcode, //entrada do seletor
+	 input wire[7:0]	 n1,
+	 input wire[7:0]	 n2,
+	 input wire[7:0]	 nR,
 
     // Saídas para o LCD
     output wire  [7:0] lcd_data,
