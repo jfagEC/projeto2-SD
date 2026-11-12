@@ -1,4 +1,4 @@
-module module mini_cpu(
+module module_mini_cpu(
 input wire[17:0] instrucao,
 input wire on, //liga/desliga
 input wire send, //botao p enviar 
