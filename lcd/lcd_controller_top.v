@@ -14,8 +14,8 @@
 module lcd_controller_top (
     input  wire       clk,
     input  wire       rst,
-    input wire[2:0]   Opcode, //entrada do seletor
-    input wire[3:0]   regDisp, //registrador eh p mostar em binario ou decimal?
+    //input wire[2:0]   OpcodeI, //entrada do seletor
+    //input wire[3:0]   regDispI, //registrador eh p mostar em binario ou decimal?
     input wire[15:0]   numIn, //mostar em decimal, 16 bits dao 5 digitos(mais 1 de sinal)
 
     // Saídas para o LCD
@@ -24,6 +24,9 @@ module lcd_controller_top (
     output wire        lcd_rw,
     output wire        lcd_e
 );
+
+reg[2:0] Opcode;
+reg [3:0] regDisp;
 	
 
     // -----------------------------------------------------------------------
@@ -42,7 +45,7 @@ module lcd_controller_top (
         .clk      (clk),
         .rst      (rst),
         .start    (start_init),
-        .done     (init_done),
+        .done     (init_doneL),
         .lcd_data (init_data),
         .lcd_rs   (init_rs),
         .lcd_rw   (init_rw),
@@ -53,7 +56,7 @@ module lcd_controller_top (
         .clk (clk),
         .decOut (numDisp)
     );
-	//reg init_done = 1'b1; CASO QUEIRA TESTAR PELO WAVE FORM 
+	//reg init_done = 1'b1; //CASO QUEIRA TESTAR PELO WAVE FORM 
 	// precisa modificar o wire init_done e tambem oq entra no modulo do init p outra coisa																	
 
     // -----------------------------------------------------------------------
@@ -84,6 +87,9 @@ module lcd_controller_top (
 
     integer i;
 	 initial begin
+	 
+		Opcode = 3'd0;
+		regDisp = 4'd1;
 		message[4] = " ";
 		message[5] = " ";
 		message[6] = " ";
@@ -221,11 +227,11 @@ module lcd_controller_top (
 			end
 		endcase
         //colocando as outras saidas que nao dependem do op code reg ->10 - 13
-        message[10] = regDisp[3], message[11] = regDisp[2], message[12] = regDisp[1], message[13] = regDisp[0];
+        message[10] = regDisp[3];message[11] = regDisp[2]; message[12] = regDisp[1]; message[13] = regDisp[0];
         //colocando o num -> 26 - 31
         if(numDisp >= 0) message[26] = "+";
         else message[26] = "-";
-        message[27] = numDisp[4], message[28] = numDisp[3], message[29] = numDisp[2], message[30] = numDisp[1], message[31] = numDisp[0];
+        message[27] = numDisp[4]; message[28] = numDisp[3]; message[29] = numDisp[2]; message[30] = numDisp[1]; message[31] = numDisp[0];
         case (state)
             // ---------------------------------------------------------------
             // Espera a inicialização do LCD ser concluída
