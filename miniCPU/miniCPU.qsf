@@ -39,10 +39,10 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE115F29C7
-set_global_assignment -name TOP_LEVEL_ENTITY decimal_conversor
+set_global_assignment -name TOP_LEVEL_ENTITY module_mini_cpu
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 21.1.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:27:26  NOVEMBER 05, 2026"
-set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "21.1.1 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -60,37 +60,53 @@ set_global_assignment -name VERILOG_FILE ../lcd/lcd_controller_top.v
 set_global_assignment -name VERILOG_FILE ../lcd/lcd_init_hd44780.v
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_location_assignment PIN_Y2 -to clk
-set_location_assignment PIN_M5 -to lcd_data[7]
-set_location_assignment PIN_M3 -to lcd_data[6]
-set_location_assignment PIN_K2 -to lcd_data[5]
-set_location_assignment PIN_K1 -to lcd_data[4]
-set_location_assignment PIN_K7 -to lcd_data[3]
-set_location_assignment PIN_L2 -to lcd_data[2]
-set_location_assignment PIN_L1 -to lcd_data[1]
-set_location_assignment PIN_L3 -to lcd_data[0]
-set_location_assignment PIN_L4 -to lcd_e
-set_location_assignment PIN_M1 -to lcd_rw
-set_location_assignment PIN_M2 -to lcd_rs
-set_location_assignment PIN_Y23 -to numIn[15]
-set_location_assignment PIN_Y24 -to numIn[14]
-set_location_assignment PIN_AA22 -to numIn[13]
-set_location_assignment PIN_AA23 -to numIn[12]
-set_location_assignment PIN_AA24 -to numIn[11]
-set_location_assignment PIN_AB23 -to numIn[10]
-set_location_assignment PIN_AC24 -to numIn[9]
-set_location_assignment PIN_AB25 -to numIn[8]
-set_location_assignment PIN_AC25 -to numIn[7]
-set_location_assignment PIN_AB26 -to numIn[6]
-set_location_assignment PIN_AD26 -to numIn[5]
-set_location_assignment PIN_AC26 -to numIn[4]
-set_location_assignment PIN_AB27 -to numIn[3]
-set_location_assignment PIN_AD27 -to numIn[2]
-set_location_assignment PIN_AC27 -to numIn[1]
-set_location_assignment PIN_AC28 -to numIn[0]
-set_location_assignment PIN_R24 -to rst
+set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform1.vwf
+set_global_assignment -name VERILOG_FILE ../ula/module_alu.v
+set_global_assignment -name VERILOG_FILE ../cpu/module_mini_cpu.v
+set_global_assignment -name VERILOG_FILE ../memoria/memory.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform1.vwf
+set_location_assignment PIN_Y23 -to instrucao[17]
+set_location_assignment PIN_Y24 -to instrucao[16]
+set_location_assignment PIN_AA22 -to instrucao[15]
+set_location_assignment PIN_AA23 -to instrucao[14]
+set_location_assignment PIN_AA24 -to instrucao[13]
+set_location_assignment PIN_AB23 -to instrucao[12]
+set_location_assignment PIN_AB24 -to instrucao[11]
+set_location_assignment PIN_AC24 -to instrucao[10]
+set_location_assignment PIN_AB25 -to instrucao[9]
+set_location_assignment PIN_AC25 -to instrucao[8]
+set_location_assignment PIN_AB26 -to instrucao[7]
+set_location_assignment PIN_AD26 -to instrucao[6]
+set_location_assignment PIN_AC26 -to instrucao[5]
+set_location_assignment PIN_AB27 -to instrucao[4]
+set_location_assignment PIN_AD27 -to instrucao[3]
+set_location_assignment PIN_AC27 -to instrucao[2]
+set_location_assignment PIN_AC28 -to instrucao[1]
+set_location_assignment PIN_AB28 -to instrucao[0]
+set_location_assignment PIN_H15 -to n1[15]
+set_location_assignment PIN_G16 -to n1[14]
+set_location_assignment PIN_G15 -to n1[13]
+set_location_assignment PIN_F15 -to n1[12]
+set_location_assignment PIN_H17 -to n1[11]
+set_location_assignment PIN_J16 -to n1[10]
+set_location_assignment PIN_H16 -to n1[9]
+set_location_assignment PIN_J15 -to n1[8]
+set_location_assignment PIN_G17 -to n1[7]
+set_location_assignment PIN_J17 -to n1[6]
+set_location_assignment PIN_H19 -to n1[5]
+set_location_assignment PIN_J19 -to n1[4]
+set_location_assignment PIN_E18 -to n1[3]
+set_location_assignment PIN_F18 -to n1[2]
+set_location_assignment PIN_F21 -to n1[1]
+set_location_assignment PIN_E19 -to n1[0]
+set_location_assignment PIN_E24 -to reg1[3]
+set_location_assignment PIN_E25 -to reg1[2]
+set_location_assignment PIN_E22 -to reg1[1]
+set_location_assignment PIN_E21 -to reg1[0]
+set_location_assignment PIN_R24 -to on
+set_location_assignment PIN_N21 -to send
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -1,6 +1,6 @@
 Analysis & Synthesis report for miniCPU
-Thu Nov 12 21:08:43 2026
-Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+Fri Nov 13 09:59:24 2026
+Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
 ---------------------
@@ -13,25 +13,26 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis DSP Block Usage Summary
+  8. Analysis & Synthesis RAM Summary
   9. User-Specified and Inferred Latches
- 10. Logic Cells Representing Combinational Loops
- 11. General Register Statistics
+ 10. General Register Statistics
+ 11. Registers Packed Into Inferred Megafunctions
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 14. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
- 15. lpm_mult Parameter Settings by Entity Instance
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
- 19. Analysis & Synthesis Suppressed Messages
+ 13. Source assignments for memory:MEM|altsyncram:ram_rtl_0|altsyncram_da81:auto_generated
+ 14. Parameter Settings for User Entity Instance: module_alu:ULA
+ 15. Parameter Settings for Inferred Entity Instance: memory:MEM|altsyncram:ram_rtl_0
+ 16. altsyncram Parameter Settings by Entity Instance
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+ 20. Analysis & Synthesis Suppressed Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2021  Intel Corporation. All rights reserved.
+Copyright (C) 2022  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -51,19 +52,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 12 21:08:43 2026       ;
-; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Fri Nov 13 09:59:24 2026       ;
+; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; miniCPU                                     ;
-; Top-level Entity Name              ; decimal_conversor                           ;
+; Top-level Entity Name              ; module_mini_cpu                             ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 780                                         ;
-;     Total combinational functions  ; 780                                         ;
-;     Dedicated logic registers      ; 1                                           ;
-; Total registers                    ; 1                                           ;
-; Total pins                         ; 65                                          ;
+; Total logic elements               ; 285                                         ;
+;     Total combinational functions  ; 285                                         ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 78                                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 4                                           ;
+; Total memory bits                  ; 256                                         ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
 ; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
@@ -74,7 +75,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; decimal_conversor  ; miniCPU            ;
+; Top-level entity name                                            ; module_mini_cpu    ; miniCPU            ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -159,220 +160,205 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 10          ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 10          ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processors 7-10        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                   ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
-; ../lcd/decimal_conversor.v       ; yes             ; User Verilog HDL File        ; C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v              ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
-; aglobal211.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/aglobal211.inc      ;         ;
-; db/lpm_divide_soo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/lpm_divide_soo.tdf        ;         ;
-; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/abs_divider_kbg.tdf       ;         ;
-; db/alt_u_div_67f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/alt_u_div_67f.tdf         ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/add_sub_7pc.tdf           ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/add_sub_8pc.tdf           ;         ;
-; db/lpm_abs_2v9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/lpm_abs_2v9.tdf           ;         ;
-; db/lpm_abs_i0a.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/lpm_abs_i0a.tdf           ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
-; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/multcore.inc        ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/bypassff.inc        ;         ;
-; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altshift.inc        ;         ;
-; db/mult_k4t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/mult_k4t.tdf              ;         ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                   ;
++-----------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                               ; Library ;
++-----------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------+---------+
+; ../ula/module_alu.v                     ; yes             ; User Verilog HDL File                                 ; D:/Users/rma10/projeto2-SD/ula/module_alu.v                                ;         ;
+; ../cpu/module_mini_cpu.v                ; yes             ; User Verilog HDL File                                 ; D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v                           ;         ;
+; ../memoria/memory.v                     ; yes             ; User Verilog HDL File                                 ; D:/Users/rma10/projeto2-SD/memoria/memory.v                                ;         ;
+; altsyncram.tdf                          ; yes             ; Megafunction                                          ; c:/altera/21.1/quartus/libraries/megafunctions/altsyncram.tdf              ;         ;
+; stratix_ram_block.inc                   ; yes             ; Megafunction                                          ; c:/altera/21.1/quartus/libraries/megafunctions/stratix_ram_block.inc       ;         ;
+; lpm_mux.inc                             ; yes             ; Megafunction                                          ; c:/altera/21.1/quartus/libraries/megafunctions/lpm_mux.inc                 ;         ;
+; lpm_decode.inc                          ; yes             ; Megafunction                                          ; c:/altera/21.1/quartus/libraries/megafunctions/lpm_decode.inc              ;         ;
+; aglobal211.inc                          ; yes             ; Megafunction                                          ; c:/altera/21.1/quartus/libraries/megafunctions/aglobal211.inc              ;         ;
+; a_rdenreg.inc                           ; yes             ; Megafunction                                          ; c:/altera/21.1/quartus/libraries/megafunctions/a_rdenreg.inc               ;         ;
+; altrom.inc                              ; yes             ; Megafunction                                          ; c:/altera/21.1/quartus/libraries/megafunctions/altrom.inc                  ;         ;
+; altram.inc                              ; yes             ; Megafunction                                          ; c:/altera/21.1/quartus/libraries/megafunctions/altram.inc                  ;         ;
+; altdpram.inc                            ; yes             ; Megafunction                                          ; c:/altera/21.1/quartus/libraries/megafunctions/altdpram.inc                ;         ;
+; db/altsyncram_da81.tdf                  ; yes             ; Auto-Generated Megafunction                           ; D:/Users/rma10/projeto2-SD/miniCPU/db/altsyncram_da81.tdf                  ;         ;
+; db/minicpu.ram0_memory_e411fb78.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; D:/Users/rma10/projeto2-SD/miniCPU/db/minicpu.ram0_memory_e411fb78.hdl.mif ;         ;
++-----------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary            ;
-+---------------------------------------------+----------+
-; Resource                                    ; Usage    ;
-+---------------------------------------------+----------+
-; Estimated Total logic elements              ; 780      ;
-;                                             ;          ;
-; Total combinational functions               ; 780      ;
-; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 225      ;
-;     -- 3 input functions                    ; 308      ;
-;     -- <=2 input functions                  ; 247      ;
-;                                             ;          ;
-; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 495      ;
-;     -- arithmetic mode                      ; 285      ;
-;                                             ;          ;
-; Total registers                             ; 1        ;
-;     -- Dedicated logic registers            ; 1        ;
-;     -- I/O registers                        ; 0        ;
-;                                             ;          ;
-; I/O pins                                    ; 65       ;
-;                                             ;          ;
-; Embedded Multiplier 9-bit elements          ; 4        ;
-;                                             ;          ;
-; Maximum fan-out node                        ; soma[31] ;
-; Maximum fan-out                             ; 86       ;
-; Total fan-out                               ; 2387     ;
-; Average fan-out                             ; 2.61     ;
-+---------------------------------------------+----------+
++--------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                        ;
++---------------------------------------------+----------------------+
+; Resource                                    ; Usage                ;
++---------------------------------------------+----------------------+
+; Estimated Total logic elements              ; 285                  ;
+;                                             ;                      ;
+; Total combinational functions               ; 285                  ;
+; Logic element usage by number of LUT inputs ;                      ;
+;     -- 4 input functions                    ; 53                   ;
+;     -- 3 input functions                    ; 146                  ;
+;     -- <=2 input functions                  ; 86                   ;
+;                                             ;                      ;
+; Logic elements by mode                      ;                      ;
+;     -- normal mode                          ; 238                  ;
+;     -- arithmetic mode                      ; 47                   ;
+;                                             ;                      ;
+; Total registers                             ; 0                    ;
+;     -- Dedicated logic registers            ; 0                    ;
+;     -- I/O registers                        ; 0                    ;
+;                                             ;                      ;
+; I/O pins                                    ; 78                   ;
+; Total memory bits                           ; 256                  ;
+;                                             ;                      ;
+; Embedded Multiplier 9-bit elements          ; 0                    ;
+;                                             ;                      ;
+; Maximum fan-out node                        ; estadoAtual[2]$latch ;
+; Maximum fan-out                             ; 60                   ;
+; Total fan-out                               ; 1052                 ;
+; Average fan-out                             ; 2.30                 ;
++---------------------------------------------+----------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                   ;
-+---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                             ; Entity Name       ; Library Name ;
-+---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |decimal_conversor                    ; 780 (246)           ; 1 (1)                     ; 0           ; 4            ; 0       ; 2         ; 65   ; 0            ; |decimal_conversor                                                                                              ; decimal_conversor ; work         ;
-;    |lpm_divide:Mod0|                  ; 510 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |decimal_conversor|lpm_divide:Mod0                                                                              ; lpm_divide        ; work         ;
-;       |lpm_divide_soo:auto_generated| ; 510 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |decimal_conversor|lpm_divide:Mod0|lpm_divide_soo:auto_generated                                                ; lpm_divide_soo    ; work         ;
-;          |abs_divider_kbg:divider|    ; 510 (10)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |decimal_conversor|lpm_divide:Mod0|lpm_divide_soo:auto_generated|abs_divider_kbg:divider                        ; abs_divider_kbg   ; work         ;
-;             |alt_u_div_67f:divider|   ; 459 (459)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |decimal_conversor|lpm_divide:Mod0|lpm_divide_soo:auto_generated|abs_divider_kbg:divider|alt_u_div_67f:divider  ; alt_u_div_67f     ; work         ;
-;             |lpm_abs_i0a:my_abs_num|  ; 41 (41)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |decimal_conversor|lpm_divide:Mod0|lpm_divide_soo:auto_generated|abs_divider_kbg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a       ; work         ;
-;    |lpm_mult:Mult0|                   ; 24 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |decimal_conversor|lpm_mult:Mult0                                                                               ; lpm_mult          ; work         ;
-;       |mult_k4t:auto_generated|       ; 24 (24)             ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |decimal_conversor|lpm_mult:Mult0|mult_k4t:auto_generated                                                       ; mult_k4t          ; work         ;
-+---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+-------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                     ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                             ; Entity Name     ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+-----------------+--------------+
+; |module_mini_cpu                          ; 285 (252)           ; 0 (0)                     ; 256         ; 0            ; 0       ; 0         ; 78   ; 0            ; |module_mini_cpu                                                                ; module_mini_cpu ; work         ;
+;    |memory:MEM|                           ; 0 (0)               ; 0 (0)                     ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |module_mini_cpu|memory:MEM                                                     ; memory          ; work         ;
+;       |altsyncram:ram_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |module_mini_cpu|memory:MEM|altsyncram:ram_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_da81:auto_generated| ; 0 (0)               ; 0 (0)                     ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |module_mini_cpu|memory:MEM|altsyncram:ram_rtl_0|altsyncram_da81:auto_generated ; altsyncram_da81 ; work         ;
+;    |module_alu:ULA|                       ; 33 (33)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |module_mini_cpu|module_alu:ULA                                                 ; module_alu      ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis DSP Block Usage Summary        ;
-+---------------------------------------+-------------+
-; Statistic                             ; Number Used ;
-+---------------------------------------+-------------+
-; Simple Multipliers (9-bit)            ; 0           ;
-; Simple Multipliers (18-bit)           ; 2           ;
-; Embedded Multiplier Blocks            ; --          ;
-; Embedded Multiplier 9-bit elements    ; 4           ;
-; Signed Embedded Multipliers           ; 1           ;
-; Unsigned Embedded Multipliers         ; 0           ;
-; Mixed Sign Embedded Multipliers       ; 1           ;
-; Variable Sign Embedded Multipliers    ; 0           ;
-; Dedicated Input Shift Register Chains ; 0           ;
-+---------------------------------------+-------------+
-Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                            ;
++---------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------------------------+
+; Name                                                                      ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                     ;
++---------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------------------------+
+; memory:MEM|altsyncram:ram_rtl_0|altsyncram_da81:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 16           ; 16           ; --           ; --           ; 256  ; db/miniCPU.ram0_memory_e411fb78.hdl.mif ;
++---------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                ;
-+-----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
-+-----------------------------------------------------+---------------------+------------------------+
-; decOut[5][0]                                        ; decOut[5][7]        ; yes                    ;
-; decOut[5][1]                                        ; decOut[5][7]        ; yes                    ;
-; decOut[5][2]                                        ; decOut[5][7]        ; yes                    ;
-; decOut[5][3]                                        ; decOut[5][7]        ; yes                    ;
-; decOut[5][4]                                        ; decOut[5][7]        ; yes                    ;
-; decOut[4][0]                                        ; decOut[4][7]        ; yes                    ;
-; decOut[4][1]                                        ; decOut[4][7]        ; yes                    ;
-; decOut[4][2]                                        ; decOut[4][7]        ; yes                    ;
-; decOut[3][0]                                        ; decOut[3][7]        ; yes                    ;
-; decOut[3][1]                                        ; decOut[3][7]        ; yes                    ;
-; decOut[3][2]                                        ; decOut[3][7]        ; yes                    ;
-; decOut[2][0]                                        ; decOut[2][7]        ; yes                    ;
-; decOut[2][1]                                        ; decOut[2][7]        ; yes                    ;
-; decOut[2][2]                                        ; decOut[2][7]        ; yes                    ;
-; decOut[1][0]                                        ; decOut[1][7]        ; yes                    ;
-; decOut[1][1]                                        ; decOut[1][7]        ; yes                    ;
-; decOut[1][2]                                        ; decOut[1][7]        ; yes                    ;
-; decOut[0][0]                                        ; decOut[0][7]        ; yes                    ;
-; decOut[0][1]                                        ; decOut[0][7]        ; yes                    ;
-; decOut[0][2]                                        ; decOut[0][7]        ; yes                    ;
-; soma[31]                                            ; idx~32              ; yes                    ;
-; soma[0]                                             ; soma[14]            ; yes                    ;
-; soma[30]                                            ; idx~32              ; yes                    ;
-; soma[29]                                            ; idx~32              ; yes                    ;
-; soma[28]                                            ; idx~32              ; yes                    ;
-; soma[27]                                            ; idx~32              ; yes                    ;
-; soma[26]                                            ; idx~32              ; yes                    ;
-; soma[25]                                            ; idx~32              ; yes                    ;
-; soma[24]                                            ; idx~32              ; yes                    ;
-; soma[23]                                            ; idx~32              ; yes                    ;
-; soma[22]                                            ; idx~32              ; yes                    ;
-; soma[21]                                            ; idx~32              ; yes                    ;
-; soma[20]                                            ; idx~32              ; yes                    ;
-; soma[19]                                            ; idx~32              ; yes                    ;
-; soma[18]                                            ; idx~32              ; yes                    ;
-; soma[17]                                            ; idx~32              ; yes                    ;
-; soma[16]                                            ; idx~32              ; yes                    ;
-; soma[15]                                            ; idx~32              ; yes                    ;
-; soma[14]                                            ; soma[14]            ; yes                    ;
-; soma[13]                                            ; soma[14]            ; yes                    ;
-; soma[12]                                            ; soma[14]            ; yes                    ;
-; soma[11]                                            ; soma[14]            ; yes                    ;
-; soma[10]                                            ; soma[14]            ; yes                    ;
-; soma[9]                                             ; soma[14]            ; yes                    ;
-; soma[8]                                             ; soma[14]            ; yes                    ;
-; soma[7]                                             ; soma[14]            ; yes                    ;
-; soma[6]                                             ; soma[14]            ; yes                    ;
-; soma[5]                                             ; soma[14]            ; yes                    ;
-; soma[4]                                             ; soma[14]            ; yes                    ;
-; soma[3]                                             ; soma[14]            ; yes                    ;
-; soma[2]                                             ; soma[14]            ; yes                    ;
-; soma[1]                                             ; soma[14]            ; yes                    ;
-; Number of user-specified and inferred latches = 52  ;                     ;                        ;
-+-----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
-+-------------------------------------------------------------+
-; Logic Cells Representing Combinational Loops                ;
-+--------------------------------------------------------+----+
-; Logic Cell Name                                        ;    ;
-+--------------------------------------------------------+----+
-; idx~32                                                 ;    ;
-; Add0~0                                                 ;    ;
-; Add0~1                                                 ;    ;
-; Add0~2                                                 ;    ;
-; idx~33                                                 ;    ;
-; idx~34                                                 ;    ;
-; idx~35                                                 ;    ;
-; idx~36                                                 ;    ;
-; idx~37                                                 ;    ;
-; idx~38                                                 ;    ;
-; idx~39                                                 ;    ;
-; idx~40                                                 ;    ;
-; idx~41                                                 ;    ;
-; idx~42                                                 ;    ;
-; idx~43                                                 ;    ;
-; idx~44                                                 ;    ;
-; idx~45                                                 ;    ;
-; idx~46                                                 ;    ;
-; idx~47                                                 ;    ;
-; idx~48                                                 ;    ;
-; idx~49                                                 ;    ;
-; idx~50                                                 ;    ;
-; idx~51                                                 ;    ;
-; idx~52                                                 ;    ;
-; idx~53                                                 ;    ;
-; idx~54                                                 ;    ;
-; idx~55                                                 ;    ;
-; idx~56                                                 ;    ;
-; idx~57                                                 ;    ;
-; soma~1                                                 ;    ;
-; idx~58                                                 ;    ;
-; idx~59                                                 ;    ;
-; idx~60                                                 ;    ;
-; idx~61                                                 ;    ;
-; Number of logic cells representing combinational loops ; 34 ;
-+--------------------------------------------------------+----+
-Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
++-----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                 ;
++------------------------------------------------------+---------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal ; Free of Timing Hazards ;
++------------------------------------------------------+---------------------+------------------------+
+; opcode[0]$latch                                      ; Mux7                ; yes                    ;
+; opcode[1]$latch                                      ; Mux7                ; yes                    ;
+; opcode[2]$latch                                      ; Mux7                ; yes                    ;
+; regDestino[0]$latch                                  ; Mux11               ; yes                    ;
+; regDestino[1]$latch                                  ; Mux11               ; yes                    ;
+; regDestino[2]$latch                                  ; Mux11               ; yes                    ;
+; regDestino[3]$latch                                  ; Mux11               ; yes                    ;
+; reg1[0]$latch                                        ; Mux19               ; yes                    ;
+; reg1[1]$latch                                        ; Mux19               ; yes                    ;
+; reg1[2]$latch                                        ; Mux19               ; yes                    ;
+; reg1[3]$latch                                        ; Mux19               ; yes                    ;
+; reg2[0]$latch                                        ; Mux40               ; yes                    ;
+; reg2[1]$latch                                        ; Mux40               ; yes                    ;
+; reg2[2]$latch                                        ; Mux40               ; yes                    ;
+; reg2[3]$latch                                        ; Mux40               ; yes                    ;
+; imm[0]$latch                                         ; Mux24               ; yes                    ;
+; imm[1]$latch                                         ; Mux24               ; yes                    ;
+; imm[2]$latch                                         ; Mux24               ; yes                    ;
+; imm[3]$latch                                         ; Mux24               ; yes                    ;
+; imm[4]$latch                                         ; Mux24               ; yes                    ;
+; imm[5]$latch                                         ; Mux24               ; yes                    ;
+; imm[6]$latch                                         ; Mux24               ; yes                    ;
+; n1[0]$latch                                          ; n1[15]              ; yes                    ;
+; n1[1]$latch                                          ; n1[15]              ; yes                    ;
+; n1[2]$latch                                          ; n1[15]              ; yes                    ;
+; n1[3]$latch                                          ; n1[15]              ; yes                    ;
+; n1[4]$latch                                          ; n1[15]              ; yes                    ;
+; n1[5]$latch                                          ; n1[15]              ; yes                    ;
+; n1[6]$latch                                          ; n1[15]              ; yes                    ;
+; n1[7]$latch                                          ; n1[15]              ; yes                    ;
+; n1[8]$latch                                          ; n1[15]              ; yes                    ;
+; n1[9]$latch                                          ; n1[15]              ; yes                    ;
+; n1[10]$latch                                         ; n1[15]              ; yes                    ;
+; n1[11]$latch                                         ; n1[15]              ; yes                    ;
+; n1[12]$latch                                         ; n1[15]              ; yes                    ;
+; n1[13]$latch                                         ; n1[15]              ; yes                    ;
+; n1[14]$latch                                         ; n1[15]              ; yes                    ;
+; n1[15]$latch                                         ; n1[15]              ; yes                    ;
+; n2[0]$latch                                          ; n2[15]              ; yes                    ;
+; n2[1]$latch                                          ; n2[15]              ; yes                    ;
+; n2[2]$latch                                          ; n2[15]              ; yes                    ;
+; n2[3]$latch                                          ; n2[15]              ; yes                    ;
+; n2[4]$latch                                          ; n2[15]              ; yes                    ;
+; n2[5]$latch                                          ; n2[15]              ; yes                    ;
+; n2[6]$latch                                          ; n2[15]              ; yes                    ;
+; n2[7]$latch                                          ; n2[15]              ; yes                    ;
+; n2[8]$latch                                          ; n2[15]              ; yes                    ;
+; n2[9]$latch                                          ; n2[15]              ; yes                    ;
+; n2[10]$latch                                         ; n2[15]              ; yes                    ;
+; n2[11]$latch                                         ; n2[15]              ; yes                    ;
+; n2[12]$latch                                         ; n2[15]              ; yes                    ;
+; n2[13]$latch                                         ; n2[15]              ; yes                    ;
+; n2[14]$latch                                         ; n2[15]              ; yes                    ;
+; n2[15]$latch                                         ; n2[15]              ; yes                    ;
+; estadoAtual[0]$latch                                 ; Mux117              ; yes                    ;
+; estadoAtual[1]$latch                                 ; Mux117              ; yes                    ;
+; estadoAtual[2]$latch                                 ; Mux117              ; yes                    ;
+; contadorSEND[0]                                      ; Mux82               ; yes                    ;
+; contadorSEND[1]                                      ; Mux82               ; yes                    ;
+; contadorSEND[2]                                      ; Mux82               ; yes                    ;
+; contadorSEND[3]                                      ; Mux82               ; yes                    ;
+; contadorSEND[4]                                      ; Mux82               ; yes                    ;
+; contadorSEND[5]                                      ; Mux82               ; yes                    ;
+; contadorSEND[6]                                      ; Mux82               ; yes                    ;
+; contadorSEND[7]                                      ; Mux82               ; yes                    ;
+; contadorSEND[8]                                      ; Mux82               ; yes                    ;
+; contadorSEND[9]                                      ; Mux82               ; yes                    ;
+; contadorSEND[10]                                     ; Mux82               ; yes                    ;
+; contadorSEND[11]                                     ; Mux82               ; yes                    ;
+; contadorSEND[12]                                     ; Mux82               ; yes                    ;
+; contadorSEND[13]                                     ; Mux82               ; yes                    ;
+; contadorSEND[14]                                     ; Mux82               ; yes                    ;
+; contadorSEND[15]                                     ; Mux82               ; yes                    ;
+; contadorSEND[16]                                     ; Mux82               ; yes                    ;
+; contadorSEND[17]                                     ; Mux82               ; yes                    ;
+; contadorSEND[18]                                     ; Mux82               ; yes                    ;
+; contadorSEND[19]                                     ; Mux82               ; yes                    ;
+; contadorSEND[20]                                     ; Mux82               ; yes                    ;
+; contadorSEND[21]                                     ; Mux82               ; yes                    ;
+; contadorSEND[22]                                     ; Mux82               ; yes                    ;
+; contadorSEND[23]                                     ; Mux82               ; yes                    ;
+; contadorSEND[24]                                     ; Mux82               ; yes                    ;
+; contadorSEND[25]                                     ; Mux82               ; yes                    ;
+; contadorSEND[26]                                     ; Mux82               ; yes                    ;
+; contadorSEND[27]                                     ; Mux82               ; yes                    ;
+; contadorSEND[28]                                     ; Mux82               ; yes                    ;
+; contadorSEND[29]                                     ; Mux82               ; yes                    ;
+; contadorSEND[30]                                     ; Mux82               ; yes                    ;
+; contadorSEND[31]                                     ; Mux82               ; yes                    ;
+; data[0]                                              ; Decoder1            ; yes                    ;
+; addr[0]                                              ; Mux80               ; yes                    ;
+; addr[1]                                              ; Mux80               ; yes                    ;
+; addr[2]                                              ; Mux80               ; yes                    ;
+; addr[3]                                              ; Mux80               ; yes                    ;
+; data[1]                                              ; Decoder1            ; yes                    ;
+; data[2]                                              ; Decoder1            ; yes                    ;
+; data[3]                                              ; Decoder1            ; yes                    ;
+; data[4]                                              ; Decoder1            ; yes                    ;
+; data[5]                                              ; Decoder1            ; yes                    ;
+; data[6]                                              ; Decoder1            ; yes                    ;
+; Number of user-specified and inferred latches = 109  ;                     ;                        ;
++------------------------------------------------------+---------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -380,9 +366,9 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1     ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
@@ -390,93 +376,134 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
-; 1:1                ; 3 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |decimal_conversor|Selector4 ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |decimal_conversor|soma[10]  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |decimal_conversor|idx[3]    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
++---------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions            ;
++---------------------------+----------------------+------+
+; Register Name             ; Megafunction         ; Type ;
++---------------------------+----------------------+------+
+; memory:MEM|addr_reg[0..3] ; memory:MEM|ram_rtl_0 ; RAM  ;
++---------------------------+----------------------+------+
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 5              ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_soo ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |module_mini_cpu|Mux40               ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 32 LEs               ; 48 LEs                 ; No         ; |module_mini_cpu|module_alu:ULA|Mux2 ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; No         ; |module_mini_cpu|module_alu:ULA|Add0 ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |module_mini_cpu|module_alu:ULA|Add0 ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |module_mini_cpu|Mux49               ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; No         ; |module_mini_cpu|Mux72               ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |module_mini_cpu|Mux6                ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |module_mini_cpu|Mux27               ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |module_mini_cpu|Mux14               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Source assignments for memory:MEM|altsyncram:ram_rtl_0|altsyncram_da81:auto_generated ;
++---------------------------------+--------------------+------+-------------------------+
+; Assignment                      ; Value              ; From ; To                      ;
++---------------------------------+--------------------+------+-------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                       ;
++---------------------------------+--------------------+------+-------------------------+
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: module_alu:ULA ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; ADD            ; 1     ; Signed Integer                     ;
+; ADDI           ; 2     ; Signed Integer                     ;
+; SUB            ; 3     ; Signed Integer                     ;
+; SUBI           ; 4     ; Signed Integer                     ;
+; MUL            ; 5     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                     ;
-+------------------------------------------------+--------------+---------------------+
-; Parameter Name                                 ; Value        ; Type                ;
-+------------------------------------------------+--------------+---------------------+
-; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
-; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
-; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
-; LPM_WIDTHA                                     ; 5            ; Untyped             ;
-; LPM_WIDTHB                                     ; 32           ; Untyped             ;
-; LPM_WIDTHP                                     ; 37           ; Untyped             ;
-; LPM_WIDTHR                                     ; 37           ; Untyped             ;
-; LPM_WIDTHS                                     ; 1            ; Untyped             ;
-; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
-; LPM_PIPELINE                                   ; 0            ; Untyped             ;
-; LATENCY                                        ; 0            ; Untyped             ;
-; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
-; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
-; USE_EAB                                        ; OFF          ; Untyped             ;
-; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
-; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
-; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
-; CBXI_PARAMETER                                 ; mult_k4t     ; Untyped             ;
-; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
-; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
-+------------------------------------------------+--------------+---------------------+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: memory:MEM|altsyncram:ram_rtl_0              ;
++------------------------------------+-----------------------------------------+----------------+
+; Parameter Name                     ; Value                                   ; Type           ;
++------------------------------------+-----------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                       ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                      ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                     ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                      ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                     ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                       ; Untyped        ;
+; OPERATION_MODE                     ; SINGLE_PORT                             ; Untyped        ;
+; WIDTH_A                            ; 16                                      ; Untyped        ;
+; WIDTHAD_A                          ; 4                                       ; Untyped        ;
+; NUMWORDS_A                         ; 16                                      ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                            ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                    ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                    ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                    ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                    ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                    ; Untyped        ;
+; WIDTH_B                            ; 1                                       ; Untyped        ;
+; WIDTHAD_B                          ; 1                                       ; Untyped        ;
+; NUMWORDS_B                         ; 1                                       ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                  ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                  ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                  ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                  ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                            ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                  ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                    ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                    ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                    ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                    ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                    ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                    ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                       ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                       ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                    ; Untyped        ;
+; BYTE_SIZE                          ; 8                                       ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                               ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                    ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                    ; Untyped        ;
+; INIT_FILE                          ; db/miniCPU.ram0_memory_e411fb78.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                  ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                       ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                  ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                  ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                  ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                  ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                         ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                         ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                   ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                   ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                       ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                            ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_da81                         ; Untyped        ;
++------------------------------------+-----------------------------------------+----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------+
-; lpm_mult Parameter Settings by Entity Instance         ;
-+---------------------------------------+----------------+
-; Name                                  ; Value          ;
-+---------------------------------------+----------------+
-; Number of entity instances            ; 1              ;
-; Entity Instance                       ; lpm_mult:Mult0 ;
-;     -- LPM_WIDTHA                     ; 5              ;
-;     -- LPM_WIDTHB                     ; 32             ;
-;     -- LPM_WIDTHP                     ; 37             ;
-;     -- LPM_REPRESENTATION             ; SIGNED         ;
-;     -- INPUT_A_IS_CONSTANT            ; NO             ;
-;     -- INPUT_B_IS_CONSTANT            ; NO             ;
-;     -- USE_EAB                        ; OFF            ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
-+---------------------------------------+----------------+
++-----------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                            ;
++-------------------------------------------+---------------------------------+
+; Name                                      ; Value                           ;
++-------------------------------------------+---------------------------------+
+; Number of entity instances                ; 1                               ;
+; Entity Instance                           ; memory:MEM|altsyncram:ram_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                     ;
+;     -- WIDTH_A                            ; 16                              ;
+;     -- NUMWORDS_A                         ; 16                              ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                    ;
+;     -- WIDTH_B                            ; 1                               ;
+;     -- NUMWORDS_B                         ; 1                               ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                          ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                    ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                            ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                       ;
++-------------------------------------------+---------------------------------+
 
 
 +-----------------------------------------------------+
@@ -484,24 +511,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 65                          ;
-; cycloneiii_ff         ; 1                           ;
-;     SLD               ; 1                           ;
-; cycloneiii_lcell_comb ; 782                         ;
-;     arith             ; 285                         ;
-;         2 data inputs ; 23                          ;
-;         3 data inputs ; 262                         ;
-;     normal            ; 497                         ;
-;         0 data inputs ; 31                          ;
-;         1 data inputs ; 5                           ;
-;         2 data inputs ; 190                         ;
-;         3 data inputs ; 46                          ;
-;         4 data inputs ; 225                         ;
-; cycloneiii_mac_mult   ; 2                           ;
-; cycloneiii_mac_out    ; 2                           ;
+; boundary_port         ; 78                          ;
+; cycloneiii_lcell_comb ; 285                         ;
+;     arith             ; 47                          ;
+;         2 data inputs ; 31                          ;
+;         3 data inputs ; 16                          ;
+;     normal            ; 238                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 54                          ;
+;         3 data inputs ; 130                         ;
+;         4 data inputs ; 53                          ;
+; cycloneiii_ram_block  ; 16                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 91.60                       ;
-; Average LUT depth     ; 53.07                       ;
+; Max LUT depth         ; 6.10                        ;
+; Average LUT depth     ; 3.89                        ;
 +-----------------------+-----------------------------+
 
 
@@ -510,7 +533,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -519,267 +542,382 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Thu Nov 12 21:08:25 2026
+    Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+    Info: Processing started: Fri Nov 13 09:59:17 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off miniCPU -c miniCPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
-Warning (10229): Verilog HDL Expression warning at decimal_conversor.v(28): truncated literal to match 3 bits File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 28
-Warning (10229): Verilog HDL Expression warning at decimal_conversor.v(29): truncated literal to match 3 bits File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 29
-Warning (10463): Verilog HDL Declaration warning at decimal_conversor.v(31): "var" is SystemVerilog-2005 keyword File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 31
-Info (12021): Found 1 design units, including 1 entities, in source file /users/rodrigo/projetos/projeto2-sd/lcd/decimal_conversor.v
-    Info (12023): Found entity 1: decimal_conversor File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/rodrigo/projetos/projeto2-sd/lcd/lcd_controller_top.v
-    Info (12023): Found entity 1: lcd_controller_top File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/lcd_controller_top.v Line: 14
-Info (12021): Found 1 design units, including 1 entities, in source file /users/rodrigo/projetos/projeto2-sd/lcd/lcd_init_hd44780.v
-    Info (12023): Found entity 1: lcd_init_hd44780 File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/lcd_init_hd44780.v Line: 12
-Warning (10236): Verilog HDL Implicit Net warning at lcd_controller_top.v(48): created implicit net for "init_doneL" File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/lcd_controller_top.v Line: 48
-Info (12127): Elaborating entity "decimal_conversor" for the top level hierarchy
-Warning (10272): Verilog HDL Case Statement warning at decimal_conversor.v(74): case item expression covers a value already covered by a previous case item File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 74
-Warning (10272): Verilog HDL Case Statement warning at decimal_conversor.v(75): case item expression covers a value already covered by a previous case item File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 75
-Warning (10270): Verilog HDL Case Statement warning at decimal_conversor.v(65): incomplete case statement has no default case item File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 65
-Warning (10240): Verilog HDL Always Construct warning at decimal_conversor.v(44): inferring latch(es) for variable "var", which holds its previous value in one or more paths through the always construct File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (10240): Verilog HDL Always Construct warning at decimal_conversor.v(44): inferring latch(es) for variable "soma", which holds its previous value in one or more paths through the always construct File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[8]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[9]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[10]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[11]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[12]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[13]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[14]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[15]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[16]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[17]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[18]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[19]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[20]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[21]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[22]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[23]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[24]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[25]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[26]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[27]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[28]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[29]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[30]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "soma[31]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[0][0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[0][1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[0][2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[0][3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[0][4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[0][5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[0][6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[0][7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[1][0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[1][1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[1][2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[1][3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[1][4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[1][5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[1][6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[1][7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[2][0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[2][1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[2][2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[2][3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[2][4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[2][5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[2][6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[2][7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[3][0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[3][1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[3][2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[3][3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[3][4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[3][5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[3][6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[3][7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[4][0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[4][1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[4][2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[4][3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[4][4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[4][5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[4][6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[4][7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[5][0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[5][1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[5][2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[5][3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[5][4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[5][5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[5][6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10041): Inferred latch for "decOut[5][7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (278001): Inferred 2 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 64
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 77
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 64
-Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 64
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "5"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_soo.tdf
-    Info (12023): Found entity 1: lpm_divide_soo File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/lpm_divide_soo.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
-    Info (12023): Found entity 1: abs_divider_kbg File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/abs_divider_kbg.tdf Line: 29
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_67f.tdf
-    Info (12023): Found entity 1: alt_u_div_67f File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/alt_u_div_67f.tdf Line: 27
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/add_sub_7pc.tdf Line: 23
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/add_sub_8pc.tdf Line: 23
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2v9.tdf
-    Info (12023): Found entity 1: lpm_abs_2v9 File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/lpm_abs_2v9.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_i0a.tdf
-    Info (12023): Found entity 1: lpm_abs_i0a File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/lpm_abs_i0a.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 77
-Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 77
-    Info (12134): Parameter "LPM_WIDTHA" = "5"
-    Info (12134): Parameter "LPM_WIDTHB" = "32"
-    Info (12134): Parameter "LPM_WIDTHP" = "37"
-    Info (12134): Parameter "LPM_WIDTHR" = "37"
-    Info (12134): Parameter "LPM_WIDTHS" = "1"
-    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
-Info (12021): Found 1 design units, including 1 entities, in source file db/mult_k4t.tdf
-    Info (12023): Found entity 1: mult_k4t File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/mult_k4t.tdf Line: 31
-Info (13014): Ignored 84 buffer(s)
-    Info (13016): Ignored 31 CARRY_SUM buffer(s)
-    Info (13019): Ignored 53 SOFT buffer(s)
-Warning (13012): Latch decOut[5][0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal idx~32 File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 31
-Warning (13012): Latch decOut[5][1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[5][2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[5][3] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal idx~32 File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 31
-Warning (13012): Latch decOut[5][4] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal idx~32 File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 31
-Warning (13012): Latch decOut[4][0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[4][1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[4][2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[3][0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[3][1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[3][2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[2][0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[2][1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[2][2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[1][0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[1][1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[1][2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[0][0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[0][1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch decOut[0][2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Warning (13012): Latch soma[0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[14] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[13] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[12] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[11] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[10] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[9] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[8] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[7] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[6] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[5] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[4] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[3] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13012): Latch soma[1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "sig[5]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 6
-    Warning (13410): Pin "sig[6]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 6
-    Warning (13410): Pin "sig[7]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 6
-    Warning (13410): Pin "numA[3]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 7
-    Warning (13410): Pin "numA[4]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 7
-    Warning (13410): Pin "numA[5]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 7
-    Warning (13410): Pin "numA[6]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 7
-    Warning (13410): Pin "numA[7]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 7
-    Warning (13410): Pin "numB[3]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 8
-    Warning (13410): Pin "numB[4]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 8
-    Warning (13410): Pin "numB[5]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 8
-    Warning (13410): Pin "numB[6]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 8
-    Warning (13410): Pin "numB[7]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 8
-    Warning (13410): Pin "numC[3]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 9
-    Warning (13410): Pin "numC[4]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 9
-    Warning (13410): Pin "numC[5]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 9
-    Warning (13410): Pin "numC[6]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 9
-    Warning (13410): Pin "numC[7]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 9
-    Warning (13410): Pin "numD[3]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 10
-    Warning (13410): Pin "numD[4]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 10
-    Warning (13410): Pin "numD[5]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 10
-    Warning (13410): Pin "numD[6]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 10
-    Warning (13410): Pin "numD[7]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 10
-    Warning (13410): Pin "numE[3]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 13
-    Warning (13410): Pin "numE[4]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 13
-    Warning (13410): Pin "numE[5]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 13
-    Warning (13410): Pin "numE[6]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 13
-    Warning (13410): Pin "numE[7]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 13
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Warning (10229): Verilog HDL Expression warning at decimal_conversor.v(28): truncated literal to match 3 bits File: D:/Users/rma10/projeto2-SD/lcd/decimal_conversor.v Line: 28
+Warning (10229): Verilog HDL Expression warning at decimal_conversor.v(29): truncated literal to match 3 bits File: D:/Users/rma10/projeto2-SD/lcd/decimal_conversor.v Line: 29
+Warning (10463): Verilog HDL Declaration warning at decimal_conversor.v(31): "var" is SystemVerilog-2005 keyword File: D:/Users/rma10/projeto2-SD/lcd/decimal_conversor.v Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file /users/rma10/projeto2-sd/lcd/decimal_conversor.v
+    Info (12023): Found entity 1: decimal_conversor File: D:/Users/rma10/projeto2-SD/lcd/decimal_conversor.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/rma10/projeto2-sd/lcd/lcd_controller_top.v
+    Info (12023): Found entity 1: lcd_controller_top File: D:/Users/rma10/projeto2-SD/lcd/lcd_controller_top.v Line: 14
+Info (12021): Found 1 design units, including 1 entities, in source file /users/rma10/projeto2-sd/lcd/lcd_init_hd44780.v
+    Info (12023): Found entity 1: lcd_init_hd44780 File: D:/Users/rma10/projeto2-SD/lcd/lcd_init_hd44780.v Line: 12
+Info (12021): Found 1 design units, including 1 entities, in source file /users/rma10/projeto2-sd/ula/module_alu.v
+    Info (12023): Found entity 1: module_alu File: D:/Users/rma10/projeto2-SD/ula/module_alu.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/rma10/projeto2-sd/cpu/module_mini_cpu.v
+    Info (12023): Found entity 1: module_mini_cpu File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/rma10/projeto2-sd/memoria/memory.v
+    Info (12023): Found entity 1: memory File: D:/Users/rma10/projeto2-SD/memoria/memory.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at lcd_controller_top.v(48): created implicit net for "init_doneL" File: D:/Users/rma10/projeto2-SD/lcd/lcd_controller_top.v Line: 48
+Info (12127): Elaborating entity "module_mini_cpu" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at module_mini_cpu.v(66): object "numIn" assigned a value but never read File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 66
+Warning (10270): Verilog HDL Case Statement warning at module_mini_cpu.v(80): incomplete case statement has no default case item File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 80
+Warning (10240): Verilog HDL Always Construct warning at module_mini_cpu.v(79): inferring latch(es) for variable "estadoAtual", which holds its previous value in one or more paths through the always construct File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (10270): Verilog HDL Case Statement warning at module_mini_cpu.v(107): incomplete case statement has no default case item File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (10240): Verilog HDL Always Construct warning at module_mini_cpu.v(107): inferring latch(es) for variable "contadorSEND", which holds its previous value in one or more paths through the always construct File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (10240): Verilog HDL Always Construct warning at module_mini_cpu.v(107): inferring latch(es) for variable "data", which holds its previous value in one or more paths through the always construct File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (10240): Verilog HDL Always Construct warning at module_mini_cpu.v(107): inferring latch(es) for variable "addr", which holds its previous value in one or more paths through the always construct File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (10240): Verilog HDL Always Construct warning at module_mini_cpu.v(107): inferring latch(es) for variable "we", which holds its previous value in one or more paths through the always construct File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (10240): Verilog HDL Always Construct warning at module_mini_cpu.v(107): inferring latch(es) for variable "contadorSTORE", which holds its previous value in one or more paths through the always construct File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (10240): Verilog HDL Always Construct warning at module_mini_cpu.v(107): inferring latch(es) for variable "n1", which holds its previous value in one or more paths through the always construct File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (10240): Verilog HDL Always Construct warning at module_mini_cpu.v(107): inferring latch(es) for variable "n2", which holds its previous value in one or more paths through the always construct File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (10240): Verilog HDL Always Construct warning at module_mini_cpu.v(107): inferring latch(es) for variable "opcode", which holds its previous value in one or more paths through the always construct File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (10240): Verilog HDL Always Construct warning at module_mini_cpu.v(107): inferring latch(es) for variable "regDestino", which holds its previous value in one or more paths through the always construct File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (10240): Verilog HDL Always Construct warning at module_mini_cpu.v(107): inferring latch(es) for variable "reg1", which holds its previous value in one or more paths through the always construct File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (10240): Verilog HDL Always Construct warning at module_mini_cpu.v(107): inferring latch(es) for variable "imm", which holds its previous value in one or more paths through the always construct File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (10240): Verilog HDL Always Construct warning at module_mini_cpu.v(107): inferring latch(es) for variable "reg2", which holds its previous value in one or more paths through the always construct File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "reg2[0]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "reg2[1]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "reg2[2]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "reg2[3]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "imm[0]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "imm[1]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "imm[2]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "imm[3]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "imm[4]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "imm[5]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "imm[6]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "reg1[0]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "reg1[1]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "reg1[2]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "reg1[3]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "regDestino[0]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "regDestino[1]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "regDestino[2]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "regDestino[3]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "opcode[0]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "opcode[1]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "opcode[2]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[0]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[1]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[2]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[3]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[4]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[5]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[6]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[7]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[8]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[9]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[10]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[11]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[12]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[13]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[14]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n2[15]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[0]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[1]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[2]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[3]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[4]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[5]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[6]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[7]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[8]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[9]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[10]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[11]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[12]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[13]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[14]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "n1[15]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[0]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[1]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[2]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[3]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[4]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[5]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[6]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[7]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[8]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[9]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[10]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[11]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[12]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[13]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[14]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[15]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[16]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[17]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[18]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[19]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[20]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[21]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[22]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[23]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[24]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[25]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[26]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[27]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[28]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[29]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[30]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSTORE[31]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "we" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "addr[0]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "addr[1]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "addr[2]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "addr[3]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[0]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[1]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[2]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[3]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[4]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[5]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[6]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[7]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[8]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[9]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[10]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[11]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[12]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[13]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[14]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "data[15]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[0]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[1]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[2]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[3]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[4]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[5]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[6]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[7]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[8]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[9]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[10]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[11]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[12]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[13]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[14]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[15]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[16]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[17]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[18]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[19]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[20]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[21]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[22]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[23]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[24]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[25]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[26]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[27]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[28]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[29]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[30]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "contadorSEND[31]" at module_mini_cpu.v(107) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Info (10041): Inferred latch for "estadoAtual[0]" at module_mini_cpu.v(79) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Info (10041): Inferred latch for "estadoAtual[1]" at module_mini_cpu.v(79) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Info (10041): Inferred latch for "estadoAtual[2]" at module_mini_cpu.v(79) File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Info (12128): Elaborating entity "memory" for hierarchy "memory:MEM" File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 53
+Info (12128): Elaborating entity "module_alu" for hierarchy "module_alu:ULA" File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 64
+Warning (10230): Verilog HDL assignment warning at module_alu.v(15): truncated value with size 32 to match size of target (16) File: D:/Users/rma10/projeto2-SD/ula/module_alu.v Line: 15
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "memory:MEM|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 4
+        Info (286033): Parameter NUMWORDS_A set to 16
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/miniCPU.ram0_memory_e411fb78.hdl.mif
+Info (12130): Elaborated megafunction instantiation "memory:MEM|altsyncram:ram_rtl_0"
+Info (12133): Instantiated megafunction "memory:MEM|altsyncram:ram_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "SINGLE_PORT"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "4"
+    Info (12134): Parameter "NUMWORDS_A" = "16"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/miniCPU.ram0_memory_e411fb78.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_da81.tdf
+    Info (12023): Found entity 1: altsyncram_da81 File: D:/Users/rma10/projeto2-SD/miniCPU/db/altsyncram_da81.tdf Line: 28
+Warning (13012): Latch regDestino[0]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch regDestino[1]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch regDestino[2]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch regDestino[3]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch reg1[0]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch reg1[1]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch reg1[2]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch reg1[3]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch reg2[0]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch reg2[1]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch reg2[2]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch reg2[3]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch imm[0]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch imm[1]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch imm[2]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch imm[3]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch imm[4]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch imm[5]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch imm[6]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[1]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch n2[0]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[1]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[2]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[3]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[4]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[5]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[6]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[7]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[8]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[9]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[10]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[11]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[12]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[13]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[14]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch n2[15]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opcode[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch estadoAtual[0]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch estadoAtual[1]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[0]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch estadoAtual[2]$latch has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[0]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[0] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[1] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[2] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[3] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[4] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[5] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[6] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[7] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[8] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[9] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[10] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[11] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[12] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[13] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[14] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[15] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[16] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[17] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[18] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[19] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[20] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[21] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[22] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[23] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[24] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[25] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[26] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[27] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[28] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[29] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[30] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch contadorSEND[31] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal estadoAtual[2]$latch File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 79
+Warning (13012): Latch addr[0] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal contadorSEND[0] File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch addr[1] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal contadorSEND[0] File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch addr[2] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal contadorSEND[0] File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+Warning (13012): Latch addr[3] has unsafe behavior File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal contadorSEND[0] File: D:/Users/rma10/projeto2-SD/cpu/module_mini_cpu.v Line: 107
 Info (286030): Timing-Driven Synthesis is running
-Info (144001): Generated suppressed messages file C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/output_files/miniCPU.map.smsg
+Info (144001): Generated suppressed messages file D:/Users/rma10/projeto2-SD/miniCPU/output_files/miniCPU.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "binIn[15]" File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 3
-Info (21057): Implemented 849 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 17 input pins
-    Info (21059): Implemented 48 output pins
-    Info (21061): Implemented 780 logic cells
-    Info (21062): Implemented 4 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 111 warnings
-    Info: Peak virtual memory: 4865 megabytes
-    Info: Processing ended: Thu Nov 12 21:08:43 2026
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:28
+Info (21057): Implemented 379 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 21 input pins
+    Info (21059): Implemented 57 output pins
+    Info (21061): Implemented 285 logic cells
+    Info (21064): Implemented 16 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 170 warnings
+    Info: Peak virtual memory: 4866 megabytes
+    Info: Processing ended: Fri Nov 13 09:59:24 2026
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:18
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/output_files/miniCPU.map.smsg.
+The suppressed messages can be found in D:/Users/rma10/projeto2-SD/miniCPU/output_files/miniCPU.map.smsg.
 
 

@@ -7,7 +7,7 @@ Note: if both Questa Intel FPGA Edition and ModelSim executables are available, 
 
 **** Generating the ModelSim Testbench ****
 
-quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off miniCPU -c miniCPU --vector_source="D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/Waveform.vwf" --testbench_file="D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/simulation/qsim/Waveform.vwf.vt"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off miniCPU -c miniCPU --vector_source="D:/Users/rma10/projeto2-SD/miniCPU/Waveform1.vwf" --testbench_file="D:/Users/rma10/projeto2-SD/miniCPU/simulation/qsim/Waveform1.vwf.vt"
 
 TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function _msize
 
@@ -28,9 +28,18 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Thu Nov 12 09:51:35 2026
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off miniCPU -c miniCPU --vector_source=D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/Waveform.vwf --testbench_file=D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/simulation/qsim/Waveform.vwf.vt
+    Info: Processing started: Fri Nov 13 10:00:07 2026
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off miniCPU -c miniCPU --vector_source=D:/Users/rma10/projeto2-SD/miniCPU/Waveform1.vwf --testbench_file=D:/Users/rma10/projeto2-SD/miniCPU/simulation/qsim/Waveform1.vwf.vt
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+
+ut pin "n1[0]" in vector source file when writing test bench files
+
+000): Generated Verilog Test Bench File D:/Users/rma10/projeto2-SD/miniCPU/simulation/qsim/Waveform1.vwf.vt for simulation
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 66 warnings
+    Info: Peak virtual memory: 4660 megabytes
+    Info: Processing ended: Fri Nov 13 10:00:07 2026
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
 
 Completed successfully. 
 
@@ -38,7 +47,7 @@ Completed successfully.
 
 **** Generating the functional simulation netlist ****
 
-quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/simulation/qsim/" miniCPU -c miniCPU
+quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="D:/Users/rma10/projeto2-SD/miniCPU/simulation/qsim/" miniCPU -c miniCPU
 
 TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function _msize
 
@@ -59,21 +68,21 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Thu Nov 12 09:51:36 2026
-Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/simulation/qsim/ miniCPU -c miniCPU
+    Info: Processing started: Fri Nov 13 10:00:07 2026
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory=D:/Users/rma10/projeto2-SD/miniCPU/simulation/qsim/ miniCPU -c miniCPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file miniCPU.vo in folder "D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/simulation/qsim//" for EDA simulation tool
+Info (204019): Generated file miniCPU.vo in folder "D:/Users/rma10/projeto2-SD/miniCPU/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4677 megabytes
-    Info: Processing ended: Thu Nov 12 09:51:36 2026
-    Info: Elapsed time: 00:00:00
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Processing ended: Fri Nov 13 10:00:08 2026
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
 
 Completed successfully. 
 
 **** Generating the ModelSim .do script ****
 
-D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/simulation/qsim/miniCPU.do generated.
+D:/Users/rma10/projeto2-SD/miniCPU/simulation/qsim/miniCPU.do generated.
 
 Completed successfully. 
 
@@ -93,70 +102,72 @@ Reading pref.tcl
 
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 
-# Start time: 09:51:37 on Nov 12,2026
+# Start time: 10:00:09 on Nov 13,2026
 # vlog -work work miniCPU.vo 
 
-# -- Compiling module lcd_controller_top
+# -- Compiling module module_mini_cpu
 
 # -- Compiling module hard_block
 
 # 
 
 # Top level modules:
-# 	lcd_controller_top
+# 	module_mini_cpu
 
-# End time: 09:51:37 on Nov 12,2026, Elapsed time: 0:00:00
+# End time: 10:00:09 on Nov 13,2026, Elapsed time: 0:00:00
 
 # Errors: 0, Warnings: 0
 
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 
-# Start time: 09:51:37 on Nov 12,2026
-# vlog -work work Waveform.vwf.vt 
+# Start time: 10:00:09 on Nov 13,2026
+# vlog -work work Waveform1.vwf.vt 
 
-# -- Compiling module lcd_controller_top_vlg_vec_tst
+# -- Compiling module module_mini_cpu_vlg_vec_tst
 
 # 
+
 # Top level modules:
+# 	module_mini_cpu_vlg_vec_tst
 
-# 	lcd_controller_top_vlg_vec_tst
+# End time: 10:00:09 on Nov 13,2026, Elapsed time: 0:00:00
 
-# End time: 09:51:38 on Nov 12,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 
-# vsim -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.lcd_controller_top_vlg_vec_tst 
-# Start time: 09:51:38 on Nov 12,2026
-# Loading work.lcd_controller_top_vlg_vec_tst
-# Loading work.lcd_controller_top
+# vsim -c -t 1ps -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.module_mini_cpu_vlg_vec_tst 
+# Start time: 10:00:09 on Nov 13,2026
+# Loading work.module_mini_cpu_vlg_vec_tst
+# Loading work.module_mini_cpu
 # Loading work.hard_block
 # Loading cycloneive_ver.cycloneive_io_obuf
+# Loading cycloneive_ver.cycloneive_lcell_comb
 # Loading cycloneive_ver.cycloneive_io_ibuf
 # Loading cycloneive_ver.cycloneive_clkctrl
 # Loading cycloneive_ver.cycloneive_mux41
 # Loading cycloneive_ver.cycloneive_ena_reg
-# Loading cycloneive_ver.cycloneive_lcell_comb
-# Loading altera_ver.dffeas
-# Loading altera_ver.PRIM_GDFF_LOW
+# Loading cycloneive_ver.cycloneive_ram_block
+# Loading cycloneive_ver.cycloneive_ram_register
+# Loading cycloneive_ver.cycloneive_ram_pulse_generator
 
 # after#26
 
-# ** Note: $finish    : Waveform.vwf.vt(59)
-#    Time: 1 us  Iteration: 0  Instance: /lcd_controller_top_vlg_vec_tst
+# ** Note: $finish    : Waveform1.vwf.vt(65)
+#    Time: 1 us  Iteration: 0  Instance: /module_mini_cpu_vlg_vec_tst
 
-# End time: 09:51:38 on Nov 12,2026, Elapsed time: 0:00:00
+# End time: 10:00:09 on Nov 13,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
 Completed successfully. 
 
 **** Converting ModelSim VCD to vector waveform ****
 
-Reading D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/Waveform.vwf...
+Reading D:/Users/rma10/projeto2-SD/miniCPU/Waveform1.vwf...
 
-Reading D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/simulation/qsim/miniCPU.msim.vcd...
+Reading D:/Users/rma10/projeto2-SD/miniCPU/simulation/qsim/miniCPU.msim.vcd...
 
 Processing channel transitions... 
 
-Writing the resulting VWF to D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/simulation/qsim/miniCPU_20261112095138.sim.vwf
+Writing the resulting VWF to D:/Users/rma10/projeto2-SD/miniCPU/simulation/qsim/miniCPU_20261113100009.sim.vwf
 
 Finished VCD to VWF conversion.
 

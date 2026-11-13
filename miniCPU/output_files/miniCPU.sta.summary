@@ -2,100 +2,112 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'currState'
-Slack : -101.763
-TNS   : -4776.348
+Type  : Slow 1200mV 85C Model Setup 'estadoAtual[0]$latch'
+Slack : -5.988
+TNS   : -453.344
+
+Type  : Slow 1200mV 85C Model Setup 'contadorSEND[0]'
+Slack : -3.924
+TNS   : -105.287
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -8.155
-TNS   : -8.155
+Slack : -2.557
+TNS   : -4.422
 
-Type  : Slow 1200mV 85C Model Hold 'currState'
-Slack : -1.435
-TNS   : -12.649
+Type  : Slow 1200mV 85C Model Hold 'contadorSEND[0]'
+Slack : -1.529
+TNS   : -9.136
+
+Type  : Slow 1200mV 85C Model Hold 'estadoAtual[0]$latch'
+Slack : -1.097
+TNS   : -4.237
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.941
+Slack : 1.768
 TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Recovery 'currState'
-Slack : -2.084
-TNS   : -28.270
-
-Type  : Slow 1200mV 85C Model Removal 'currState'
-Slack : 0.399
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'currState'
-Slack : -7.987
-TNS   : -2174.223
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -4.285
+TNS   : -8.386
 
-Type  : Slow 1200mV 0C Model Setup 'currState'
-Slack : -92.250
-TNS   : -4334.483
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'contadorSEND[0]'
+Slack : -0.080
+TNS   : -0.747
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'estadoAtual[0]$latch'
+Slack : 0.411
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'estadoAtual[0]$latch'
+Slack : -5.548
+TNS   : -415.537
+
+Type  : Slow 1200mV 0C Model Setup 'contadorSEND[0]'
+Slack : -3.648
+TNS   : -98.002
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -7.443
-TNS   : -7.443
+Slack : -2.234
+TNS   : -3.810
 
-Type  : Slow 1200mV 0C Model Hold 'currState'
-Slack : -1.068
-TNS   : -10.752
+Type  : Slow 1200mV 0C Model Hold 'contadorSEND[0]'
+Slack : -1.362
+TNS   : -7.784
+
+Type  : Slow 1200mV 0C Model Hold 'estadoAtual[0]$latch'
+Slack : -0.966
+TNS   : -3.729
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.852
+Slack : 1.530
 TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Recovery 'currState'
-Slack : -1.960
-TNS   : -26.220
-
-Type  : Slow 1200mV 0C Model Removal 'currState'
-Slack : 0.336
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'currState'
-Slack : -7.304
-TNS   : -1960.413
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -4.285
+TNS   : -8.298
 
-Type  : Fast 1200mV 0C Model Setup 'currState'
-Slack : -49.287
-TNS   : -2317.287
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'contadorSEND[0]'
+Slack : -0.014
+TNS   : -0.059
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'estadoAtual[0]$latch'
+Slack : 0.304
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'estadoAtual[0]$latch'
+Slack : -2.745
+TNS   : -187.974
+
+Type  : Fast 1200mV 0C Model Setup 'contadorSEND[0]'
+Slack : -1.232
+TNS   : -29.310
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -3.749
-TNS   : -3.749
+Slack : -1.205
+TNS   : -1.819
 
-Type  : Fast 1200mV 0C Model Hold 'currState'
-Slack : -1.018
-TNS   : -11.955
+Type  : Fast 1200mV 0C Model Hold 'contadorSEND[0]'
+Slack : -0.906
+TNS   : -5.751
+
+Type  : Fast 1200mV 0C Model Hold 'estadoAtual[0]$latch'
+Slack : -0.711
+TNS   : -2.761
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.250
+Slack : 0.964
 TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Recovery 'currState'
-Slack : -0.752
-TNS   : -9.255
-
-Type  : Fast 1200mV 0C Model Removal 'currState'
-Slack : 0.355
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'currState'
-Slack : -3.928
-TNS   : -976.862
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -4.000
+TNS   : -5.252
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'contadorSEND[0]'
+Slack : 0.109
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'estadoAtual[0]$latch'
+Slack : 0.247
+TNS   : 0.000
 
 ------------------------------------------------------------

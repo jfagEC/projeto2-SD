@@ -3,11 +3,14 @@ input wire[17:0] instrucao,
 input wire on, //liga/desliga
 input wire send, //botao p enviar 
 input wire clk,
-output reg[2:0] opcode;
-output reg[3:0] regDestino;
-output reg[3:0] reg1;
-output reg[3:0] reg2;
-output reg[6:0] imm;
+output reg[2:0] opcode,
+output reg[3:0] regDestino,
+output reg[3:0] reg1,
+output reg[3:0] reg2,
+output reg[6:0] imm,
+output reg [15:0] n1,
+output reg [15:0] n2,
+output reg [2:0] estadoAtual
 );
 
 //declarar os numeros como signed
@@ -30,9 +33,7 @@ localparam[2:0] //estados da FSM
     SEND_WAIT = 3'd1, //enquanto n tem o trig do botao
     DECODE = 3'd2,
     SEND = 3'd3,
-    STORE = 3'd4,
-
-reg [2:0] estadoAtual;
+    STORE = 3'd4;
 
 integer contadorSEND=32'd0;
 integer contadorSTORE=32'd0;
@@ -41,7 +42,7 @@ integer contadorSTORE=32'd0;
 reg [15:0] data;
 reg [3:0] addr;
 reg we;
-reg [15:0] q;
+wire [15:0] q;
 
 memory MEM(
 	.data(data),
@@ -53,15 +54,13 @@ memory MEM(
 
 //parameters ULA
 // sel = estadoAtual;
-reg [15:0] n1;
-reg [15:0] n2;
-reg [15:0] out;
+wire [15:0] out;
 
 module_alu ULA(
 	.sel(estadoAtual),
 	.n1(n1),
 	.n2(n2),
-	.out(out);
+	.out(out)
 );
 
 reg [15:0] numIn;
@@ -72,7 +71,6 @@ reg [15:0] numIn;
 wire ativo;
 
 initial begin
-    ativo = 0;
     estadoAtual = OFF;
 //fazer inicializacao dos valores da memoria aq tb dps
 end
@@ -85,7 +83,6 @@ always @(posedge clk, posedge on, posedge send)begin //alternancia dos estados, 
                 estadoAtual <= OFF;
             else begin
                 estadoAtual <= SEND_WAIT;
-                ativo = 1;
             end
         end
         SEND_WAIT: begin
@@ -147,24 +144,25 @@ always @(*)begin
 	 end
 	  
 	  SEND: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
-			we=0;
-			case(opcode):
+			we<=0;
+			case(opcode)
 				ADD, SUB: begin
-					if(contadorSEND==1) addr = reg1;
-					if(contadorSEND==2) n1 = q;
-					if(contadorSEND==3) addr = reg2;
-					if(contadorSEND==4) n2 = q;
+					if(contadorSEND==0) addr <= reg1;
+					if(contadorSEND==1) n1 <= q;
+					if(contadorSEND==2) addr <= reg2;
+					if(contadorSEND==3) n2 <= q;
 				end
-				ADDI, SUBI, MUL:
-					if(contadorSEND==1) addr = reg1;
-					if(contadorSEND==2) n1 = q;
-					if(contadorSEND==3) n2 = imm;
+				ADDI, SUBI, MUL: begin
+					if(contadorSEND==0) addr <= reg1;
+					if(contadorSEND==1) n1 <= q;
+					if(contadorSEND==2) n2 <= imm;
+				end
 				default: begin
 					numIn <= out;
 				end
 			endcase
 			
-			contadorSEND+=1;
+			contadorSEND<=contadorSEND+1;
 	  end
 
 	  STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware

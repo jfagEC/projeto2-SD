@@ -10,51 +10,51 @@ z2
 cModel Technology
 Z0 dD:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/simulation/qsim
 vhard_block
-Z1 !s110 1794487897
+Z1 !s110 1794574809
 !i10b 1
-!s100 k:nCHLHM4:Sn0`UJ0ob=?0
+!s100 z@nbHYJOhI]E9OjH`j9V22
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-Ifg6d3bY0_WQlD5@YMk[9z0
+I9Z>[YkkmT:`^R;1d`JL860
 Z3 VDg1SIo80bB@j0V0VzS_@n1
-R0
-Z4 w1794487896
-Z5 8miniCPU.vo
-Z6 FminiCPU.vo
-!i122 4
-L0 4203 34
-Z7 OV;L;2020.1;71
+Z4 dD:/Users/rma10/projeto2-SD/miniCPU/simulation/qsim
+Z5 w1794574808
+Z6 8miniCPU.vo
+Z7 FminiCPU.vo
+!i122 20
+L0 6695 34
+Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z8 !s108 1794487897.000000
-Z9 !s107 miniCPU.vo|
-Z10 !s90 -work|work|miniCPU.vo|
+Z9 !s108 1794574809.000000
+Z10 !s107 miniCPU.vo|
+Z11 !s90 -work|work|miniCPU.vo|
 !i113 1
-Z11 o-work work
-Z12 tCvgOpt 0
+Z12 o-work work
+Z13 tCvgOpt 0
 vlcd_controller_top
-R1
+!s110 1794487897
 !i10b 1
 !s100 1Af::X2FNQUz8LZ[@OO`^2
 R2
 Inb8__cgdF5JdOo34>ISBT2
 R3
 R0
-R4
-R5
+Z14 w1794487896
 R6
+R7
 !i122 4
 L0 32 4170
-R7
+R8
 r1
 !s85 0
 31
-R8
-R9
+Z15 !s108 1794487897.000000
 R10
-!i113 1
 R11
+!i113 1
 R12
+R13
 vlcd_controller_top_vlg_vec_tst
 !s110 1794487898
 !i10b 1
@@ -63,18 +63,64 @@ R2
 I12aXQ<iaLLFbjhcY=7A]32
 R3
 R0
-R4
+R14
 8Waveform.vwf.vt
 FWaveform.vwf.vt
 !i122 5
 L0 30 161
-R7
+R8
 r1
 !s85 0
 31
-R8
+R15
 !s107 Waveform.vwf.vt|
 !s90 -work|work|Waveform.vwf.vt|
 !i113 1
-R11
 R12
+R13
+vmodule_mini_cpu
+R1
+!i10b 1
+!s100 oWf0MHG1I9SK]m<M@bk3U1
+R2
+IU<7cmJc9Kf:c<NQGz2lIQ1
+R3
+R4
+R5
+R6
+R7
+!i122 20
+L0 32 6662
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+vmodule_mini_cpu_vlg_vec_tst
+R1
+!i10b 1
+!s100 F6DbdPYW@`MPO@FWek4gn0
+R2
+I`V]_OO>0GW_54AFOH[B=82
+R3
+R4
+w1794574807
+8Waveform1.vwf.vt
+FWaveform1.vwf.vt
+!i122 21
+L0 30 156
+R8
+r1
+!s85 0
+31
+R9
+!s107 Waveform1.vwf.vt|
+!s90 -work|work|Waveform1.vwf.vt|
+!i113 1
+R12
+R13

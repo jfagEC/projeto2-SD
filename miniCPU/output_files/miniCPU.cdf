@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE115F29) Path("D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/output_files/") File("miniCPU.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE115F29) Path("D:/Users/rma10/projeto2-SD/miniCPU/output_files/") File("miniCPU.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
