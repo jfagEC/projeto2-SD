@@ -14,8 +14,8 @@
 module lcd_controller_top (
     input  wire       clk,
     input  wire       rst,
-    //input wire[2:0]   OpcodeI, //entrada do seletor
-    //input wire[3:0]   regDispI, //registrador eh p mostar em binario ou decimal?
+    input wire[2:0]   Opcode, //entrada do seletor
+    input wire[3:0]   regDispIN, //registrador eh p mostar em binario ou decimal?
     input wire[15:0]   numIn, //mostar em decimal, 16 bits dao 5 digitos(mais 1 de sinal)
 
     // Saídas para o LCD
@@ -25,10 +25,10 @@ module lcd_controller_top (
     output wire        lcd_e
 );
 
-reg[2:0] Opcode;
-reg [3:0] regDisp;
+//reg[2:0] Opcode;
+//reg [3:0] regDisp;
+	wire[7:0] regDisp [3:0];	
 	
-
     // -----------------------------------------------------------------------
     // Instância do módulo de inicialização
     // -----------------------------------------------------------------------
@@ -39,13 +39,14 @@ reg [3:0] regDisp;
     wire       init_done;
 
     reg        start_init;  // gerado pelo controlador
-    wire[6:0] numDisp;
+	 
+    wire[7:0] numDisp[5:0];
 
     lcd_init_hd44780 lcd_init (
         .clk      (clk),
         .rst      (rst),
         .start    (start_init),
-        .done     (init_doneL),
+        .done     (init_done),
         .lcd_data (init_data),
         .lcd_rs   (init_rs),
         .lcd_rw   (init_rw),
@@ -54,9 +55,27 @@ reg [3:0] regDisp;
     decimal_conversor conversor( //para tratar o numero do reg
         .binIn (numIn),
         .clk (clk),
-        .decOut (numDisp)
+        .enable(rst),
+		  .sig(numDisp[5]), //valores de saida pra escrever
+		  .numA(numDisp[4]),
+		  .numB(numDisp[3]),
+		  .numC(numDisp[2]),
+		  .numD(numDisp[1]),
+		  .numE(numDisp[0])
     );
-	//reg init_done = 1'b1; //CASO QUEIRA TESTAR PELO WAVE FORM 
+	 
+	 bin_conversor conversorBin(
+			.binIn (regDispIN),
+			.clk(clk),
+			.rst(rst),
+			.numA(regDisp[3]),
+			.numB(regDisp[2]),
+			.numC(regDisp[1]),
+			.numD(regDisp[0])
+	 
+	 );
+	 //CASO QUEIRA TESTAR PELO WAVE FORM 
+	//reg init_done = 1'b1; 
 	// precisa modificar o wire init_done e tambem oq entra no modulo do init p outra coisa																	
 
     // -----------------------------------------------------------------------
@@ -75,7 +94,7 @@ reg [3:0] regDisp;
 
     reg [7:0] message [0:MSG_LEN-1];
 	 
-	 localparam[2:0]
+	 localparam[2:0] //opcoes para aparecer no lcd
 		OP_LOAD = 3'b 000,
 		OP_ADD  = 3'b 001,
 		OP_ADDI = 3'b 010,
@@ -87,21 +106,32 @@ reg [3:0] regDisp;
 
     integer i;
 	 initial begin
-	 
-		Opcode = 3'd0;
-		regDisp = 4'd1;
+		//Opcode = 4'd0;
+		//regDisp = 4'd1;
+		/*
+		numDisp[5] = "+";
+		numDisp[4] = "0";
+		numDisp[3] = "0";
+		numDisp[2] = "0";
+		numDisp[1] = "0";
+		numDisp[0] = "0";*/
+		
+		message[0] = "-";
+		message[1] = "-";
+		message[2] = "-";
+		message[3] = "-";
 		message[4] = " ";
 		message[5] = " ";
 		message[6] = " ";
 		message[7] = " ";
 		message[8] = " ";
-		message[9] = "["; //valor fixo
-		message[10] = " "; //esses 4 espacos sao p o reg
-		message[11] = " ";
-		message[12] = " ";
-		message[13] = " ";
-		message[14] = "]"; //valor fix
-		message[15] = " "; //'jump'
+		message[9] = " "; 
+		message[10] = "["; //esses 4 espacos sao p o reg
+		message[11] = "-";
+		message[12] = "-";
+		message[13] = "-";
+		message[14] = "-"; //valor fix
+		message[15] = "]"; //'jump'
 		message[16] = " ";
 		message[17] = " ";
 		message[18] = " ";
@@ -112,12 +142,12 @@ reg [3:0] regDisp;
 		message[23] = " ";
 		message[24] = " ";
 		message[25] = " ";
-		message[26] = " "; //daqui p baixo eh o num, com sinal
-		message[27] = " ";
-		message[28] = " ";
-		message[29] = " ";
-		message[30] = " ";
-		message[31] = " ";
+		message[26] = "+"; //daqui p baixo eh o num, com sinal
+		message[27] = "0";
+		message[28] = "0";
+		message[29] = "0";
+		message[30] = "0";
+		message[31] = "0";
 	 end
 
     
@@ -130,10 +160,10 @@ reg [3:0] regDisp;
     // Exemplo para 50 MHz:
     localparam [31:0] DELAY_WRITE = 32'd2000; // ~40 us
     localparam [31:0] DELAY_PULSE = 32'd50;   // ~1 us
-    localparam [31:0] DELAY_JUMP = 32'd5500;
+    localparam [31:0] DELAY_JUMP = 32'd2500;
 	 
 	 //cmd pro jump de linha
-	 localparam [7:0] CMD_CURSOR_JUMP = 8'b11000000;
+	 localparam [7:0] CMD_CURSOR_JUMP = 8'b11000001; //colocando p o endreco seguinte pq ta com algum bug na escrita do caracter
 
     // -----------------------------------------------------------------------
     // Estados da FSM principal
@@ -175,7 +205,7 @@ reg [3:0] regDisp;
         next_state     = state;
         next_delay_cnt = delay_cnt;
         next_msg_index = msg_index;
-		  
+		if(rst) begin
 		case(Opcode)
 			OP_LOAD: begin
 				message[0] = "L";
@@ -225,13 +255,26 @@ reg [3:0] regDisp;
 				message[2] = "L";
 				message[3] = " ";
 			end
+			default: begin
+				message[0] = "-";
+				message[1] = "-";
+				message[2] = "-";
+				message[3] = "-";
+			end
 		endcase
         //colocando as outras saidas que nao dependem do op code reg ->10 - 13
-        message[10] = regDisp[3];message[11] = regDisp[2]; message[12] = regDisp[1]; message[13] = regDisp[0];
+        message[11] = regDisp[3];
+		  message[12] = regDisp[2]; 
+		  message[13] = regDisp[1]; 
+		  message[14] = regDisp[0];
         //colocando o num -> 26 - 31
-        if(numDisp >= 0) message[26] = "+";
-        else message[26] = "-";
-        message[27] = numDisp[4]; message[28] = numDisp[3]; message[29] = numDisp[2]; message[30] = numDisp[1]; message[31] = numDisp[0];
+        message[26] = numDisp[5];
+        message[27] = numDisp[4]; 
+		  message[28] = numDisp[3]; 
+		  message[29] = numDisp[2]; 
+		  message[30] = numDisp[1]; 
+		  message[31] = numDisp[0];
+	  end
         case (state)
             // ---------------------------------------------------------------
             // Espera a inicialização do LCD ser concluída
@@ -271,10 +314,10 @@ reg [3:0] regDisp;
                 if (delay_cnt > 0) begin
                     next_delay_cnt = delay_cnt - 1;
                 end else begin
-						  if(msg_index==(MSG_LEN/2)-1) begin
+						  if(msg_index==(MSG_LEN/2) -1) begin
 								next_state = S_JUMP;
 								next_delay_cnt = DELAY_JUMP;
-								next_msg_index = msg_index+1;
+								next_msg_index = msg_index + 1;
 						  end else if (msg_index == (MSG_LEN-1)) begin
                         next_state = S_DONE;
                     end else begin
@@ -338,8 +381,8 @@ reg [3:0] regDisp;
         case (state)
             // Durante a escrita da mensagem, usamos os caracteres da array
             S_PREPARE: begin
-                wr_data = message[msg_index];
-                wr_rs   = 1'b1; // dado (caractere)
+					 wr_rs   = 1'b1; // dado (caractere)
+                wr_data <= message[msg_index];
                 wr_rw   = 1'b0; // escrita
                 wr_e    = 1'b0;
             end
