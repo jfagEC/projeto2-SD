@@ -291,7 +291,6 @@ reg [3:0] regDisp;
                 // Permanece nesse estado até reset
                 next_state = S_DONE;
             end
-				
 				S_JUMP: begin
 					if (delay_cnt > 0) begin
                     next_delay_cnt = delay_cnt - 1;
