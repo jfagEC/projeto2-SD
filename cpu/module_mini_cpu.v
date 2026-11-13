@@ -3,11 +3,14 @@ input wire[17:0] instrucao,
 input wire on, //liga/desliga
 input wire send, //botao p enviar 
 input wire clk,
-output reg[2:0] opcode;
-output reg[3:0] regDestino;
-output reg[3:0] reg1;
-output reg[3:0] reg2;
-output reg[6:0] imm;
+output reg[2:0] opcode,
+output reg[3:0] regDestino,
+output reg[3:0] reg1,
+output reg[3:0] reg2,
+output reg[6:0] imm,
+output reg [15:0] n1,
+output reg [15:0] n2,
+output reg [2:0] estadoAtual
 );
 
 //declarar os numeros como signed
@@ -30,9 +33,7 @@ localparam[2:0] //estados da FSM
     SEND_WAIT = 3'd1, //enquanto n tem o trig do botao
     DECODE = 3'd2,
     SEND = 3'd3,
-    STORE = 3'd4,
-
-reg [2:0] estadoAtual;
+    STORE = 3'd4;
 
 integer contadorSEND=32'd0;
 integer contadorSTORE=32'd0;
@@ -41,7 +42,7 @@ integer contadorSTORE=32'd0;
 reg [15:0] data;
 reg [3:0] addr;
 reg we;
-reg [15:0] q;
+wire [15:0] q;
 
 memory MEM(
 	.data(data),
@@ -53,15 +54,14 @@ memory MEM(
 
 //parameters ULA
 // sel = estadoAtual;
-reg [15:0] n1;
-reg [15:0] n2;
-reg [15:0] out;
+wire [15:0] out;
+reg [2:0] sel;
 
 module_alu ULA(
 	.sel(estadoAtual),
 	.n1(n1),
 	.n2(n2),
-	.out(out);
+	.out(out)
 );
 
 reg [15:0] numIn;
@@ -72,20 +72,22 @@ reg [15:0] numIn;
 wire ativo;
 
 initial begin
-    ativo = 0;
     estadoAtual = OFF;
+	 contadorSEND=0;
+	 contadorSTORE=0;
 //fazer inicializacao dos valores da memoria aq tb dps
 end
 
 
-always @(posedge clk, posedge on, posedge send)begin //alternancia dos estados, sensivel ao clk e aos botoes 
+//ver se precisa ter esse posedge on e posedge send
+always @(posedge clk/*, posedge on, posedge send*/)begin //alternancia dos estados, sensivel ao clk e aos botoes 
     case(estadoAtual)
         OFF: begin
+				sel<=OFF;
             if(on)
                 estadoAtual <= OFF;
             else begin
                 estadoAtual <= SEND_WAIT;
-                ativo = 1;
             end
         end
         SEND_WAIT: begin
@@ -95,13 +97,13 @@ always @(posedge clk, posedge on, posedge send)begin //alternancia dos estados, 
                 estadoAtual <= DECODE;
         end
         DECODE: begin
-            estadoAtual <= SEND_WAIT; //passa somente um pulso para fazer o decode
+            estadoAtual <= SEND; //passa somente um pulso para fazer o decode
         end 
         SEND: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
-            if(contadorSEND==5) estadoAtual <= STORE;
+            if(contadorSEND>3) estadoAtual <= STORE;
         end
         STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
-            if(contadorSTORE==4) estadoAtual <= SEND_WAIT;
+            if(contadorSTORE>4) estadoAtual <= SEND_WAIT;
         end
     endcase
 end
@@ -116,7 +118,7 @@ always @(*)begin
         imm <= 7'd0;
     end
     DECODE: begin
-        opcode = instrucao[17:15];
+        opcode <= instrucao[17:15];
         case(opcode) //bloco para decodificar
             ADD, SUB: begin
                 regDestino <= instrucao[14:11];
@@ -147,33 +149,38 @@ always @(*)begin
 	 end
 	  
 	  SEND: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
-			we=0;
-			case(opcode):
+			we<=0;
+			case(opcode)
 				ADD, SUB: begin
-					if(contadorSEND==1) addr = reg1;
-					if(contadorSEND==2) n1 = q;
-					if(contadorSEND==3) addr = reg2;
-					if(contadorSEND==4) n2 = q;
+					if(contadorSEND>=3) n2 <= q;
+					else if(contadorSEND>=2) addr <= reg2;
+					else if(contadorSEND>=1) n1 <= q;
+					else if(contadorSEND>=0) addr <= reg1;
+					
+					
 				end
-				ADDI, SUBI, MUL:
-					if(contadorSEND==1) addr = reg1;
-					if(contadorSEND==2) n1 = q;
-					if(contadorSEND==3) n2 = imm;
+				ADDI, SUBI, MUL: begin
+					if(contadorSEND>=2) n2 <= imm;
+					else if(contadorSEND>=1) n1 <= q;
+					else if(contadorSEND>=0) addr <= reg1;
+					
+					
+				end
 				default: begin
 					numIn <= out;
 				end
 			endcase
 			
-			contadorSEND+=1;
+			contadorSEND<=contadorSEND+1;
 	  end
 
 	  STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
 			contadorSEND<=0;
-			if(contadorSTORE==0) data <= out;
-			if(contadorSTORE==1) addr <= regDestino;
-			if(contadorSTORE==2) we<=1;
+			if(contadorSTORE>2) we<=1;
+			else if(contadorSTORE>1) addr <= regDestino;
+			else if(contadorSTORE>0) data <= out;
 			
-			contadorSTORE<=0;	
+			contadorSTORE<=contadorSTORE+1;	
 		end
 
 
