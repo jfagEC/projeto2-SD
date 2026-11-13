@@ -9,9 +9,7 @@ output wire[7:0] numA, //msb
 output wire[7:0] numB,
 output wire[7:0] numC,
 output wire[7:0] numD,
-output wire[7:0] numE, //lsb
-output wire [31:0] debug,
-output wire [31:0] debug2
+output wire[7:0] numE //lsb
 
 );
 
@@ -32,13 +30,11 @@ localparam[1:0]
 	EIGHT = 4'd8,
 	NINE = 4'd9;
 
-integer idx, var, soma;
-/*
-reg[31:0] idx;
-reg[31:0] var;
-reg[31:0] soma;
-*/
-reg[15:0] tmpSum;
+integer soma;
+integer idx;
+integer var;
+/*reg[31:0] soma;
+reg[15:0] tmpSum;*/
 reg[1:0] currState;
 
 reg[7:0] decOut [5:0];
@@ -47,7 +43,8 @@ reg[7:0] decOut [5:0];
 
 initial begin
     currState <= WAIT;
-	 soma <= 32'd0;
+	 soma = 0;
+	 idx = 0;
 	 decOut[0] = 8'd0;
 	 decOut[1] = 8'd0;
 	 decOut[2] = 8'd0;
@@ -56,82 +53,57 @@ initial begin
 	 decOut[5] = 8'd0;
 end
 
-always @(*)begin
-var = soma % 10;
-    case(currState)
-		 CONVERT:begin
-			tmpSum = (binIn[idx] * (1 << idx));
-		 end
-		 ADDAPT: begin
-			  
-		 end
-		 WAIT: begin
-		 
-		 end
-	endcase
-
- end
-
- always @(posedge clk, posedge enable)begin //aq vai usar 15 + 6 + 1 pulsos, que eh menor q os 50 no setup pos reset
+always @(posedge clk)begin
 	case(currState)
 		CONVERT: begin
-			if(idx < 14) begin
-				soma = soma  + tmpSum;
-				idx = idx + 1;
-			end else begin
-				soma <= soma;	
+			if(idx < 15) soma = soma + binIn[idx] * (1 << idx); 
+			idx = idx + 1;
+			if(idx == 15) begin 
 				currState <= ADDAPT;
-				idx <= 32'd0;
+				idx <= 0;
 			end
-		 //var <= var;
-		 decOut[0] = 8'd0;
-		 decOut[1] = 8'd0;
-		 decOut[2] = 8'd0;
-		 decOut[3] = 8'd0;
-		 decOut[4] = 8'd0;
-		 decOut[5] = 8'd0;
 		end
 		ADDAPT: begin
-			if(idx < 6)begin
+			if(idx < 5) begin
+				var = soma % 10;
 				case(var)
-						ZERO: decOut[idx] <= 8'b00110000;
-						ONE: decOut[idx] <= 8'b00110001;
-						TWO: decOut[idx] <= 8'b00110010;
-						THREE: decOut[idx] <= 8'b00110011;
-						FOUR: decOut[idx] <= 8'b00110100;
-						FIVE: decOut[idx] <= 8'b00110101;
-						SIX: decOut[idx] <= 8'b00110110;
-						SEVEN: decOut[idx] <= 8'b00110111;
-						EIGHT: decOut[idx] <= 8'b00111000;
-						NINE: decOut[idx] <= 8'b00111001;
-						default: decOut[idx] <= 8'b01011000;
+					ZERO: decOut[idx] <= "0";
+					ONE: decOut[idx] <= "1";
+					TWO: decOut[idx] <= "2";
+					THREE: decOut[idx] <= "3";
+					FOUR: decOut[idx] <= "4";
+					FIVE: decOut[idx] <= "5";
+					SIX: decOut[idx] <= "6";
+					SEVEN: decOut[idx] <= "7";
+					EIGHT: decOut[idx] <= "8";
+					NINE: decOut[idx] <= "9";		
 				endcase
-				soma = soma/10; //corta a virgula 
+				soma = soma/10;
 				idx = idx + 1;
-			end else begin 
-				decOut[5] <= binIn[15] ? 8'b00101101 : 8'b00101011;
-				idx <= 32'd0;
-				soma = 32'd0;
+			end else if(idx == 5) begin
+				decOut[idx] = binIn[15] ? "-": "+" ;
+				idx = idx + 1;
+			end else begin
+				idx <= 0;
 				currState <= WAIT;
 			end
 		end
 		WAIT: begin
-			 decOut[0] = 8'd0;
-			 decOut[1] = 8'd0;
-			 decOut[2] = 8'd0;
-			 decOut[3] = 8'd0;
-			 decOut[4] = 8'd0;
-			 decOut[5] = 8'd0;
 			soma <= 0;
-			//var <= 0;
 			idx <= 0;
-			if(enable) currState<= CONVERT; //dexei igual ao rst no top, ver adequacao a placa
-			else currState<= WAIT;
+			if(enable) currState <= CONVERT;
+			else currState <= WAIT;
+		
 		end
 	
 	endcase
 
+
+
+
 end
+
+
 
 
 
@@ -141,9 +113,6 @@ assign numB = decOut[3];
 assign numC = decOut[2];
 assign numD = decOut[1];
 assign numE = decOut[0];
-assign debug = var;
-assign debug2 = soma;
-
 
 
 
