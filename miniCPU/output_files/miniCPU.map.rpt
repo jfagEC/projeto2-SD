@@ -1,6 +1,6 @@
 Analysis & Synthesis report for miniCPU
-Thu Nov 12 10:31:43 2026
-Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+Thu Nov 12 21:08:43 2026
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
 ---------------------
@@ -13,22 +13,25 @@ Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
- 16. Analysis & Synthesis Suppressed Messages
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. User-Specified and Inferred Latches
+ 10. Logic Cells Representing Combinational Loops
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 14. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 15. lpm_mult Parameter Settings by Entity Instance
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+ 19. Analysis & Synthesis Suppressed Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2022  Intel Corporation. All rights reserved.
+Copyright (C) 2021  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -48,19 +51,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 12 10:31:43 2026       ;
-; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
+; Analysis & Synthesis Status        ; Successful - Thu Nov 12 21:08:43 2026       ;
+; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; miniCPU                                     ;
 ; Top-level Entity Name              ; decimal_conversor                           ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 48                                          ;
-;     Total combinational functions  ; 48                                          ;
-;     Dedicated logic registers      ; 34                                          ;
-; Total registers                    ; 34                                          ;
-; Total pins                         ; 24                                          ;
+; Total logic elements               ; 780                                         ;
+;     Total combinational functions  ; 780                                         ;
+;     Dedicated logic registers      ; 1                                           ;
+; Total registers                    ; 1                                           ;
+; Total pins                         ; 65                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 4                                           ;
 ; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
@@ -156,15 +159,20 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 10          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 16          ;
+; Maximum used               ; 10          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processors 7-10        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -173,90 +181,198 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
-; ../lcd/decimal_conversor.v       ; yes             ; User Verilog HDL File        ; D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v        ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; d:/altera/21.1/quartus/libraries/megafunctions/lpm_divide.tdf              ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; d:/altera/21.1/quartus/libraries/megafunctions/abs_divider.inc             ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; d:/altera/21.1/quartus/libraries/megafunctions/sign_div_unsign.inc         ;         ;
-; aglobal211.inc                   ; yes             ; Megafunction                 ; d:/altera/21.1/quartus/libraries/megafunctions/aglobal211.inc              ;         ;
-; db/lpm_divide_soo.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/lpm_divide_soo.tdf  ;         ;
-; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/abs_divider_kbg.tdf ;         ;
-; db/alt_u_div_67f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/alt_u_div_67f.tdf   ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/add_sub_7pc.tdf     ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/add_sub_8pc.tdf     ;         ;
-; db/lpm_abs_2v9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/lpm_abs_2v9.tdf     ;         ;
-; db/lpm_abs_i0a.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/lpm_abs_i0a.tdf     ;         ;
+; ../lcd/decimal_conversor.v       ; yes             ; User Verilog HDL File        ; C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v              ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal211.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/aglobal211.inc      ;         ;
+; db/lpm_divide_soo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/lpm_divide_soo.tdf        ;         ;
+; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/abs_divider_kbg.tdf       ;         ;
+; db/alt_u_div_67f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/alt_u_div_67f.tdf         ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/add_sub_7pc.tdf           ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/add_sub_8pc.tdf           ;         ;
+; db/lpm_abs_2v9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/lpm_abs_2v9.tdf           ;         ;
+; db/lpm_abs_i0a.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/lpm_abs_i0a.tdf           ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/multcore.inc        ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/bypassff.inc        ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altshift.inc        ;         ;
+; db/mult_k4t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/mult_k4t.tdf              ;         ;
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 48        ;
-;                                             ;           ;
-; Total combinational functions               ; 48        ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 12        ;
-;     -- 3 input functions                    ; 4         ;
-;     -- <=2 input functions                  ; 32        ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 17        ;
-;     -- arithmetic mode                      ; 31        ;
-;                                             ;           ;
-; Total registers                             ; 34        ;
-;     -- Dedicated logic registers            ; 34        ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 24        ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 34        ;
-; Total fan-out                               ; 249       ;
-; Average fan-out                             ; 1.92      ;
-+---------------------------------------------+-----------+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimated Total logic elements              ; 780      ;
+;                                             ;          ;
+; Total combinational functions               ; 780      ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 225      ;
+;     -- 3 input functions                    ; 308      ;
+;     -- <=2 input functions                  ; 247      ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 495      ;
+;     -- arithmetic mode                      ; 285      ;
+;                                             ;          ;
+; Total registers                             ; 1        ;
+;     -- Dedicated logic registers            ; 1        ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 65       ;
+;                                             ;          ;
+; Embedded Multiplier 9-bit elements          ; 4        ;
+;                                             ;          ;
+; Maximum fan-out node                        ; soma[31] ;
+; Maximum fan-out                             ; 86       ;
+; Total fan-out                               ; 2387     ;
+; Average fan-out                             ; 2.61     ;
++---------------------------------------------+----------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                            ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name       ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------------+--------------+
-; |decimal_conversor         ; 48 (48)             ; 34 (34)                   ; 0           ; 0            ; 0       ; 0         ; 24   ; 0            ; |decimal_conversor  ; decimal_conversor ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                   ;
++---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                             ; Entity Name       ; Library Name ;
++---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+; |decimal_conversor                    ; 780 (246)           ; 1 (1)                     ; 0           ; 4            ; 0       ; 2         ; 65   ; 0            ; |decimal_conversor                                                                                              ; decimal_conversor ; work         ;
+;    |lpm_divide:Mod0|                  ; 510 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |decimal_conversor|lpm_divide:Mod0                                                                              ; lpm_divide        ; work         ;
+;       |lpm_divide_soo:auto_generated| ; 510 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |decimal_conversor|lpm_divide:Mod0|lpm_divide_soo:auto_generated                                                ; lpm_divide_soo    ; work         ;
+;          |abs_divider_kbg:divider|    ; 510 (10)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |decimal_conversor|lpm_divide:Mod0|lpm_divide_soo:auto_generated|abs_divider_kbg:divider                        ; abs_divider_kbg   ; work         ;
+;             |alt_u_div_67f:divider|   ; 459 (459)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |decimal_conversor|lpm_divide:Mod0|lpm_divide_soo:auto_generated|abs_divider_kbg:divider|alt_u_div_67f:divider  ; alt_u_div_67f     ; work         ;
+;             |lpm_abs_i0a:my_abs_num|  ; 41 (41)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |decimal_conversor|lpm_divide:Mod0|lpm_divide_soo:auto_generated|abs_divider_kbg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a       ; work         ;
+;    |lpm_mult:Mult0|                   ; 24 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |decimal_conversor|lpm_mult:Mult0                                                                               ; lpm_mult          ; work         ;
+;       |mult_k4t:auto_generated|       ; 24 (24)             ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |decimal_conversor|lpm_mult:Mult0|mult_k4t:auto_generated                                                       ; mult_k4t          ; work         ;
++---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; soma[0]                                ; Stuck at GND due to stuck port data_in ;
-; decOut[0]~reg0                         ; Stuck at GND due to stuck port data_in ;
-; decOut[1]~reg0                         ; Stuck at GND due to stuck port data_in ;
-; decOut[2]~reg0                         ; Stuck at GND due to stuck port data_in ;
-; decOut[3]~reg0                         ; Stuck at GND due to stuck port data_in ;
-; decOut[4]~reg0                         ; Stuck at GND due to stuck port data_in ;
-; decOut[5]~reg0                         ; Stuck at GND due to stuck port data_in ;
-; soma[1..31]                            ; Lost fanout                            ;
-; Total Number of Removed Registers = 38 ;                                        ;
-+----------------------------------------+----------------------------------------+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 2           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 4           ;
+; Signed Embedded Multipliers           ; 1           ;
+; Unsigned Embedded Multipliers         ; 0           ;
+; Mixed Sign Embedded Multipliers       ; 1           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                     ;
-+---------------+---------------------------+-----------------------------------------------------------------------------------------------------+
-; Register name ; Reason for Removal        ; Registers Removed due to This Register                                                              ;
-+---------------+---------------------------+-----------------------------------------------------------------------------------------------------+
-; soma[0]       ; Stuck at GND              ; decOut[5]~reg0, soma[31], soma[30], soma[29], soma[28], soma[27], soma[26], soma[25], soma[24],     ;
-;               ; due to stuck port data_in ; soma[23], soma[22], soma[21], soma[20], soma[19], soma[18], soma[17], soma[16], soma[15], soma[14], ;
-;               ;                           ; soma[13], soma[12], soma[11], soma[10], soma[9], soma[8], soma[7], soma[6], soma[5], soma[4],       ;
-;               ;                           ; soma[3], soma[2], soma[1]                                                                           ;
-+---------------+---------------------------+-----------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; decOut[5][0]                                        ; decOut[5][7]        ; yes                    ;
+; decOut[5][1]                                        ; decOut[5][7]        ; yes                    ;
+; decOut[5][2]                                        ; decOut[5][7]        ; yes                    ;
+; decOut[5][3]                                        ; decOut[5][7]        ; yes                    ;
+; decOut[5][4]                                        ; decOut[5][7]        ; yes                    ;
+; decOut[4][0]                                        ; decOut[4][7]        ; yes                    ;
+; decOut[4][1]                                        ; decOut[4][7]        ; yes                    ;
+; decOut[4][2]                                        ; decOut[4][7]        ; yes                    ;
+; decOut[3][0]                                        ; decOut[3][7]        ; yes                    ;
+; decOut[3][1]                                        ; decOut[3][7]        ; yes                    ;
+; decOut[3][2]                                        ; decOut[3][7]        ; yes                    ;
+; decOut[2][0]                                        ; decOut[2][7]        ; yes                    ;
+; decOut[2][1]                                        ; decOut[2][7]        ; yes                    ;
+; decOut[2][2]                                        ; decOut[2][7]        ; yes                    ;
+; decOut[1][0]                                        ; decOut[1][7]        ; yes                    ;
+; decOut[1][1]                                        ; decOut[1][7]        ; yes                    ;
+; decOut[1][2]                                        ; decOut[1][7]        ; yes                    ;
+; decOut[0][0]                                        ; decOut[0][7]        ; yes                    ;
+; decOut[0][1]                                        ; decOut[0][7]        ; yes                    ;
+; decOut[0][2]                                        ; decOut[0][7]        ; yes                    ;
+; soma[31]                                            ; idx~32              ; yes                    ;
+; soma[0]                                             ; soma[14]            ; yes                    ;
+; soma[30]                                            ; idx~32              ; yes                    ;
+; soma[29]                                            ; idx~32              ; yes                    ;
+; soma[28]                                            ; idx~32              ; yes                    ;
+; soma[27]                                            ; idx~32              ; yes                    ;
+; soma[26]                                            ; idx~32              ; yes                    ;
+; soma[25]                                            ; idx~32              ; yes                    ;
+; soma[24]                                            ; idx~32              ; yes                    ;
+; soma[23]                                            ; idx~32              ; yes                    ;
+; soma[22]                                            ; idx~32              ; yes                    ;
+; soma[21]                                            ; idx~32              ; yes                    ;
+; soma[20]                                            ; idx~32              ; yes                    ;
+; soma[19]                                            ; idx~32              ; yes                    ;
+; soma[18]                                            ; idx~32              ; yes                    ;
+; soma[17]                                            ; idx~32              ; yes                    ;
+; soma[16]                                            ; idx~32              ; yes                    ;
+; soma[15]                                            ; idx~32              ; yes                    ;
+; soma[14]                                            ; soma[14]            ; yes                    ;
+; soma[13]                                            ; soma[14]            ; yes                    ;
+; soma[12]                                            ; soma[14]            ; yes                    ;
+; soma[11]                                            ; soma[14]            ; yes                    ;
+; soma[10]                                            ; soma[14]            ; yes                    ;
+; soma[9]                                             ; soma[14]            ; yes                    ;
+; soma[8]                                             ; soma[14]            ; yes                    ;
+; soma[7]                                             ; soma[14]            ; yes                    ;
+; soma[6]                                             ; soma[14]            ; yes                    ;
+; soma[5]                                             ; soma[14]            ; yes                    ;
+; soma[4]                                             ; soma[14]            ; yes                    ;
+; soma[3]                                             ; soma[14]            ; yes                    ;
+; soma[2]                                             ; soma[14]            ; yes                    ;
+; soma[1]                                             ; soma[14]            ; yes                    ;
+; Number of user-specified and inferred latches = 52  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops                ;
++--------------------------------------------------------+----+
+; Logic Cell Name                                        ;    ;
++--------------------------------------------------------+----+
+; idx~32                                                 ;    ;
+; Add0~0                                                 ;    ;
+; Add0~1                                                 ;    ;
+; Add0~2                                                 ;    ;
+; idx~33                                                 ;    ;
+; idx~34                                                 ;    ;
+; idx~35                                                 ;    ;
+; idx~36                                                 ;    ;
+; idx~37                                                 ;    ;
+; idx~38                                                 ;    ;
+; idx~39                                                 ;    ;
+; idx~40                                                 ;    ;
+; idx~41                                                 ;    ;
+; idx~42                                                 ;    ;
+; idx~43                                                 ;    ;
+; idx~44                                                 ;    ;
+; idx~45                                                 ;    ;
+; idx~46                                                 ;    ;
+; idx~47                                                 ;    ;
+; idx~48                                                 ;    ;
+; idx~49                                                 ;    ;
+; idx~50                                                 ;    ;
+; idx~51                                                 ;    ;
+; idx~52                                                 ;    ;
+; idx~53                                                 ;    ;
+; idx~54                                                 ;    ;
+; idx~55                                                 ;    ;
+; idx~56                                                 ;    ;
+; idx~57                                                 ;    ;
+; soma~1                                                 ;    ;
+; idx~58                                                 ;    ;
+; idx~59                                                 ;    ;
+; idx~60                                                 ;    ;
+; idx~61                                                 ;    ;
+; Number of logic cells representing combinational loops ; 34 ;
++--------------------------------------------------------+----+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -264,25 +380,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 34    ;
-; Number of registers using Synchronous Clear  ; 32    ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 1     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 1     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1     ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
-; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; Yes        ; |decimal_conversor|soma[10]   ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |decimal_conversor|ShiftLeft0 ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |decimal_conversor|ShiftLeft0 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
+; 1:1                ; 3 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |decimal_conversor|Selector4 ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |decimal_conversor|soma[10]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |decimal_conversor|idx[3]    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
 
 
 +------------------------------------------------------------------+
@@ -308,27 +424,84 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 5            ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 37           ; Untyped             ;
+; LPM_WIDTHR                                     ; 37           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_k4t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance         ;
++---------------------------------------+----------------+
+; Name                                  ; Value          ;
++---------------------------------------+----------------+
+; Number of entity instances            ; 1              ;
+; Entity Instance                       ; lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 5              ;
+;     -- LPM_WIDTHB                     ; 32             ;
+;     -- LPM_WIDTHP                     ; 37             ;
+;     -- LPM_REPRESENTATION             ; SIGNED         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
++---------------------------------------+----------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 24                          ;
-; cycloneiii_ff         ; 34                          ;
-;     ENA               ; 1                           ;
-;     SCLR              ; 32                          ;
-;     plain             ; 1                           ;
-; cycloneiii_lcell_comb ; 49                          ;
-;     arith             ; 31                          ;
-;         2 data inputs ; 31                          ;
-;     normal            ; 18                          ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 1                           ;
-;         3 data inputs ; 4                           ;
-;         4 data inputs ; 12                          ;
+; boundary_port         ; 65                          ;
+; cycloneiii_ff         ; 1                           ;
+;     SLD               ; 1                           ;
+; cycloneiii_lcell_comb ; 782                         ;
+;     arith             ; 285                         ;
+;         2 data inputs ; 23                          ;
+;         3 data inputs ; 262                         ;
+;     normal            ; 497                         ;
+;         0 data inputs ; 31                          ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 190                         ;
+;         3 data inputs ; 46                          ;
+;         4 data inputs ; 225                         ;
+; cycloneiii_mac_mult   ; 2                           ;
+; cycloneiii_mac_out    ; 2                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.77                        ;
+; Max LUT depth         ; 91.60                       ;
+; Average LUT depth     ; 53.07                       ;
 +-----------------------+-----------------------------+
 
 
@@ -337,7 +510,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -346,92 +519,267 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Thu Nov 12 10:31:36 2026
+    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+    Info: Processing started: Thu Nov 12 21:08:25 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off miniCPU -c miniCPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file /users/jfag/documents/projeto/projeto2-sd/lcd/decimal_conversor.v
-    Info (12023): Found entity 1: decimal_conversor File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/jfag/documents/projeto/projeto2-sd/lcd/lcd_controller_top.v
-    Info (12023): Found entity 1: lcd_controller_top File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 14
-Info (12021): Found 1 design units, including 1 entities, in source file /users/jfag/documents/projeto/projeto2-sd/lcd/lcd_init_hd44780.v
-    Info (12023): Found entity 1: lcd_init_hd44780 File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/lcd_init_hd44780.v Line: 12
-Warning (10236): Verilog HDL Implicit Net warning at lcd_controller_top.v(48): created implicit net for "init_doneL" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 48
+Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
+Warning (10229): Verilog HDL Expression warning at decimal_conversor.v(28): truncated literal to match 3 bits File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 28
+Warning (10229): Verilog HDL Expression warning at decimal_conversor.v(29): truncated literal to match 3 bits File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 29
+Warning (10463): Verilog HDL Declaration warning at decimal_conversor.v(31): "var" is SystemVerilog-2005 keyword File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file /users/rodrigo/projetos/projeto2-sd/lcd/decimal_conversor.v
+    Info (12023): Found entity 1: decimal_conversor File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/rodrigo/projetos/projeto2-sd/lcd/lcd_controller_top.v
+    Info (12023): Found entity 1: lcd_controller_top File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/lcd_controller_top.v Line: 14
+Info (12021): Found 1 design units, including 1 entities, in source file /users/rodrigo/projetos/projeto2-sd/lcd/lcd_init_hd44780.v
+    Info (12023): Found entity 1: lcd_init_hd44780 File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/lcd_init_hd44780.v Line: 12
+Warning (10236): Verilog HDL Implicit Net warning at lcd_controller_top.v(48): created implicit net for "init_doneL" File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/lcd_controller_top.v Line: 48
 Info (12127): Elaborating entity "decimal_conversor" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at decimal_conversor.v(19): truncated value with size 2 to match size of target (1) File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 19
-Warning (10764): Verilog HDL warning at decimal_conversor.v(26): converting signed shift amount to unsigned File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 26
-Warning (10230): Verilog HDL assignment warning at decimal_conversor.v(33): truncated value with size 2 to match size of target (1) File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 33
-Warning (10230): Verilog HDL assignment warning at decimal_conversor.v(39): truncated value with size 8 to match size of target (1) File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 39
-Warning (10230): Verilog HDL assignment warning at decimal_conversor.v(40): truncated value with size 8 to match size of target (1) File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 40
-Warning (10230): Verilog HDL assignment warning at decimal_conversor.v(42): truncated value with size 32 to match size of target (1) File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 42
-Warning (10230): Verilog HDL assignment warning at decimal_conversor.v(48): truncated value with size 2 to match size of target (1) File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 48
-Info (278001): Inferred 1 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 42
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 42
-Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 42
+Warning (10272): Verilog HDL Case Statement warning at decimal_conversor.v(74): case item expression covers a value already covered by a previous case item File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 74
+Warning (10272): Verilog HDL Case Statement warning at decimal_conversor.v(75): case item expression covers a value already covered by a previous case item File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 75
+Warning (10270): Verilog HDL Case Statement warning at decimal_conversor.v(65): incomplete case statement has no default case item File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 65
+Warning (10240): Verilog HDL Always Construct warning at decimal_conversor.v(44): inferring latch(es) for variable "var", which holds its previous value in one or more paths through the always construct File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (10240): Verilog HDL Always Construct warning at decimal_conversor.v(44): inferring latch(es) for variable "soma", which holds its previous value in one or more paths through the always construct File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[8]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[9]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[10]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[11]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[12]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[13]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[14]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[15]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[16]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[17]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[18]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[19]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[20]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[21]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[22]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[23]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[24]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[25]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[26]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[27]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[28]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[29]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[30]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "soma[31]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[0][0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[0][1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[0][2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[0][3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[0][4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[0][5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[0][6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[0][7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[1][0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[1][1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[1][2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[1][3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[1][4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[1][5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[1][6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[1][7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[2][0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[2][1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[2][2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[2][3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[2][4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[2][5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[2][6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[2][7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[3][0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[3][1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[3][2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[3][3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[3][4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[3][5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[3][6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[3][7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[4][0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[4][1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[4][2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[4][3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[4][4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[4][5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[4][6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[4][7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[5][0]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[5][1]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[5][2]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[5][3]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[5][4]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[5][5]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[5][6]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (10041): Inferred latch for "decOut[5][7]" at decimal_conversor.v(44) File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 64
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 77
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 64
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 64
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_soo.tdf
-    Info (12023): Found entity 1: lpm_divide_soo File: D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/lpm_divide_soo.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_soo File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/lpm_divide_soo.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
-    Info (12023): Found entity 1: abs_divider_kbg File: D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/abs_divider_kbg.tdf Line: 29
+    Info (12023): Found entity 1: abs_divider_kbg File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/abs_divider_kbg.tdf Line: 29
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_67f.tdf
-    Info (12023): Found entity 1: alt_u_div_67f File: D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/alt_u_div_67f.tdf Line: 27
+    Info (12023): Found entity 1: alt_u_div_67f File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/alt_u_div_67f.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/add_sub_7pc.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/add_sub_7pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/add_sub_8pc.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/add_sub_8pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2v9.tdf
-    Info (12023): Found entity 1: lpm_abs_2v9 File: D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/lpm_abs_2v9.tdf Line: 25
+    Info (12023): Found entity 1: lpm_abs_2v9 File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/lpm_abs_2v9.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_i0a.tdf
-    Info (12023): Found entity 1: lpm_abs_i0a File: D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/db/lpm_abs_i0a.tdf Line: 25
+    Info (12023): Found entity 1: lpm_abs_i0a File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/lpm_abs_i0a.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 77
+Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 77
+    Info (12134): Parameter "LPM_WIDTHA" = "5"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "37"
+    Info (12134): Parameter "LPM_WIDTHR" = "37"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_k4t.tdf
+    Info (12023): Found entity 1: mult_k4t File: C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/db/mult_k4t.tdf Line: 31
+Info (13014): Ignored 84 buffer(s)
+    Info (13016): Ignored 31 CARRY_SUM buffer(s)
+    Info (13019): Ignored 53 SOFT buffer(s)
+Warning (13012): Latch decOut[5][0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal idx~32 File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 31
+Warning (13012): Latch decOut[5][1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[5][2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[5][3] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal idx~32 File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 31
+Warning (13012): Latch decOut[5][4] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal idx~32 File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 31
+Warning (13012): Latch decOut[4][0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[4][1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[4][2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[3][0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[3][1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[3][2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[2][0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[2][1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[2][2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[1][0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[1][1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[1][2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[0][0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[0][1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch decOut[0][2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal soma[31] File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+Warning (13012): Latch soma[0] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[14] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[13] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[12] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[11] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[10] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[9] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[8] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[7] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[6] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[5] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[4] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[3] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[2] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
+Warning (13012): Latch soma[1] has unsafe behavior File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currState File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 32
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "decOut[0]" is stuck at GND File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 22
-    Warning (13410): Pin "decOut[1]" is stuck at GND File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 22
-    Warning (13410): Pin "decOut[2]" is stuck at GND File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 22
-    Warning (13410): Pin "decOut[3]" is stuck at GND File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 22
-    Warning (13410): Pin "decOut[4]" is stuck at GND File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 22
-    Warning (13410): Pin "decOut[5]" is stuck at GND File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 22
+    Warning (13410): Pin "sig[5]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 6
+    Warning (13410): Pin "sig[6]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 6
+    Warning (13410): Pin "sig[7]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 6
+    Warning (13410): Pin "numA[3]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 7
+    Warning (13410): Pin "numA[4]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 7
+    Warning (13410): Pin "numA[5]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 7
+    Warning (13410): Pin "numA[6]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 7
+    Warning (13410): Pin "numA[7]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 7
+    Warning (13410): Pin "numB[3]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 8
+    Warning (13410): Pin "numB[4]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 8
+    Warning (13410): Pin "numB[5]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 8
+    Warning (13410): Pin "numB[6]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 8
+    Warning (13410): Pin "numB[7]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 8
+    Warning (13410): Pin "numC[3]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 9
+    Warning (13410): Pin "numC[4]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 9
+    Warning (13410): Pin "numC[5]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 9
+    Warning (13410): Pin "numC[6]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 9
+    Warning (13410): Pin "numC[7]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 9
+    Warning (13410): Pin "numD[3]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 10
+    Warning (13410): Pin "numD[4]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 10
+    Warning (13410): Pin "numD[5]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 10
+    Warning (13410): Pin "numD[6]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 10
+    Warning (13410): Pin "numD[7]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 10
+    Warning (13410): Pin "numE[3]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 13
+    Warning (13410): Pin "numE[4]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 13
+    Warning (13410): Pin "numE[5]" is stuck at VCC File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 13
+    Warning (13410): Pin "numE[6]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 13
+    Warning (13410): Pin "numE[7]" is stuck at GND File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 13
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 31 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/output_files/miniCPU.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/output_files/miniCPU.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 16 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "binIn[12]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[10]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[8]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[14]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[5]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[3]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[1]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[7]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[4]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[2]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[0]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[6]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[11]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[13]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[9]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-    Warning (15610): No output dependent on input pin "binIn[15]" File: D:/Users/jfag/Documents/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 3
-Info (21057): Implemented 72 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "binIn[15]" File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 3
+Info (21057): Implemented 849 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 17 input pins
-    Info (21059): Implemented 7 output pins
-    Info (21061): Implemented 48 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 33 warnings
-    Info: Peak virtual memory: 4880 megabytes
-    Info: Processing ended: Thu Nov 12 10:31:43 2026
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:18
+    Info (21059): Implemented 48 output pins
+    Info (21061): Implemented 780 logic cells
+    Info (21062): Implemented 4 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 111 warnings
+    Info: Peak virtual memory: 4865 megabytes
+    Info: Processing ended: Thu Nov 12 21:08:43 2026
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:28
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in D:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/output_files/miniCPU.map.smsg.
+The suppressed messages can be found in C:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/output_files/miniCPU.map.smsg.
 
 

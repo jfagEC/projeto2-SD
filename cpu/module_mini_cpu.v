@@ -10,6 +10,9 @@ output reg[3:0] reg2;
 output reg[6:0] imm;
 );
 
+//declarar os numeros como signed
+//testar como negativos são anotados na memória
+
 //adotar como convencao que maior indice => MSB
 
 localparam[2:0]
@@ -31,6 +34,40 @@ localparam[2:0] //estados da FSM
 
 reg [2:0] estadoAtual;
 
+integer contadorSEND=32'd0;
+integer contadorSTORE=32'd0;
+
+//parameters memory
+reg [15:0] data;
+reg [3:0] addr;
+reg we;
+reg [15:0] q;
+
+memory MEM(
+	.data(data),
+	.addr(addr),
+	.we(we),
+	.clk(clk),
+	.q(q)
+);
+
+//parameters ULA
+// sel = estadoAtual;
+reg [15:0] n1;
+reg [15:0] n2;
+reg [15:0] out;
+
+module_alu ULA(
+	.sel(estadoAtual),
+	.n1(n1),
+	.n2(n2),
+	.out(out);
+);
+
+reg [15:0] numIn;
+//lcd_controller_top LCD(
+	//numIn(out);
+//);
 
 wire ativo;
 
@@ -61,10 +98,10 @@ always @(posedge clk, posedge on, posedge send)begin //alternancia dos estados, 
             estadoAtual <= SEND_WAIT; //passa somente um pulso para fazer o decode
         end 
         SEND: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
-            estadoAtual <= STORE;
+            if(contadorSEND==5) estadoAtual <= STORE;
         end
         STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
-            estadoAtual <= SEND_WAIT;
+            if(contadorSTORE==4) estadoAtual <= SEND_WAIT;
         end
     endcase
 end
@@ -99,15 +136,45 @@ always @(*)begin
             DISPLAY: begin
                 regDestino <= instrucao[14:11]; //eh o resgistrador que vai p memoria
             end
-            LOAD: begin
-                //pensar em alguma coisa aq
-            end
-
-
+				CLEAR: begin
+					//resetar tudo
+				end
         endcase
-
-
     end
+	 
+	 SEND_WAIT: begin
+		contadorSTORE<=0;
+	 end
+	  
+	  SEND: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
+			we=0;
+			case(opcode):
+				ADD, SUB: begin
+					if(contadorSEND==1) addr = reg1;
+					if(contadorSEND==2) n1 = q;
+					if(contadorSEND==3) addr = reg2;
+					if(contadorSEND==4) n2 = q;
+				end
+				ADDI, SUBI, MUL:
+					if(contadorSEND==1) addr = reg1;
+					if(contadorSEND==2) n1 = q;
+					if(contadorSEND==3) n2 = imm;
+				default: begin
+					numIn <= out;
+				end
+			endcase
+			
+			contadorSEND+=1;
+	  end
+
+	  STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
+			contadorSEND<=0;
+			if(contadorSTORE==0) data <= out;
+			if(contadorSTORE==1) addr <= regDestino;
+			if(contadorSTORE==2) we<=1;
+			
+			contadorSTORE<=0;	
+		end
 
 
 
