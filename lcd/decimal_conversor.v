@@ -38,6 +38,7 @@ reg[31:0] idx;
 reg[31:0] var;
 reg[31:0] soma;
 */
+reg[15:0] tmpSum;
 reg[1:0] currState;
 
 reg[7:0] decOut [5:0];
@@ -59,7 +60,7 @@ always @(*)begin
 var = soma % 10;
     case(currState)
 		 CONVERT:begin
-			
+			tmpSum = (binIn[idx] * (1 << idx));
 		 end
 		 ADDAPT: begin
 			  
@@ -75,7 +76,7 @@ var = soma % 10;
 	case(currState)
 		CONVERT: begin
 			if(idx < 14) begin
-				soma = soma  + (binIn[idx] * (1 << idx));
+				soma = soma  + tmpSum;
 				idx = idx + 1;
 			end else begin
 				soma <= soma;	
