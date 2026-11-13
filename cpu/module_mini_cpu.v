@@ -55,6 +55,7 @@ memory MEM(
 //parameters ULA
 // sel = estadoAtual;
 wire [15:0] out;
+reg [2:0] sel;
 
 module_alu ULA(
 	.sel(estadoAtual),
@@ -72,13 +73,17 @@ wire ativo;
 
 initial begin
     estadoAtual = OFF;
+	 contadorSEND=0;
+	 contadorSTORE=0;
 //fazer inicializacao dos valores da memoria aq tb dps
 end
 
 
-always @(posedge clk, posedge on, posedge send)begin //alternancia dos estados, sensivel ao clk e aos botoes 
+//ver se precisa ter esse posedge on e posedge send
+always @(posedge clk/*, posedge on, posedge send*/)begin //alternancia dos estados, sensivel ao clk e aos botoes 
     case(estadoAtual)
         OFF: begin
+				sel<=OFF;
             if(on)
                 estadoAtual <= OFF;
             else begin
@@ -92,13 +97,13 @@ always @(posedge clk, posedge on, posedge send)begin //alternancia dos estados, 
                 estadoAtual <= DECODE;
         end
         DECODE: begin
-            estadoAtual <= SEND_WAIT; //passa somente um pulso para fazer o decode
+            estadoAtual <= SEND; //passa somente um pulso para fazer o decode
         end 
         SEND: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
-            if(contadorSEND==5) estadoAtual <= STORE;
+            if(contadorSEND>3) estadoAtual <= STORE;
         end
         STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
-            if(contadorSTORE==4) estadoAtual <= SEND_WAIT;
+            if(contadorSTORE>4) estadoAtual <= SEND_WAIT;
         end
     endcase
 end
@@ -113,7 +118,7 @@ always @(*)begin
         imm <= 7'd0;
     end
     DECODE: begin
-        opcode = instrucao[17:15];
+        opcode <= instrucao[17:15];
         case(opcode) //bloco para decodificar
             ADD, SUB: begin
                 regDestino <= instrucao[14:11];
@@ -147,15 +152,19 @@ always @(*)begin
 			we<=0;
 			case(opcode)
 				ADD, SUB: begin
-					if(contadorSEND==0) addr <= reg1;
-					if(contadorSEND==1) n1 <= q;
-					if(contadorSEND==2) addr <= reg2;
-					if(contadorSEND==3) n2 <= q;
+					if(contadorSEND>=3) n2 <= q;
+					else if(contadorSEND>=2) addr <= reg2;
+					else if(contadorSEND>=1) n1 <= q;
+					else if(contadorSEND>=0) addr <= reg1;
+					
+					
 				end
 				ADDI, SUBI, MUL: begin
-					if(contadorSEND==0) addr <= reg1;
-					if(contadorSEND==1) n1 <= q;
-					if(contadorSEND==2) n2 <= imm;
+					if(contadorSEND>=2) n2 <= imm;
+					else if(contadorSEND>=1) n1 <= q;
+					else if(contadorSEND>=0) addr <= reg1;
+					
+					
 				end
 				default: begin
 					numIn <= out;
@@ -167,11 +176,11 @@ always @(*)begin
 
 	  STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
 			contadorSEND<=0;
-			if(contadorSTORE==0) data <= out;
-			if(contadorSTORE==1) addr <= regDestino;
-			if(contadorSTORE==2) we<=1;
+			if(contadorSTORE>2) we<=1;
+			else if(contadorSTORE>1) addr <= regDestino;
+			else if(contadorSTORE>0) data <= out;
 			
-			contadorSTORE<=0;	
+			contadorSTORE<=contadorSTORE+1;	
 		end
 
 

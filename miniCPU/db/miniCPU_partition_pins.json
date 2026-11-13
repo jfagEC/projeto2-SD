@@ -304,11 +304,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "send",
+					"name" : "on",
 					"strict" : false
 				},
 				{
-					"name" : "on",
+					"name" : "send",
 					"strict" : false
 				},
 				{
