@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'currState'
+Slack : -101.763
+TNS   : -4776.348
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -8.155
+TNS   : -8.155
+
+Type  : Slow 1200mV 85C Model Hold 'currState'
+Slack : -1.435
+TNS   : -12.649
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.941
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'currState'
+Slack : -2.084
+TNS   : -28.270
+
+Type  : Slow 1200mV 85C Model Removal 'currState'
+Slack : 0.399
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'currState'
+Slack : -7.987
+TNS   : -2174.223
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -4.285
+
+Type  : Slow 1200mV 0C Model Setup 'currState'
+Slack : -92.250
+TNS   : -4334.483
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -7.443
+TNS   : -7.443
+
+Type  : Slow 1200mV 0C Model Hold 'currState'
+Slack : -1.068
+TNS   : -10.752
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.852
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'currState'
+Slack : -1.960
+TNS   : -26.220
+
+Type  : Slow 1200mV 0C Model Removal 'currState'
+Slack : 0.336
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'currState'
+Slack : -7.304
+TNS   : -1960.413
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -4.285
+
+Type  : Fast 1200mV 0C Model Setup 'currState'
+Slack : -49.287
+TNS   : -2317.287
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -3.749
+TNS   : -3.749
+
+Type  : Fast 1200mV 0C Model Hold 'currState'
+Slack : -1.018
+TNS   : -11.955
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.250
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'currState'
+Slack : -0.752
+TNS   : -9.255
+
+Type  : Fast 1200mV 0C Model Removal 'currState'
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'currState'
+Slack : -3.928
+TNS   : -976.862
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -4.000
+
+------------------------------------------------------------

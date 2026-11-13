@@ -14,7 +14,9 @@
 module lcd_controller_top (
     input  wire       clk,
     input  wire       rst,
-	 input wire[2:0] 	 Opcode, //entrada do seletor
+    //input wire[2:0]   OpcodeI, //entrada do seletor
+    //input wire[3:0]   regDispI, //registrador eh p mostar em binario ou decimal?
+    input wire[15:0]   numIn, //mostar em decimal, 16 bits dao 5 digitos(mais 1 de sinal)
 
     // Saídas para o LCD
     output wire  [7:0] lcd_data,
@@ -22,6 +24,9 @@ module lcd_controller_top (
     output wire        lcd_rw,
     output wire        lcd_e
 );
+
+reg[2:0] Opcode;
+reg [3:0] regDisp;
 	
 
     // -----------------------------------------------------------------------
@@ -34,18 +39,24 @@ module lcd_controller_top (
     wire       init_done;
 
     reg        start_init;  // gerado pelo controlador
+    wire[6:0] numDisp;
 
     lcd_init_hd44780 lcd_init (
         .clk      (clk),
         .rst      (rst),
         .start    (start_init),
-        .done     (init_done),
+        .done     (init_doneL),
         .lcd_data (init_data),
         .lcd_rs   (init_rs),
         .lcd_rw   (init_rw),
         .lcd_e    (init_e)
     );
-	//reg init_done = 1'b1; CASO QUEIRA TESTAR PELO WAVE FORM 
+    decimal_conversor conversor( //para tratar o numero do reg
+        .binIn (numIn),
+        .clk (clk),
+        .decOut (numDisp)
+    );
+	//reg init_done = 1'b1; //CASO QUEIRA TESTAR PELO WAVE FORM 
 	// precisa modificar o wire init_done e tambem oq entra no modulo do init p outra coisa																	
 
     // -----------------------------------------------------------------------
@@ -76,18 +87,21 @@ module lcd_controller_top (
 
     integer i;
 	 initial begin
+	 
+		Opcode = 3'd0;
+		regDisp = 4'd1;
 		message[4] = " ";
 		message[5] = " ";
 		message[6] = " ";
 		message[7] = " ";
 		message[8] = " ";
-		message[9] = " ";
-		message[10] = " ";
+		message[9] = "["; //valor fixo
+		message[10] = " "; //esses 4 espacos sao p o reg
 		message[11] = " ";
 		message[12] = " ";
 		message[13] = " ";
-		message[14] = " ";
-		message[15] = " ";
+		message[14] = "]"; //valor fix
+		message[15] = " "; //'jump'
 		message[16] = " ";
 		message[17] = " ";
 		message[18] = " ";
@@ -98,13 +112,16 @@ module lcd_controller_top (
 		message[23] = " ";
 		message[24] = " ";
 		message[25] = " ";
-		message[26] = " ";
+		message[26] = " "; //daqui p baixo eh o num, com sinal
 		message[27] = " ";
 		message[28] = " ";
 		message[29] = " ";
 		message[30] = " ";
 		message[31] = " ";
 	 end
+
+    
+    
 	 
 
     // -----------------------------------------------------------------------
@@ -113,7 +130,7 @@ module lcd_controller_top (
     // Exemplo para 50 MHz:
     localparam [31:0] DELAY_WRITE = 32'd2000; // ~40 us
     localparam [31:0] DELAY_PULSE = 32'd50;   // ~1 us
-	 localparam [31:0] DELAY_JUMP = 32'd5500;
+    localparam [31:0] DELAY_JUMP = 32'd5500;
 	 
 	 //cmd pro jump de linha
 	 localparam [7:0] CMD_CURSOR_JUMP = 8'b11000000;
@@ -127,7 +144,7 @@ module lcd_controller_top (
         S_PULSE_E    = 3'd2,
         S_WAIT       = 3'd3,
         S_DONE       = 3'd4,
-		  S_JUMP       = 3'd5;
+        S_JUMP       = 3'd5;
 		  
 
     reg [2:0]  state, next_state;
@@ -209,6 +226,12 @@ module lcd_controller_top (
 				message[3] = " ";
 			end
 		endcase
+        //colocando as outras saidas que nao dependem do op code reg ->10 - 13
+        message[10] = regDisp[3];message[11] = regDisp[2]; message[12] = regDisp[1]; message[13] = regDisp[0];
+        //colocando o num -> 26 - 31
+        if(numDisp >= 0) message[26] = "+";
+        else message[26] = "-";
+        message[27] = numDisp[4]; message[28] = numDisp[3]; message[29] = numDisp[2]; message[30] = numDisp[1]; message[31] = numDisp[0];
         case (state)
             // ---------------------------------------------------------------
             // Espera a inicialização do LCD ser concluída

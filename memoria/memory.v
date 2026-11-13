@@ -14,22 +14,22 @@ output wire [15:0] q
   
     //inicializacao da memoria em valores default
     initial begin 
-      ram[0] <= 16'd0;
-      ram[1] <= 16'd0;
-      ram[2] <= 16'd0;
-      ram[3] <= 16'd0;
-      ram[4] <= 16'd0;
-      ram[5] <= 16'd0;
-      ram[6] <= 16'd0;
-      ram[7] <= 16'd0;
-		ram[8] <= 16'd0;
-		ram[9] <= 16'd0;
-		ram[10] <= 16'd0;
-		ram[11] <= 16'd0;
-		ram[12] <= 16'd0;
-		ram[13] <= 16'd0;
-		ram[14] <= 16'd0;
-		ram[15] <= 16'd0;
+        ram[0] <= 16'd0;
+        ram[1] <= 16'd0;
+        ram[2] <= 16'd0;
+        ram[3] <= 16'd0;
+        ram[4] <= 16'd0;
+        ram[5] <= 16'd0;
+        ram[6] <= 16'd0;
+        ram[7] <= 16'd0;
+        ram[8] <= 16'd0;
+        ram[9] <= 16'd0;
+        ram[10] <= 16'd0;
+        ram[11] <= 16'd0;
+        ram[12] <= 16'd0;
+        ram[13] <= 16'd0;
+        ram[14] <= 16'd0;
+        ram[15] <= 16'd0;
     end
 
     always @(posedge clk) begin  //fica posedge p so atualizar quando soltar o botao

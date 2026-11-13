@@ -1,0 +1,153 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "sig[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sig[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sig[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sig[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sig[4]",
+					"strict" : false
+				},
+				{
+					"name" : "numA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "numA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "numA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "numB[0]",
+					"strict" : false
+				},
+				{
+					"name" : "numB[1]",
+					"strict" : false
+				},
+				{
+					"name" : "numB[2]",
+					"strict" : false
+				},
+				{
+					"name" : "numC[0]",
+					"strict" : false
+				},
+				{
+					"name" : "numC[1]",
+					"strict" : false
+				},
+				{
+					"name" : "numC[2]",
+					"strict" : false
+				},
+				{
+					"name" : "numD[0]",
+					"strict" : false
+				},
+				{
+					"name" : "numD[1]",
+					"strict" : false
+				},
+				{
+					"name" : "numD[2]",
+					"strict" : false
+				},
+				{
+					"name" : "numE[0]",
+					"strict" : false
+				},
+				{
+					"name" : "numE[1]",
+					"strict" : false
+				},
+				{
+					"name" : "numE[2]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[0]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[5]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[3]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[1]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[2]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[4]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[6]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[7]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[8]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[9]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[10]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[11]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[12]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[13]",
+					"strict" : false
+				},
+				{
+					"name" : "binIn[14]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
