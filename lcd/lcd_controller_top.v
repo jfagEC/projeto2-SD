@@ -12,8 +12,9 @@
 // Dependência: módulo lcd_init_hd44780 (já com sua própria FSM em 3 always).
 // ---------------------------------------------------------------------------
 module lcd_controller_top (
-    input  wire       clk,
-    input  wire       rst,
+    input  wire    clk,
+    input  wire    rst,
+	 input wire     clearStatus,
     input wire[2:0]   Opcode, //entrada do seletor
     input wire[3:0]   regDispIN, //registrador eh p mostar em binario ou decimal?
     input wire[15:0]   numIn, //mostar em decimal, 16 bits dao 5 digitos(mais 1 de sinal)
@@ -206,75 +207,93 @@ module lcd_controller_top (
         next_delay_cnt = delay_cnt;
         next_msg_index = msg_index;
 		if(rst) begin
-		case(Opcode)
-			OP_LOAD: begin
-				message[0] = "L";
-				message[1] = "O";
-				message[2] = "A";
-				message[3] = "D";
-			end
-			OP_ADD: begin
-				message[0] = "A";
-				message[1] = "D";
-				message[2] = "D";
-				message[3] = " ";
-			end
-			OP_ADDI: begin
-				message[0] = "A";
-				message[1] = "D";
-				message[2] = "D";
-				message[3] = "I";
-			end
-			OP_SUB: begin
-				message[0] = "S";
-				message[1] = "U";
-				message[2] = "B";
-				message[3] = " ";
-			end
-			OP_SUBI: begin
-				message[0] = "S";
-				message[1] = "U";
-				message[2] = "B";
-				message[3] = "I";
-			end
-			OP_MUL: begin
-				message[0] = "M";
-				message[1] = "U";
-				message[2] = "L";
-				message[3] = " ";
-			end
-			OP_CLR: begin
-				message[0] = "C";
-				message[1] = "L";
-				message[2] = "R";
-				message[3] = " ";
-			end
-			OP_DPL: begin
-				message[0] = "D";
-				message[1] = "P";
-				message[2] = "L";
-				message[3] = " ";
-			end
-			default: begin
+		if(clearStatus) begin
 				message[0] = "-";
 				message[1] = "-";
 				message[2] = "-";
 				message[3] = "-";
-			end
-		endcase
+				message[11] = "-";
+				message[12] = "-"; 
+				message[13] = "-"; 
+				message[14] = "-";
+			  //colocando o num -> 26 - 31
+				message[26] = "+";
+				message[27] = "0"; 
+				message[28] = "0"; 
+				message[29] = "0"; 
+				message[30] = "0"; 
+				message[31] = "0";
+		end else begin	
+			case(Opcode)
+				OP_LOAD: begin
+					message[0] = "L";
+					message[1] = "O";
+					message[2] = "A";
+					message[3] = "D";
+				end
+				OP_ADD: begin
+					message[0] = "A";
+					message[1] = "D";
+					message[2] = "D";
+					message[3] = " ";
+				end
+				OP_ADDI: begin
+					message[0] = "A";
+					message[1] = "D";
+					message[2] = "D";
+					message[3] = "I";
+				end
+				OP_SUB: begin
+					message[0] = "S";
+					message[1] = "U";
+					message[2] = "B";
+					message[3] = " ";
+				end
+				OP_SUBI: begin
+					message[0] = "S";
+					message[1] = "U";
+					message[2] = "B";
+					message[3] = "I";
+				end
+				OP_MUL: begin
+					message[0] = "M";
+					message[1] = "U";
+					message[2] = "L";
+					message[3] = " ";
+				end
+				OP_CLR: begin
+					message[0] = "C";
+					message[1] = "L";
+					message[2] = "R";
+					message[3] = " ";
+				end
+				OP_DPL: begin
+					message[0] = "D";
+					message[1] = "P";
+					message[2] = "L";
+					message[3] = " ";
+				end
+				default: begin
+					message[0] = "-";
+					message[1] = "-";
+					message[2] = "-";
+					message[3] = "-";
+				end
+			endcase
         //colocando as outras saidas que nao dependem do op code reg ->10 - 13
-        message[11] = regDisp[3];
-		  message[12] = regDisp[2]; 
-		  message[13] = regDisp[1]; 
-		  message[14] = regDisp[0];
-        //colocando o num -> 26 - 31
-        message[26] = numDisp[5];
-        message[27] = numDisp[4]; 
-		  message[28] = numDisp[3]; 
-		  message[29] = numDisp[2]; 
-		  message[30] = numDisp[1]; 
-		  message[31] = numDisp[0];
-	  end
+			  message[11] = regDisp[3];
+			  message[12] = regDisp[2]; 
+			  message[13] = regDisp[1]; 
+			  message[14] = regDisp[0];
+			  //colocando o num -> 26 - 31
+			  message[26] = numDisp[5];
+			  message[27] = numDisp[4]; 
+			  message[28] = numDisp[3]; 
+			  message[29] = numDisp[2]; 
+			  message[30] = numDisp[1]; 
+			  message[31] = numDisp[0];
+		 end //fim do else
+	  end //fim do if rst
         case (state)
             // ---------------------------------------------------------------
             // Espera a inicialização do LCD ser concluída

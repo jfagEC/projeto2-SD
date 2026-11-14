@@ -6,7 +6,7 @@ module module_alu(input wire[2:0] sel, input wire[15:0] n1, input wire[15:0] n2,
 	always@(*) begin
 		case(sel)
 			ADDI, ADD: res <= n1+n2;
-			SUB, SUBI: res <= n1-n2;
+			SUBI: res <= n1-n2;
 			MUL: res <= n1*n2;
 			default: res<=16'd0;
 		endcase

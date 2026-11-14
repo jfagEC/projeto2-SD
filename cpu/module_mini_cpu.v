@@ -65,9 +65,20 @@ module_alu ULA(
 );
 
 reg [15:0] numIn;
-//lcd_controller_top LCD(
-	//numIn(out);
-//);
+
+/*FALTA ORGANIZAR OS FIOS Q VAO DENTRO DO CONTROLADOR DO LCD E AS SAIDAS
+lcd_controller_top LCD(
+	.clk(clk),
+	.rst(VARIAVEL PARA QUANDO FOR ATUALIZAR O LCD), //ATIVO => 1
+	.clearStatus(VARIAVEL PARA QUANDO FOR FICAR NO ESTADO DO CLEAR), ATIVO =>1
+	.Opcode(OPCODE PARA SER EXIBIDO),
+	.regDispIN(REGISTRADOR PARA SER EXIBIDO),
+	.numIn(VALOR EM BINARIO, DIRETO DA MEMORIA, PARA SER EXIBIDO)
+	.lcd_data(BUS DE SAIDA PARA O LCD),
+	.lcd_rs(),
+	.lcd_rw(),
+	.lcd_e()
+);*/
 
 wire ativo;
 
@@ -77,7 +88,6 @@ initial begin
 	 contadorSTORE=0;
 //fazer inicializacao dos valores da memoria aq tb dps
 end
-
 
 //ver se precisa ter esse posedge on e posedge send
 always @(posedge clk/*, posedge on, posedge send*/)begin //alternancia dos estados, sensivel ao clk e aos botoes 
@@ -108,7 +118,7 @@ always @(posedge clk/*, posedge on, posedge send*/)begin //alternancia dos estad
     endcase
 end
 
-always @(*)begin
+always @(posedge clk)begin //manipulacao dos valores numericos
     case(estadoAtual)
     OFF: begin
         opcode <= 3'd0;
@@ -118,7 +128,7 @@ always @(*)begin
         imm <= 7'd0;
     end
     DECODE: begin
-        opcode <= instrucao[17:15];
+        opcode = instrucao[17:15];
         case(opcode) //bloco para decodificar
             ADD, SUB: begin
                 regDestino <= instrucao[14:11];
@@ -151,20 +161,21 @@ always @(*)begin
 	  SEND: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
 			we<=0;
 			case(opcode)
-				ADD, SUB: begin
+				ADD: begin 
 					if(contadorSEND>=3) n2 <= q;
 					else if(contadorSEND>=2) addr <= reg2;
 					else if(contadorSEND>=1) n1 <= q;
 					else if(contadorSEND>=0) addr <= reg1;
-					
-					
+				end
+				SUB: begin
+					if(contadorSEND>=2) data <= n1;
+					else if(contadorSEND>=1) n1 <= q;
+					else if(contadorSEND>=0) addr <= reg1;
 				end
 				ADDI, SUBI, MUL: begin
 					if(contadorSEND>=2) n2 <= imm;
 					else if(contadorSEND>=1) n1 <= q;
-					else if(contadorSEND>=0) addr <= reg1;
-					
-					
+					else if(contadorSEND>=0) addr <= reg1;'
 				end
 				default: begin
 					numIn <= out;
@@ -182,9 +193,6 @@ always @(*)begin
 			
 			contadorSTORE<=contadorSTORE+1;	
 		end
-
-
-
 
     endcase
 

@@ -1,6 +1,6 @@
 module decimal_conversor(
 
-input wire [15:0] binIn,
+input wire [15:0] binInUn,
 input wire clk,
 input wire enable, //enable vai puxar o reset do lcd
 
@@ -38,6 +38,7 @@ reg[15:0] tmpSum;*/
 reg[1:0] currState;
 
 reg[7:0] decOut [5:0];
+wire[14:0] binIn;
 
 //reg[3:0] somaArr[4:0]; //5 digitos de 0 ate 9(4 bits)
 
@@ -53,6 +54,8 @@ initial begin
 	 decOut[5] = 8'd0;
 end
 
+assign binIn = binInUn[14:0];
+
 always @(posedge clk)begin
 	case(currState)
 		CONVERT: begin
@@ -65,7 +68,11 @@ always @(posedge clk)begin
 		end
 		ADDAPT: begin
 			if(idx < 5) begin
+				if(soma == 32767 && binInUn[15]) //somente para o caso especial de tudo 1, q tem o overflow
+					soma = soma + 1; //precisa adicionar 1 ao valor da soma
 				var = soma % 10;
+				
+				
 				case(var)
 					ZERO: decOut[idx] <= "0";
 					ONE: decOut[idx] <= "1";
@@ -81,7 +88,7 @@ always @(posedge clk)begin
 				soma = soma/10;
 				idx = idx + 1;
 			end else if(idx == 5) begin
-				decOut[idx] = binIn[15] ? "-": "+" ;
+				decOut[idx] = binInUn[15] ? "-": "+" ; //pega o sinal do numero n tratado ainda
 				idx = idx + 1;
 			end else begin
 				idx <= 0;
