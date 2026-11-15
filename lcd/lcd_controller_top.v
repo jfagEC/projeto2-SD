@@ -54,7 +54,7 @@ module lcd_controller_top (
         .lcd_e    (init_e)
     );
     decimal_conversor conversor( //para tratar o numero do reg
-        .binIn (numIn),
+        .binInUn (numIn),
         .clk (clk),
         .enable(rst),
 		  .sig(numDisp[5]), //valores de saida pra escrever
