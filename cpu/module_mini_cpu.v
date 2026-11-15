@@ -130,11 +130,15 @@ always @(posedge clk)begin //manipulacao dos valores numericos
     DECODE: begin
         opcode = instrucao[17:15];
         case(opcode) //bloco para decodificar
-            ADD, SUB: begin
+            ADD: begin
                 regDestino <= instrucao[14:11];
                 reg1 <= instrucao[10:7];
                 reg2 <= instrucao[6:3];
                 //os ultimos 3 bits ficam sobrando
+            end
+            SUB: begin
+                regDestino <= instrucao[14:11];
+                reg1 <= instrucao[10:7];
             end
             ADDI, SUBI, MUL: begin
                 regDestino <= instrucao[14:11];
@@ -168,14 +172,13 @@ always @(posedge clk)begin //manipulacao dos valores numericos
 					else if(contadorSEND>=0) addr <= reg1;
 				end
 				SUB: begin
-					if(contadorSEND>=2) data <= n1;
-					else if(contadorSEND>=1) n1 <= q;
+					if(contadorSEND>=2) n1 <= q;
 					else if(contadorSEND>=0) addr <= reg1;
 				end
 				ADDI, SUBI, MUL: begin
 					if(contadorSEND>=2) n2 <= imm;
 					else if(contadorSEND>=1) n1 <= q;
-					else if(contadorSEND>=0) addr <= reg1;'
+					else if(contadorSEND>=0) addr <= reg1;
 				end
 				default: begin
 					numIn <= out;
@@ -189,7 +192,18 @@ always @(posedge clk)begin //manipulacao dos valores numericos
 			contadorSEND<=0;
 			if(contadorSTORE>2) we<=1;
 			else if(contadorSTORE>1) addr <= regDestino;
-			else if(contadorSTORE>0) data <= out;
+			else if(contadorSTORE>0) begin
+                if (opcode == SUB) 
+                    data <= n1;
+                else if (opcode == LOAD) begin
+                    if (imm[6] == 1)
+                        data <= -{10'd0, imm[5:0]};
+                    else 
+                        data <= {10'd0, imm[5:0]};
+                end
+                else 
+                    data <= out;
+            end
 			
 			contadorSTORE<=contadorSTORE+1;	
 		end
