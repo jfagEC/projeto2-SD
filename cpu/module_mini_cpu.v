@@ -10,7 +10,8 @@ output reg[3:0] reg2,
 output reg[6:0] imm,
 output reg [15:0] n1,
 output reg [15:0] n2,
-output reg [2:0] estadoAtual
+output reg [2:0] estadoAtual,
+output reg [6:0] valor_mem //Debuggar o que mexe na memória
 );
 
 //declarar os numeros como signed
@@ -113,7 +114,7 @@ always @(posedge clk/*, posedge on, posedge send*/)begin //alternancia dos estad
             if(contadorSEND>3) estadoAtual <= STORE;
         end
         STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
-            if(contadorSTORE>4) estadoAtual <= SEND_WAIT;
+            if(contadorSTORE>5) estadoAtual <= SEND_WAIT;
         end
     endcase
 end
@@ -139,6 +140,7 @@ always @(posedge clk)begin //manipulacao dos valores numericos
             SUB: begin
                 regDestino <= instrucao[14:11];
                 reg1 <= instrucao[10:7];
+					 //Os outros bits ficam sobrando
             end
             ADDI, SUBI, MUL: begin
                 regDestino <= instrucao[14:11];
@@ -147,7 +149,7 @@ always @(posedge clk)begin //manipulacao dos valores numericos
             end
             LOAD: begin
                 regDestino <= instrucao[14:11]; //considerar como na posicao do registrador 1
-                imm <= instrucao[10:4];
+                imm <= instrucao[6:0]; //bit 6 -> sinal; "SWs[6:0]"
             end
             DISPLAY: begin
                 regDestino <= instrucao[14:11]; //eh o resgistrador que vai p memoria
@@ -161,7 +163,7 @@ always @(posedge clk)begin //manipulacao dos valores numericos
 	 SEND_WAIT: begin
 		contadorSTORE<=0;
 	 end
-	  
+	 //Pegar o valor na memória
 	  SEND: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
 			we<=0;
 			case(opcode)
@@ -176,7 +178,10 @@ always @(posedge clk)begin //manipulacao dos valores numericos
 					else if(contadorSEND>=0) addr <= reg1;
 				end
 				ADDI, SUBI, MUL: begin
-					if(contadorSEND>=2) n2 <= imm;
+					if(contadorSEND>=2) begin 
+						if (imm[6] == 1) n2 <= -{10'd0, imm[5:0]}; //Tratamento pra ele passar o valor certo e colocar o bit de sinal certo
+						else n2 <= {10'd0, imm[5:0]};
+					end
 					else if(contadorSEND>=1) n1 <= q;
 					else if(contadorSEND>=0) addr <= reg1;
 				end
@@ -187,19 +192,25 @@ always @(posedge clk)begin //manipulacao dos valores numericos
 			
 			contadorSEND<=contadorSEND+1;
 	  end
-
+	//Guardar na memória
 	  STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
 			contadorSEND<=0;
-			if(contadorSTORE>2) we<=1;
+			if (contadorSTORE>4) begin //Isso aqui é pra ver se o valor guardado na memória tá certo
+				valor_mem <= q[6:0];
+			end
+			else if(contadorSTORE>2) begin
+				we<=1;
+				if (opcode == SUB) valor_mem <= q[6:0]; //Debuggar o sub
+			end
 			else if(contadorSTORE>1) addr <= regDestino;
 			else if(contadorSTORE>0) begin
                 if (opcode == SUB) 
                     data <= n1;
                 else if (opcode == LOAD) begin
                     if (imm[6] == 1)
-                        data <= -{10'd0, imm[5:0]};
+                        data <= -{10'd0, imm[5:0]};//Coloca o bit de sinal na frente
                     else 
-                        data <= {10'd0, imm[5:0]};
+                        data <= {10'd0, imm[5:0]};//pega os 5bits de valor do immediato e completa com 10 bits de valor 0
                 end
                 else 
                     data <= out;

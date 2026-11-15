@@ -1,5 +1,5 @@
 module module_alu(input wire[2:0] sel, input wire[15:0] n1, input wire[15:0] n2, output wire[15:0] out);
-	parameter ADD=1, ADDI=2, SUB=3, SUBI=4, MUL=5;
+	parameter ADD=1, ADDI=2, SUBI=4, MUL=5;
 
 	integer res = 16'd0;
 	
