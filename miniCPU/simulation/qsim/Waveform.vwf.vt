@@ -1,0 +1,191 @@
+// Copyright (C) 2022  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "11/12/2026 09:51:35"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          lcd_controller_top
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module lcd_controller_top_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg [2:0] Opcode;
+reg clk;
+reg [15:0] numIn;
+reg [3:0] regDisp;
+reg rst;
+// wires                                               
+wire [7:0] lcd_data;
+wire lcd_e;
+wire lcd_rs;
+wire lcd_rw;
+
+// assign statements (if any)                          
+lcd_controller_top i1 (
+// port map - connection between master ports and signals/registers   
+	.Opcode(Opcode),
+	.clk(clk),
+	.lcd_data(lcd_data),
+	.lcd_e(lcd_e),
+	.lcd_rs(lcd_rs),
+	.lcd_rw(lcd_rw),
+	.numIn(numIn),
+	.regDisp(regDisp),
+	.rst(rst)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+// Opcode[ 2 ]
+initial
+begin
+	Opcode[2] = 1'b0;
+end 
+// Opcode[ 1 ]
+initial
+begin
+	Opcode[1] = 1'b0;
+end 
+// Opcode[ 0 ]
+initial
+begin
+	Opcode[0] = 1'b0;
+end 
+// regDisp[ 3 ]
+initial
+begin
+	regDisp[3] = 1'b0;
+end 
+// regDisp[ 2 ]
+initial
+begin
+	regDisp[2] = 1'b0;
+end 
+// regDisp[ 1 ]
+initial
+begin
+	regDisp[1] = 1'b0;
+end 
+// regDisp[ 0 ]
+initial
+begin
+	regDisp[0] = 1'b1;
+end 
+// numIn[ 15 ]
+initial
+begin
+	numIn[15] = 1'b0;
+end 
+// numIn[ 14 ]
+initial
+begin
+	numIn[14] = 1'b0;
+end 
+// numIn[ 13 ]
+initial
+begin
+	numIn[13] = 1'b0;
+end 
+// numIn[ 12 ]
+initial
+begin
+	numIn[12] = 1'b0;
+end 
+// numIn[ 11 ]
+initial
+begin
+	numIn[11] = 1'b0;
+end 
+// numIn[ 10 ]
+initial
+begin
+	numIn[10] = 1'b0;
+end 
+// numIn[ 9 ]
+initial
+begin
+	numIn[9] = 1'b0;
+end 
+// numIn[ 8 ]
+initial
+begin
+	numIn[8] = 1'b0;
+end 
+// numIn[ 7 ]
+initial
+begin
+	numIn[7] = 1'b0;
+end 
+// numIn[ 6 ]
+initial
+begin
+	numIn[6] = 1'b0;
+end 
+// numIn[ 5 ]
+initial
+begin
+	numIn[5] = 1'b0;
+end 
+// numIn[ 4 ]
+initial
+begin
+	numIn[4] = 1'b0;
+end 
+// numIn[ 3 ]
+initial
+begin
+	numIn[3] = 1'b0;
+end 
+// numIn[ 2 ]
+initial
+begin
+	numIn[2] = 1'b1;
+end 
+// numIn[ 1 ]
+initial
+begin
+	numIn[1] = 1'b0;
+end 
+// numIn[ 0 ]
+initial
+begin
+	numIn[0] = 1'b1;
+end 
+
+// clk
+always
+begin
+	clk = 1'b0;
+	clk = #100 1'b1;
+	#100;
+end 
+
+// rst
+initial
+begin
+	rst = 1'b0;
+end 
+endmodule
+
