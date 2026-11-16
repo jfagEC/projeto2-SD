@@ -10,23 +10,23 @@ z2
 cModel Technology
 Z0 dD:/Users/jfag/Documents/projeto/projeto2-SD/miniCPU/simulation/qsim
 vhard_block
-Z1 !s110 1794585875
+Z1 !s110 1794864185
 !i10b 1
-!s100 E:5`[dYBIG]h:fCO=?n0b2
+!s100 ^ogM@TkXKHX_EHcXzjGl93
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IQDU458LAL]5T]01d1cK;O3
+IUNaOWZVUaPDF<7jHM6dfD1
 Z3 VDg1SIo80bB@j0V0VzS_@n1
-Z4 dC:/Users/Rodrigo/projetos/projeto2-SD/miniCPU/simulation/qsim
-Z5 w1794585874
+Z4 d/home/felipe/projeto2-SD/miniCPU/simulation/qsim
+Z5 w1794864184
 Z6 8miniCPU.vo
 Z7 FminiCPU.vo
-!i122 64
-L0 9126 34
+!i122 122
+L0 60888 34
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1794585875.000000
+Z9 !s108 1794864185.000000
 Z10 !s107 miniCPU.vo|
 Z11 !s90 -work|work|miniCPU.vo|
 !i113 1
@@ -81,16 +81,16 @@ R13
 vmodule_mini_cpu
 R1
 !i10b 1
-!s100 ;L1eE`>Wbc0NFZSj?WkCc1
+!s100 `O2F:OEh542JR:<e<dB7K2
 R2
-I@F;bHKb18aa9kB7`=<TS:3
+In@I8DoCaZ[eXT^X]ind^H3
 R3
 R4
 R5
 R6
 R7
-!i122 64
-L0 32 9093
+!i122 122
+L0 32 60855
 R8
 r1
 !s85 0
@@ -104,23 +104,23 @@ R13
 vmodule_mini_cpu_vlg_vec_tst
 R1
 !i10b 1
-!s100 <OB;KH>E9R7PQ41_c;8aW1
+!s100 ?ITAkF[22fUbRb5c6HG=10
 R2
-I5>2SZ<AA?ZAfRzX[]fU0Q0
+IL`O0D?nBEQX_c^0TWac8]1
 R3
 R4
-R5
-8Waveform2.vwf.vt
-FWaveform2.vwf.vt
-!i122 65
-L0 30 152
+w1794864183
+8../Waveform1.vwf.vt
+F../Waveform1.vwf.vt
+!i122 123
+L0 30 178
 R8
 r1
 !s85 0
 31
 R9
-!s107 Waveform2.vwf.vt|
-!s90 -work|work|Waveform2.vwf.vt|
+!s107 ../Waveform1.vwf.vt|
+!s90 -work|work|../Waveform1.vwf.vt|
 !i113 1
 R12
 R13
