@@ -37,7 +37,7 @@ module lcd_controller_top (
     wire       init_rs;
     wire       init_rw;
     wire       init_e;
-    wire       init_done;
+    wire       init_doneA;
 
     reg        start_init;  // gerado pelo controlador
 	 
@@ -47,7 +47,7 @@ module lcd_controller_top (
         .clk      (clk),
         .rst      (rst),
         .start    (start_init),
-        .done     (init_done),
+        .done     (init_doneA),
         .lcd_data (init_data),
         .lcd_rs   (init_rs),
         .lcd_rw   (init_rw),
@@ -76,7 +76,7 @@ module lcd_controller_top (
 	 
 	 );
 	 //CASO QUEIRA TESTAR PELO WAVE FORM 
-	//reg init_done = 1'b1; 
+	reg init_done = 1'b1; 
 	// precisa modificar o wire init_done e tambem oq entra no modulo do init p outra coisa																	
 
     // -----------------------------------------------------------------------
@@ -159,9 +159,9 @@ module lcd_controller_top (
     // Temporizações para escrita de caracteres (ajustar ao clock real)
     // -----------------------------------------------------------------------
     // Exemplo para 50 MHz:
-    localparam [31:0] DELAY_WRITE = 32'd2000; // ~40 us
-    localparam [31:0] DELAY_PULSE = 32'd50;   // ~1 us
-    localparam [31:0] DELAY_JUMP = 32'd2500;
+    localparam [31:0] DELAY_WRITE = 32'd32; // ~40 us //era 2000
+    localparam [31:0] DELAY_PULSE = 32'd16;   // ~1 us //era 50
+    localparam [31:0] DELAY_JUMP = 32'd1;		//era 2500
 	 
 	 //cmd pro jump de linha
 	 localparam [7:0] CMD_CURSOR_JUMP = 8'b11000001; //colocando p o endreco seguinte pq ta com algum bug na escrita do caracter
