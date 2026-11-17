@@ -1,2 +1,6 @@
-Warning (10268): Verilog HDL information at decimal_conversor.v(44): always construct contains both blocking and non-blocking assignments File: C:/Users/Rodrigo/projetos/projeto2-SD/lcd/decimal_conversor.v Line: 44
-Info (10281): Verilog HDL Declaration information at module_mini_cpu.v(4): object "send" differs only in case from object "SEND" in the same scope File: C:/Users/Rodrigo/projetos/projeto2-SD/cpu/module_mini_cpu.v Line: 4
+Warning (10268): Verilog HDL information at bin_conversor.v(29): always construct contains both blocking and non-blocking assignments File: /home/felipe/projeto2-SD/lcd/bin_conversor.v Line: 29
+Warning (10268): Verilog HDL information at decimal_conversor.v(59): always construct contains both blocking and non-blocking assignments File: /home/felipe/projeto2-SD/lcd/decimal_conversor.v Line: 59
+Warning (10268): Verilog HDL information at lcd_controller_top.v(389): always construct contains both blocking and non-blocking assignments File: /home/felipe/projeto2-SD/lcd/lcd_controller_top.v Line: 389
+Warning (10268): Verilog HDL information at module_mini_cpu.v(108): always construct contains both blocking and non-blocking assignments File: /home/felipe/projeto2-SD/cpu/module_mini_cpu.v Line: 108
+Warning (10268): Verilog HDL information at module_mini_cpu.v(153): always construct contains both blocking and non-blocking assignments File: /home/felipe/projeto2-SD/cpu/module_mini_cpu.v Line: 153
+Info (10281): Verilog HDL Declaration information at module_mini_cpu.v(4): object "send" differs only in case from object "SEND" in the same scope File: /home/felipe/projeto2-SD/cpu/module_mini_cpu.v Line: 4

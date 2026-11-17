@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Fri Nov 13 13:04:02 2026
-Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+Analysis & Synthesis Status : Successful - Mon Nov 16 20:39:46 2026
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : miniCPU
 Top-level Entity Name : module_mini_cpu
 Family : Cyclone IV E
-Total logic elements : 414
-    Total combinational functions : 414
-    Dedicated logic registers : 3
-Total registers : 3
-Total pins : 78
+Total logic elements : 2,646
+    Total combinational functions : 2,398
+    Dedicated logic registers : 637
+Total registers : 637
+Total pins : 96
 Total virtual pins : 0
-Total memory bits : 256
-Embedded Multiplier 9-bit elements : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 2
 Total PLLs : 0

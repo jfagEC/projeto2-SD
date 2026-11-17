@@ -12,6 +12,7 @@ output reg[6:0] imm,
 output reg [15:0] n1,
 output reg [15:0] n2,
 output reg [2:0] estadoAtual,
+output reg [6:0] valor_mem, //Debuggar o que mexe na memória
 //saidas do lcd
 output wire  [7:0] lcd_data,
 output wire        lcd_rs,
@@ -71,7 +72,7 @@ wire [15:0] out;
 reg [2:0] sel;
 
 module_alu ULA(
-	.sel(estadoAtual),
+	.sel(opcode),
 	.n1(n1),
 	.n2(n2),
 	.out(out)
@@ -138,12 +139,12 @@ always @(posedge clk/*, posedge on /*, posedge send*/)begin //alternancia dos es
 					if(opcode != CLEAR) estadoAtual <= SEND; //passa somente um pulso para fazer o decode
 					else estadoAtual <= SEND_WAIT; //volta p esperar outras instrucoes direto se der clear
 			  end 
-			  SEND: begin //talvez passar mais tempo aq, ver as limitacoes de hardware, sao necessarias no max 4 operacoes
-					if(contadorSEND>3 && opcode != DISPLAY) estadoAtual <= STORE;
-					else if(contadorSEND>3 && opcode == DISPLAY) estadoAtual <= SEND_WAIT; //nao precisa passar pelo store
-			  end
+				SEND: begin
+					 if(contadorSEND>5 && opcode != DISPLAY) estadoAtual <= STORE;
+					 else if(contadorSEND>5 && opcode == DISPLAY) estadoAtual <= SEND_WAIT;
+				end
 			  STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware, sao necessarias no max 5 operacoes
-					if(contadorSTORE>4) estadoAtual <= SEND_WAIT;
+          if(contadorSTORE>5) estadoAtual <= SEND_WAIT;
 			  end
 		 endcase
 	 
@@ -164,11 +165,16 @@ always @(posedge clk)begin //manipulacao dos valores numericos
     DECODE: begin
         opcode = instrucao[17:15];
         case(opcode) //bloco para decodificar
-            ADD, SUB: begin
+            ADD: begin
                 regDestino <= instrucao[14:11];
                 reg1 <= instrucao[10:7];
                 reg2 <= instrucao[6:3];
                 //os ultimos 3 bits ficam sobrando
+            end
+            SUB: begin
+                regDestino <= instrucao[14:11];
+                reg1 <= instrucao[10:7];
+					 //Os outros bits ficam sobrando
             end
             ADDI, SUBI, MUL: begin
                 regDestino <= instrucao[14:11];
@@ -177,7 +183,7 @@ always @(posedge clk)begin //manipulacao dos valores numericos
             end
             LOAD: begin
                 regDestino <= instrucao[14:11]; //considerar como na posicao do registrador 1
-                imm <= instrucao[10:4];
+                imm <= instrucao[6:0]; //bit 6 -> sinal; "SWs[6:0]"
             end
             DISPLAY: begin
                 regDestino <= instrucao[14:11]; //eh o resgistrador que vai p memoria
@@ -196,50 +202,65 @@ always @(posedge clk)begin //manipulacao dos valores numericos
 		lcdWrite <= 0;
 		lcdClear <= 0;
 	 end
-	  
+	 //Pegar o valor na memória
 	  SEND: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
 			we<=0;
 			case(opcode)
-				ADD: begin 
-					if(contadorSEND>=3) n2 <= q;
-					else if(contadorSEND>=2) addr <= reg2;
-					else if(contadorSEND>=1) n1 <= q;
-					else if(contadorSEND>=0) addr <= reg1;
-				end
-				SUB: begin 
-					if(contadorSEND >= 1) n1 <= q;
-					else if(contadorSEND>=0) addr <= reg1; //nao precisa buscar na memoria, nem de n2
-				end
-				ADDI, SUBI, MUL: begin
-					if(contadorSEND>=2) n2 <= imm;
-					else if(contadorSEND>=1) n1 <= q;
-					else if(contadorSEND>=0) addr <= reg1;
-				end
-				LOAD: begin
-					if(contadorSEND>=0) n1 <= imm; //nao precisa buscar na memoria, nem de n2
-				end
-				DISPLAY: begin
-					if(contadorSEND>=1) n1 <= q;
-					else if(contadorSEND>=0) addr <= regDestino; //coloca em reg destino pq eh oq vai p o lcd, mas nao vai p store
-				
-				end
-			endcase
+					 ADD, SUB: begin
+						  if(contadorSEND>=5)      n2   <= q;   
+						  else if(contadorSEND>=3) addr <= reg2;
+						  else if(contadorSEND>=2) n1   <= q; // aumento do intervalo entre atribuicoes dado pelo cont     
+						  else                     addr <= reg1;
+					 end
+					 ADDI, SUBI, MUL: begin
+						  if(contadorSEND>=2) begin
+								n1 <= q;
+								if (imm[6] == 1) n2 <= -{10'd0, imm[5:0]};
+								else             n2 <= {10'd0, imm[5:0]};
+						  end
+						  else addr <= reg1;
+					 end
+					 LOAD: begin
+						  n1 <= imm;
+					 end
+					 DISPLAY: begin
+						  if(contadorSEND>=2) n1 <= q;
+						  else                addr <= regDestino;
+					 end
+				endcase
 			
 			contadorSEND<=contadorSEND+1;
 	  end
-
+	//Guardar na memória
 	  STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
 			lcdWrite = 0;
 			contadorSEND<=0;
-			if(contadorSTORE>2) we<=1;
+			if (contadorSTORE>4) begin //Isso aqui é pra ver se o valor guardado na memória tá certo
+				valor_mem <= q[6:0];
+			end
+			else if(contadorSTORE>2) begin
+				we<=1;
+				if (opcode == SUB) valor_mem <= q[6:0]; //Debuggar o sub
+			end
 			else if(contadorSTORE>1) addr <= regDestino;
 			else if(contadorSTORE>0) begin
-				data <= out;
+                if (opcode == SUB) 
+                    data <= n1;
+                else if (opcode == LOAD) begin
+                    if (imm[6] == 1)
+                        data <= -{10'd0, imm[5:0]};//Coloca o bit de sinal na frente
+                    else 
+                        data <= {10'd0, imm[5:0]};//pega os 5bits de valor do immediato e completa com 10 bits de valor 0
+                end
+                else 
+                    data <= out;
 				lcdWrite = 1; //so escreve na primeira vez q passa aq 
 			end  
-			
+
 			contadorSTORE<=contadorSTORE+1;	
 		end
+		
+		default: begin end
 
     endcase
 
