@@ -11,8 +11,9 @@ output reg[3:0] reg2,
 output reg[6:0] imm,
 output reg [15:0] n1,
 output reg [15:0] n2,
-output reg [2:0] estadoAtual,
+output reg [3:0] estadoAtual,
 output reg [6:0] valor_mem, //Debuggar o que mexe na memória isso NAO precisa virar registrador interno, pode expurgar
+output reg lcdWrite,
 //saidas do lcd
 output wire  [7:0] lcd_data,
 output wire        lcd_rs,
@@ -34,24 +35,26 @@ localparam[2:0]
     CLEAR = 3'd6,
     DISPLAY = 3'd7;
 
-localparam[2:0] //estados da FSM
-    OFF = 3'd0, //cpu desligada
-    SEND_WAIT = 3'd1, //enquanto n tem o trig do botao
-    DECODE = 3'd2, //decodificar a instrucao
-    SEND = 3'd3, //buscar operandos/enviar para ula
-    STORE = 3'd4, //armazenar resultados na memória
-	 PROCESS_RESET = 3'd5, //processar quando apertar o liga/desliga - > so vai quando soltar
-	 PROCESS_SEND = 3'd6, //processar quando apertar o send - > so vai quando soltar
-	 LCD_UPD = 3'd7; //segura aq enquanto decodifica p jogar no lcd
-
+localparam[3:0] //estados da FSM
+    OFF = 4'd0, //cpu desligada
+    SEND_WAIT = 4'd1, //enquanto n tem o trig do botao
+    DECODE = 4'd2, //decodificar a instrucao
+    SEND = 4'd3, //buscar operandos/enviar para ula
+    STORE = 4'd4, //armazenar resultados na memória
+	 PROCESS_RESET = 4'd5, //processar quando apertar o liga/desliga - > so vai quando soltar
+	 PROCESS_SEND = 4'd6, //processar quando apertar o send - > so vai quando soltar
+	 LCD_UPD = 4'd7, //segura aq enquanto decodifica p jogar no lcd
+	 BOOT = 4'd8; //somente para inicializar as coisas
+	 
 integer contadorSEND=32'd0;
 integer contadorSTORE=32'd0;
 integer contadorLcd = 32'd0;
 
 //variaveis de controle dos submodulos -> comportamento de booleana
 reg memClear;
-reg lcdWrite; 
+//reg lcdWrite; 
 reg lcdClear;
+reg lcdBlank;
 
 //parameters memory
 reg [15:0] data;
@@ -86,6 +89,7 @@ lcd_controller_top LCD(
 	.clk(clk),
 	.rst(lcdWrite), //ATIVO => 1
 	.clearStatus(lcdClear), //ATIVO =>1
+	.blank(lcdBlank),
 	.Opcode(opcode),
 	.regDispIN(regDestino),
 	.numIn(data),
@@ -102,7 +106,7 @@ initial begin
 	 contadorSEND=0;
 	 contadorSTORE=0;
 	 lcdWrite = 1; //precisa dar o clear no lcd, p tirar a mensagem padrao
-	 lcdClear = 1;
+	 lcdClear = 0;
 	 memClear = 0;
  end
 
@@ -112,7 +116,7 @@ always @(posedge clk)begin //alternancia dos estados, sensivel ao clk e aos boto
 			  PROCESS_RESET: begin //estado q vai quando aperta o on/off
 					if(~on) estadoAtual <= PROCESS_RESET;
 					else if(oldState == SEND_WAIT) estadoAtual <= OFF;
-					else estadoAtual <= SEND_WAIT;
+					else estadoAtual <= BOOT;
 			  end
 			  PROCESS_SEND: begin //estado q vai quando aperta o send
 					if(~send) estadoAtual <= PROCESS_SEND;
@@ -127,6 +131,9 @@ always @(posedge clk)begin //alternancia dos estados, sensivel ao clk e aos boto
 						 estadoAtual <= PROCESS_RESET;
 					end
 			  end
+			  BOOT: begin
+					estadoAtual <= SEND_WAIT;
+			  end
 			  SEND_WAIT: begin
 					 oldState = estadoAtual;
 					 if(~on) estadoAtual <= PROCESS_RESET;
@@ -135,7 +142,8 @@ always @(posedge clk)begin //alternancia dos estados, sensivel ao clk e aos boto
 			  end
 			  DECODE: begin
 					if(opcode != CLEAR) estadoAtual <= SEND; //passa somente um pulso para fazer o decode
-					else estadoAtual <= SEND_WAIT; //volta p esperar outras instrucoes direto se der clear
+					else estadoAtual <= SEND_WAIT; //volta direto p receber outras instrucoes, nao precisa esperar o decode do lcd
+					//AVISO: CASO NAO ESTEJA DANDO CLEAR DIREITO NA MEMORIA, FAZ PASSAR PELO LCD_UPD QUE TEM TEMPO SUFICIENTE
 			  end 
 				SEND: begin
 					 if(contadorSEND>5 && opcode != DISPLAY) estadoAtual <= STORE;
@@ -154,16 +162,27 @@ end
 
 always @(posedge clk)begin //manipulacao dos valores numericos
     case(estadoAtual)
+	 PROCESS_RESET: lcdWrite <= 1;
     OFF: begin
-        opcode <= 3'd0;
+		  lcdClear <= 0;
+		  lcdWrite <= 0;
+		  memClear <= 0;
+		  lcdBlank <= 1;
+    end
+	 BOOT: begin
+		  opcode <= 3'd0;
         regDestino <= 4'd0;
         reg1 <= 4'd0;
         reg2 <= 4'd0;
         imm <= 7'd0;
-		  lcdClear <= 0;
-		  lcdWrite <= 0;
+		  n1 <= 0;
+		  n2 <= 0;
+		  lcdClear <= 1;
+		  lcdWrite <= 1;
 		  memClear <= 1;
-    end
+		  lcdBlank <= 0;
+	 
+	 end
     DECODE: begin
         opcode = instrucao[17:15];
         case(opcode) //bloco para decodificar
@@ -191,10 +210,8 @@ always @(posedge clk)begin //manipulacao dos valores numericos
                 regDestino <= instrucao[14:11]; ////coloca em reg destino pq eh oq vai p o lcd, mas nao vai p store
             end
 				CLEAR: begin
-					lcdWrite <= 1;
-					lcdClear <= 1;
+					lcdWrite <= 1; //nao vai passar pelo LCD_UPD, pq n precisa decodificar nada
 					memClear <= 1;
-					opcode = LOAD; //valor qualquer, somente para permitir a leitura depois
 				end
         endcase
     end
@@ -204,6 +221,7 @@ always @(posedge clk)begin //manipulacao dos valores numericos
 		lcdWrite <= 0;
 		lcdClear <= 0;
 		contadorLcd <= 0;
+		lcdBlank <= 0;
 	 end
 	 //Pegar o valor na memória
 	  SEND: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
