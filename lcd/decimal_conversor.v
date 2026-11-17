@@ -54,7 +54,7 @@ initial begin
 	 decOut[5] = 8'd0;
 end
 
-assign binIn = binInUn[14:0];
+assign binIn = binInUn[15] ? -binInUn[14:0]: binInUn[14:0]; //fazendo o (de)comp2 caso seja negativo
 
 always @(posedge clk)begin
 	case(currState)

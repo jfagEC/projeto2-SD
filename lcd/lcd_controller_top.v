@@ -14,8 +14,8 @@
 
 /*COMO TESTAR O LCD PELO WAVE_FORM
 1)Mude a variavel init_done para outra coisa, deixando igual a que entra no bloco do lcd init
-2)Descomente a linha 88, deixando o init_done um valor fixo
-3)Mude os valores dos delays(linhas 171-173) para valores pequenos arbitrários, ex. 2, 1
+2)Descomente a linha 85, deixando o init_done um valor fixo
+3)Mude os valores dos delays(linhas 153-155) para valores pequenos arbitrários, ex. 2, 1
 OBS: O lcd_data vai conseguir atualizar para aparecer dentro do waveform, mas precisa ter um clk
 oscilando rapidamente e vai ter limitação do que consegue aparecer
 */
@@ -23,6 +23,7 @@ module lcd_controller_top (
     input  wire    clk,
     input  wire    rst,
 	 input wire     clearStatus,
+	 input wire     blank,
     input wire[2:0]   Opcode, //entrada do seletor
     input wire[3:0]   regDispIN, //registrador eh p mostar em binario ou decimal?
     input wire[15:0]   numIn, //mostar em decimal, 16 bits dao 5 digitos(mais 1 de sinal)
@@ -43,7 +44,7 @@ module lcd_controller_top (
     wire       init_rs;
     wire       init_rw;
     wire       init_e;
-    wire       init_done;
+    wire       init_doneA;
 
     reg        start_init;  // gerado pelo controlador
 	 
@@ -53,7 +54,7 @@ module lcd_controller_top (
         .clk      (clk),
         .rst      (rst),
         .start    (start_init),
-        .done     (init_done),
+        .done     (init_doneA),
         .lcd_data (init_data),
         .lcd_rs   (init_rs),
         .lcd_rw   (init_rw),
@@ -82,7 +83,7 @@ module lcd_controller_top (
 	 
 	 );
 	 //CASO QUEIRA TESTAR PELO WAVE FORM 
-	//reg init_done = 1'b1;																
+	reg init_done = 1'b1;																
 
     // -----------------------------------------------------------------------
     // MUX: decide quem controla o LCD (init ou controlador principal)
@@ -112,32 +113,22 @@ module lcd_controller_top (
 
     integer i;
 	 initial begin
-		//Opcode = 4'd0;
-		//regDisp = 4'd1;
-		/*
-		numDisp[5] = "+";
-		numDisp[4] = "0";
-		numDisp[3] = "0";
-		numDisp[2] = "0";
-		numDisp[1] = "0";
-		numDisp[0] = "0";*/
-		
-		message[0] = "-";
-		message[1] = "-";
-		message[2] = "-";
-		message[3] = "-";
+		message[0] = " ";
+		message[1] = " ";
+		message[2] = " ";
+		message[3] = " ";
 		message[4] = " ";
 		message[5] = " ";
 		message[6] = " ";
 		message[7] = " ";
 		message[8] = " ";
 		message[9] = " "; 
-		message[10] = "["; //esses 4 espacos sao p o reg
-		message[11] = "-";
-		message[12] = "-";
-		message[13] = "-";
-		message[14] = "-"; //valor fix
-		message[15] = "]"; //'jump'
+		message[10] = " "; //esses 4 espacos sao p o reg
+		message[11] = " ";
+		message[12] = " ";
+		message[13] = " ";
+		message[14] = " "; //valor fix
+		message[15] = " "; //'jump'
 		message[16] = " ";
 		message[17] = " ";
 		message[18] = " ";
@@ -148,25 +139,21 @@ module lcd_controller_top (
 		message[23] = " ";
 		message[24] = " ";
 		message[25] = " ";
-		message[26] = "+"; //daqui p baixo eh o num, com sinal
-		message[27] = "0";
-		message[28] = "0";
-		message[29] = "0";
-		message[30] = "0";
-		message[31] = "0";
+		message[26] = " "; //daqui p baixo eh o num, com sinal
+		message[27] = " ";
+		message[28] = " ";
+		message[29] = " ";
+		message[30] = " ";
+		message[31] = " ";
 	 end
-
-    
-    
-	 
 
     // -----------------------------------------------------------------------
     // Temporizações para escrita de caracteres (ajustar ao clock real)
     // -----------------------------------------------------------------------
     // Exemplo para 50 MHz:
-    localparam [31:0] DELAY_WRITE = 32'd2000; // ~40 us //era 2000
-    localparam [31:0] DELAY_PULSE = 32'd50;   // ~1 us //era 50
-    localparam [31:0] DELAY_JUMP = 32'd2500;		//era 2500
+    localparam [31:0] DELAY_WRITE = 32'd2; // ~40 us //era 2000
+    localparam [31:0] DELAY_PULSE = 32'd1;   // ~1 us //era 50
+    localparam [31:0] DELAY_JUMP = 32'd2;		//era 2500
 	 
 	 //cmd pro jump de linha
 	 localparam [7:0] CMD_CURSOR_JUMP = 8'b11000001; //colocando p o endreco seguinte pq ta com algum bug na escrita do caracter
@@ -211,8 +198,42 @@ module lcd_controller_top (
         next_state     = state;
         next_delay_cnt = delay_cnt;
         next_msg_index = msg_index;
-		if(rst) begin
-		if(clearStatus) begin
+		if(blank) begin
+			message[0] = " ";
+			message[1] = " ";
+			message[2] = " ";
+			message[3] = " ";
+			message[4] = " ";
+			message[5] = " ";
+			message[6] = " ";
+			message[7] = " ";
+			message[8] = " ";
+			message[9] = " "; 
+			message[10] = " "; 
+			message[11] = " ";
+			message[12] = " ";
+			message[13] = " ";
+			message[14] = " "; 
+			message[15] = " "; 
+			message[16] = " ";
+			message[17] = " ";
+			message[18] = " ";
+			message[19] = " ";
+			message[20] = " ";
+			message[21] = " ";
+			message[22] = " ";
+			message[23] = " ";
+			message[24] = " ";
+			message[25] = " ";
+			message[26] = " "; 
+			message[27] = " ";
+			message[28] = " ";
+			message[29] = " ";
+			message[30] = " ";
+			message[31] = " ";
+		end
+		else if(rst) begin
+		if(clearStatus) begin //cpu desligada
 				message[0] = "-";
 				message[1] = "-";
 				message[2] = "-";
@@ -286,36 +307,54 @@ module lcd_controller_top (
 				end
 			endcase
 		   //colocando de novo as saidas q n mudam
-			message[4] = " ";
-			message[5] = " ";
-			message[6] = " ";
-			message[7] = " ";
-			message[8] = " ";
-			message[9] = " "; 
-			message[10] = "["; //esses 4 espacos sao p o reg
-			message[15] = "]"; //'jump'
-			message[16] = " ";
-			message[17] = " ";
-			message[18] = " ";
-			message[19] = " ";
-			message[20] = " ";
-			message[21] = " ";
-			message[22] = " ";
-			message[23] = " ";
-			message[24] = " ";
-			message[25] = " ";
-        //colocando as outras saidas que nao dependem do op code reg ->10 - 13
-			  message[11] = regDisp[3];
-			  message[12] = regDisp[2]; 
-			  message[13] = regDisp[1]; 
-			  message[14] = regDisp[0];
-			  //colocando o num -> 26 - 31
-			  message[26] = numDisp[5];
-			  message[27] = numDisp[4]; 
-			  message[28] = numDisp[3]; 
-			  message[29] = numDisp[2]; 
-			  message[30] = numDisp[1]; 
-			  message[31] = numDisp[0];
+			  if(Opcode != OP_CLR) begin
+					message[10] = "["; //esses 4 espacos sao p o reg
+					message[15] = "]"; //'jump'
+					//colocando as outras saidas que nao dependem do op code reg ->10 - 13
+					message[11] = regDisp[3];
+					message[12] = regDisp[2]; 
+					message[13] = regDisp[1]; 
+					message[14] = regDisp[0];
+					//colocando o num -> 26 - 31
+					message[26] = numDisp[5];
+					message[27] = numDisp[4]; 
+					message[28] = numDisp[3]; 
+					message[29] = numDisp[2]; 
+					message[30] = numDisp[1]; 
+					message[31] = numDisp[0];
+			  end else begin 
+					message[10] = " "; //esses 4 espacos sao p o reg
+					message[15] = " "; //'jump'
+					//colocando as outras saidas que nao dependem do op code reg ->10 - 13
+				   message[11] = " ";
+				   message[12] = " "; 
+				   message[13] = " "; 
+				   message[14] = " ";
+				   //colocando o num -> 26 - 31
+				   message[26] = " ";
+				   message[27] = " "; 
+				   message[28] = " "; 
+				   message[29] = " "; 
+				   message[30] = " "; 
+				   message[31] = " ";
+			  end
+			  message[4] = " ";
+			  message[5] = " ";
+			  message[6] = " ";
+			  message[7] = " ";
+			  message[8] = " ";
+			  message[9] = " "; 
+			  message[16] = " ";
+			  message[17] = " ";
+			  message[18] = " ";
+			  message[19] = " ";
+			  message[20] = " ";
+			  message[21] = " ";
+			  message[22] = " ";
+			  message[23] = " ";
+			  message[24] = " ";
+			  message[25] = " ";
+        
 		 end //fim do else
 	  end //fim do if rst
         case (state)
