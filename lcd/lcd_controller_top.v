@@ -11,6 +11,14 @@
 //
 // Dependência: módulo lcd_init_hd44780 (já com sua própria FSM em 3 always).
 // ---------------------------------------------------------------------------
+
+/*COMO TESTAR O LCD PELO WAVE_FORM
+1)Mude a variavel init_done para outra coisa, deixando igual a que entra no bloco do lcd init
+2)Descomente a linha 88, deixando o init_done um valor fixo
+3)Mude os valores dos delays(linhas 171-173) para valores pequenos arbitrários, ex. 2, 1
+OBS: O lcd_data vai conseguir atualizar para aparecer dentro do waveform, mas precisa ter um clk
+oscilando rapidamente e vai ter limitação do que consegue aparecer
+*/
 module lcd_controller_top (
     input  wire    clk,
     input  wire    rst,
@@ -26,8 +34,6 @@ module lcd_controller_top (
     output wire        lcd_e
 );
 
-//reg[2:0] Opcode;
-//reg [3:0] regDisp;
 	wire[7:0] regDisp [3:0];	
 	
     // -----------------------------------------------------------------------
@@ -37,7 +43,7 @@ module lcd_controller_top (
     wire       init_rs;
     wire       init_rw;
     wire       init_e;
-    wire       init_doneA;
+    wire       init_done;
 
     reg        start_init;  // gerado pelo controlador
 	 
@@ -47,7 +53,7 @@ module lcd_controller_top (
         .clk      (clk),
         .rst      (rst),
         .start    (start_init),
-        .done     (init_doneA),
+        .done     (init_done),
         .lcd_data (init_data),
         .lcd_rs   (init_rs),
         .lcd_rw   (init_rw),
@@ -76,8 +82,7 @@ module lcd_controller_top (
 	 
 	 );
 	 //CASO QUEIRA TESTAR PELO WAVE FORM 
-	reg init_done = 1'b1; 
-	// precisa modificar o wire init_done e tambem oq entra no modulo do init p outra coisa																	
+	//reg init_done = 1'b1;																
 
     // -----------------------------------------------------------------------
     // MUX: decide quem controla o LCD (init ou controlador principal)
@@ -159,9 +164,9 @@ module lcd_controller_top (
     // Temporizações para escrita de caracteres (ajustar ao clock real)
     // -----------------------------------------------------------------------
     // Exemplo para 50 MHz:
-    localparam [31:0] DELAY_WRITE = 32'd32; // ~40 us //era 2000
-    localparam [31:0] DELAY_PULSE = 32'd16;   // ~1 us //era 50
-    localparam [31:0] DELAY_JUMP = 32'd1;		//era 2500
+    localparam [31:0] DELAY_WRITE = 32'd2000; // ~40 us //era 2000
+    localparam [31:0] DELAY_PULSE = 32'd50;   // ~1 us //era 50
+    localparam [31:0] DELAY_JUMP = 32'd2500;		//era 2500
 	 
 	 //cmd pro jump de linha
 	 localparam [7:0] CMD_CURSOR_JUMP = 8'b11000001; //colocando p o endreco seguinte pq ta com algum bug na escrita do caracter
@@ -280,6 +285,25 @@ module lcd_controller_top (
 					message[3] = "-";
 				end
 			endcase
+		   //colocando de novo as saidas q n mudam
+			message[4] = " ";
+			message[5] = " ";
+			message[6] = " ";
+			message[7] = " ";
+			message[8] = " ";
+			message[9] = " "; 
+			message[10] = "["; //esses 4 espacos sao p o reg
+			message[15] = "]"; //'jump'
+			message[16] = " ";
+			message[17] = " ";
+			message[18] = " ";
+			message[19] = " ";
+			message[20] = " ";
+			message[21] = " ";
+			message[22] = " ";
+			message[23] = " ";
+			message[24] = " ";
+			message[25] = " ";
         //colocando as outras saidas que nao dependem do op code reg ->10 - 13
 			  message[11] = regDisp[3];
 			  message[12] = regDisp[2]; 
