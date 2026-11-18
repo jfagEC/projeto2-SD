@@ -170,9 +170,9 @@ module lcd_controller_top (
         S_JUMP       = 3'd5;
 		  
 
-    reg [2:0]  state, next_state;
-    reg [31:0] delay_cnt, next_delay_cnt;
-    reg [4:0]  msg_index, next_msg_index; // até 31 caracteres
+    reg [2:0]  state = S_WAIT_INIT, next_state = S_WAIT_INIT;
+    reg [31:0] delay_cnt = 0, next_delay_cnt=0;
+    reg [4:0]  msg_index = 0, next_msg_index = 0; // até 31 caracteres
 	 
 
     // =======================================================================
@@ -234,6 +234,8 @@ module lcd_controller_top (
 		end
 		else if(rst) begin
 		if(clearStatus) begin //cpu desligada
+				message[10] = "["; //esses 4 espacos sao p o reg
+				message[15] = "]"; //'jump'
 				message[0] = "-";
 				message[1] = "-";
 				message[2] = "-";
