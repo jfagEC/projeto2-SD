@@ -32,7 +32,7 @@ localparam[1:0]
 
 integer soma;
 integer idx;
-integer var;
+integer varT;
 /*reg[31:0] soma;
 reg[15:0] tmpSum;*/
 reg[1:0] currState;
@@ -54,7 +54,7 @@ initial begin
 	 decOut[5] = 8'd0;
 end
 
-assign binIn = binInUn[14:0];
+assign binIn = binInUn[15] ? -binInUn[14:0]: binInUn[14:0]; //fazendo o (de)comp2 caso seja negativo
 
 always @(posedge clk)begin
 	case(currState)
@@ -70,10 +70,10 @@ always @(posedge clk)begin
 			if(idx < 5) begin
 				if(soma == 32767 && binInUn[15]) //somente para o caso especial de tudo 1, q tem o overflow
 					soma = soma + 1; //precisa adicionar 1 ao valor da soma
-				var = soma % 10;
+				varT = soma % 10;
 				
 				
-				case(var)
+				case(varT)
 					ZERO: decOut[idx] <= "0";
 					ONE: decOut[idx] <= "1";
 					TWO: decOut[idx] <= "2";
