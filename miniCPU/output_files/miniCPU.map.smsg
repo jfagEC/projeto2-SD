@@ -1,5 +1,5 @@
-Warning (10268): Verilog HDL information at bin_conversor.v(29): always construct contains both blocking and non-blocking assignments File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/bin_conversor.v Line: 29
-Warning (10268): Verilog HDL information at decimal_conversor.v(59): always construct contains both blocking and non-blocking assignments File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 59
-Warning (10268): Verilog HDL information at lcd_controller_top.v(454): always construct contains both blocking and non-blocking assignments File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 454
-Warning (10268): Verilog HDL information at module_mini_cpu.v(173): always construct contains both blocking and non-blocking assignments File: D:/Users/jfag/Downloads/projeto/projeto2-SD/cpu/module_mini_cpu.v Line: 173
-Info (10281): Verilog HDL Declaration information at module_mini_cpu.v(4): object "send" differs only in case from object "SEND" in the same scope File: D:/Users/jfag/Downloads/projeto/projeto2-SD/cpu/module_mini_cpu.v Line: 4
+Warning (10268): Verilog HDL information at bin_conversor.v(29): always construct contains both blocking and non-blocking assignments File: D:/Users/flg/projeto2-SD/lcd/bin_conversor.v Line: 29
+Warning (10268): Verilog HDL information at decimal_conversor.v(59): always construct contains both blocking and non-blocking assignments File: D:/Users/flg/projeto2-SD/lcd/decimal_conversor.v Line: 59
+Warning (10268): Verilog HDL information at lcd_controller_top.v(454): always construct contains both blocking and non-blocking assignments File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 454
+Warning (10268): Verilog HDL information at module_mini_cpu.v(171): always construct contains both blocking and non-blocking assignments File: D:/Users/flg/projeto2-SD/cpu/module_mini_cpu.v Line: 171
+Info (10281): Verilog HDL Declaration information at module_mini_cpu.v(4): object "send" differs only in case from object "SEND" in the same scope File: D:/Users/flg/projeto2-SD/cpu/module_mini_cpu.v Line: 4

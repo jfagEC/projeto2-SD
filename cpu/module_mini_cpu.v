@@ -4,8 +4,6 @@ input wire on, //liga/desliga
 input wire send, //botao p enviar 
 input wire clk,
 //saidas de debug, remover depois, PRECISAM SER COLOCADOS COMO REGISTRADORES INTERNOS
-
-output reg [6:0] valor_mem, //Debuggar o que mexe na memória isso NAO precisa virar registrador interno, pode expurgar
 //output reg lcdWrite,
 //saidas do lcd
 output wire  [7:0] lcd_data,
@@ -221,6 +219,7 @@ always @(posedge clk)begin //manipulacao dos valores numericos
             SUB: begin
                 regDestino <= instrucao[14:11];
                 reg1 <= instrucao[10:7];
+					 reg2 <= instrucao[6:3];
 					 //Os outros bits ficam sobrando
             end
             ADDI, SUBI, MUL: begin
@@ -289,13 +288,8 @@ always @(posedge clk)begin //manipulacao dos valores numericos
 			//lcdWrite = 0;
 			contadorSEND<=0;
 			//verificar se precisa desses 2 estagios de debug
-			if (contadorSTORE>=4) begin //Isso aqui é pra ver se o valor guardado na memória tá certo
-				valor_mem <= q[6:0];
-			end
 			if(contadorSTORE>=2) begin
 				if(opcode != DISPLAY)we<=1; //ESSE WE PRECISA SER MANTIDO, MESMO DEPOIS DE TIRAR AS PARADA DE DEBUG
-				 
-				if (opcode == SUB) valor_mem <= q[6:0]; //Debuggar o sub
 			end
 			else if(contadorSTORE>=1)begin
 				//addr <= regDestino;
@@ -303,19 +297,18 @@ always @(posedge clk)begin //manipulacao dos valores numericos
 			end
       else if(contadorSTORE>=0) begin
 				addr <= regDestino;
-				 if (opcode == SUB) 
-					  data <= n1;
-				 else if (opcode == LOAD) begin
+				 if (opcode == LOAD) begin
 					  if (imm[6] == 1)
 							data <= -{10'd0, imm[5:0]};//Coloca o bit de sinal na frente
 					  else 
 							data <= {10'd0, imm[5:0]};//pega os 5bits de valor do immediato e completa com 10 bits de valor 0
 				 end //fim do else if interno
+			
 				 else if(opcode!= DISPLAY)
 					  data <= out;
 				
 			end //fim do else if  
-			
+
 			contadorSTORE<=contadorSTORE+1;	
 		end //fim do case de store
 		LCD_UPD: begin
