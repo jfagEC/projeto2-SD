@@ -1,5 +1,5 @@
 Analysis & Synthesis report for miniCPU
-Wed Nov 18 16:44:14 2026
+Wed Nov 18 17:21:10 2026
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -58,7 +58,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 18 16:44:14 2026       ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 18 17:21:10 2026       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; miniCPU                                     ;
 ; Top-level Entity Name              ; module_mini_cpu                             ;
@@ -181,41 +181,41 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 6            ;   0.1%      ;
 ;     Processor 7            ;   0.1%      ;
 ;     Processor 8            ;   0.1%      ;
-;     Processors 9-16        ;   0.0%      ;
+;     Processors 9-16        ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                           ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                       ; Library ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
-; ../lcd/bin_conversor.v           ; yes             ; User Verilog HDL File        ; D:/Users/flg/projeto2-SD/lcd/bin_conversor.v                       ;         ;
-; ../lcd/decimal_conversor.v       ; yes             ; User Verilog HDL File        ; D:/Users/flg/projeto2-SD/lcd/decimal_conversor.v                   ;         ;
-; ../lcd/lcd_controller_top.v      ; yes             ; User Verilog HDL File        ; D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v                  ;         ;
-; ../lcd/lcd_init_hd44780.v        ; yes             ; User Verilog HDL File        ; D:/Users/flg/projeto2-SD/lcd/lcd_init_hd44780.v                    ;         ;
-; ../ula/module_alu.v              ; yes             ; User Verilog HDL File        ; D:/Users/flg/projeto2-SD/ula/module_alu.v                          ;         ;
-; ../cpu/module_mini_cpu.v         ; yes             ; User Verilog HDL File        ; D:/Users/flg/projeto2-SD/cpu/module_mini_cpu.v                     ;         ;
-; ../memoria/memory.v              ; yes             ; User Verilog HDL File        ; D:/Users/flg/projeto2-SD/memoria/memory.v                          ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
-; aglobal211.inc                   ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/aglobal211.inc      ;         ;
-; db/lpm_divide_soo.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Users/flg/projeto2-SD/miniCPU/db/lpm_divide_soo.tdf             ;         ;
-; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Users/flg/projeto2-SD/miniCPU/db/abs_divider_kbg.tdf            ;         ;
-; db/alt_u_div_67f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Users/flg/projeto2-SD/miniCPU/db/alt_u_div_67f.tdf              ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/flg/projeto2-SD/miniCPU/db/add_sub_7pc.tdf                ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/flg/projeto2-SD/miniCPU/db/add_sub_8pc.tdf                ;         ;
-; db/lpm_abs_2v9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/flg/projeto2-SD/miniCPU/db/lpm_abs_2v9.tdf                ;         ;
-; db/lpm_abs_i0a.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/flg/projeto2-SD/miniCPU/db/lpm_abs_i0a.tdf                ;         ;
-; db/lpm_divide_p0p.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Users/flg/projeto2-SD/miniCPU/db/lpm_divide_p0p.tdf             ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
-; multcore.inc                     ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/multcore.inc        ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/bypassff.inc        ;         ;
-; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/altshift.inc        ;         ;
-; db/mult_7dt.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Users/flg/projeto2-SD/miniCPU/db/mult_7dt.tdf                   ;         ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; ../lcd/bin_conversor.v           ; yes             ; User Verilog HDL File        ; D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/bin_conversor.v            ;         ;
+; ../lcd/decimal_conversor.v       ; yes             ; User Verilog HDL File        ; D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/decimal_conversor.v        ;         ;
+; ../lcd/lcd_controller_top.v      ; yes             ; User Verilog HDL File        ; D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v       ;         ;
+; ../lcd/lcd_init_hd44780.v        ; yes             ; User Verilog HDL File        ; D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_init_hd44780.v         ;         ;
+; ../ula/module_alu.v              ; yes             ; User Verilog HDL File        ; D:/Users/jfag/Downloads/projeto/projeto2-SD/ula/module_alu.v               ;         ;
+; ../cpu/module_mini_cpu.v         ; yes             ; User Verilog HDL File        ; D:/Users/jfag/Downloads/projeto/projeto2-SD/cpu/module_mini_cpu.v          ;         ;
+; ../memoria/memory.v              ; yes             ; User Verilog HDL File        ; D:/Users/jfag/Downloads/projeto/projeto2-SD/memoria/memory.v               ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/lpm_divide.tdf              ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/abs_divider.inc             ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/sign_div_unsign.inc         ;         ;
+; aglobal211.inc                   ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/aglobal211.inc              ;         ;
+; db/lpm_divide_soo.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/lpm_divide_soo.tdf  ;         ;
+; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/abs_divider_kbg.tdf ;         ;
+; db/alt_u_div_67f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/alt_u_div_67f.tdf   ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/add_sub_7pc.tdf     ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/add_sub_8pc.tdf     ;         ;
+; db/lpm_abs_2v9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/lpm_abs_2v9.tdf     ;         ;
+; db/lpm_abs_i0a.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/lpm_abs_i0a.tdf     ;         ;
+; db/lpm_divide_p0p.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/lpm_divide_p0p.tdf  ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/lpm_mult.tdf                ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/lpm_add_sub.inc             ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/multcore.inc                ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/bypassff.inc                ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/21.1/quartus/libraries/megafunctions/altshift.inc                ;         ;
+; db/mult_7dt.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/mult_7dt.tdf        ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -753,7 +753,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -763,341 +763,340 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Wed Nov 18 16:44:03 2026
+    Info: Processing started: Wed Nov 18 17:20:57 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off miniCPU -c miniCPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file /users/flg/projeto2-sd/lcd/bin_conversor.v
-    Info (12023): Found entity 1: bin_conversor File: D:/Users/flg/projeto2-SD/lcd/bin_conversor.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/flg/projeto2-sd/lcd/decimal_conversor.v
-    Info (12023): Found entity 1: decimal_conversor File: D:/Users/flg/projeto2-SD/lcd/decimal_conversor.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/flg/projeto2-sd/lcd/lcd_controller_top.v
-    Info (12023): Found entity 1: lcd_controller_top File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 22
-Info (12021): Found 1 design units, including 1 entities, in source file /users/flg/projeto2-sd/lcd/lcd_init_hd44780.v
-    Info (12023): Found entity 1: lcd_init_hd44780 File: D:/Users/flg/projeto2-SD/lcd/lcd_init_hd44780.v Line: 12
-Info (12021): Found 1 design units, including 1 entities, in source file /users/flg/projeto2-sd/ula/module_alu.v
-    Info (12023): Found entity 1: module_alu File: D:/Users/flg/projeto2-SD/ula/module_alu.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/flg/projeto2-sd/cpu/module_mini_cpu.v
-    Info (12023): Found entity 1: module_mini_cpu File: D:/Users/flg/projeto2-SD/cpu/module_mini_cpu.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/flg/projeto2-sd/memoria/memory.v
-    Info (12023): Found entity 1: memory File: D:/Users/flg/projeto2-SD/memoria/memory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/jfag/downloads/projeto/projeto2-sd/lcd/bin_conversor.v
+    Info (12023): Found entity 1: bin_conversor File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/bin_conversor.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/jfag/downloads/projeto/projeto2-sd/lcd/decimal_conversor.v
+    Info (12023): Found entity 1: decimal_conversor File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/jfag/downloads/projeto/projeto2-sd/lcd/lcd_controller_top.v
+    Info (12023): Found entity 1: lcd_controller_top File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file /users/jfag/downloads/projeto/projeto2-sd/lcd/lcd_init_hd44780.v
+    Info (12023): Found entity 1: lcd_init_hd44780 File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_init_hd44780.v Line: 12
+Info (12021): Found 1 design units, including 1 entities, in source file /users/jfag/downloads/projeto/projeto2-sd/ula/module_alu.v
+    Info (12023): Found entity 1: module_alu File: D:/Users/jfag/Downloads/projeto/projeto2-SD/ula/module_alu.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/jfag/downloads/projeto/projeto2-sd/cpu/module_mini_cpu.v
+    Info (12023): Found entity 1: module_mini_cpu File: D:/Users/jfag/Downloads/projeto/projeto2-SD/cpu/module_mini_cpu.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/jfag/downloads/projeto/projeto2-sd/memoria/memory.v
+    Info (12023): Found entity 1: memory File: D:/Users/jfag/Downloads/projeto/projeto2-SD/memoria/memory.v Line: 1
 Info (12127): Elaborating entity "module_mini_cpu" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at module_mini_cpu.v(86): object "numLcd" assigned a value but never read File: D:/Users/flg/projeto2-SD/cpu/module_mini_cpu.v Line: 86
-Warning (10230): Verilog HDL assignment warning at module_mini_cpu.v(134): truncated value with size 4 to match size of target (3) File: D:/Users/flg/projeto2-SD/cpu/module_mini_cpu.v Line: 134
-Warning (10230): Verilog HDL assignment warning at module_mini_cpu.v(146): truncated value with size 4 to match size of target (3) File: D:/Users/flg/projeto2-SD/cpu/module_mini_cpu.v Line: 146
-Info (12128): Elaborating entity "memory" for hierarchy "memory:MEM" File: D:/Users/flg/projeto2-SD/cpu/module_mini_cpu.v Line: 73
-Info (12128): Elaborating entity "module_alu" for hierarchy "module_alu:ULA" File: D:/Users/flg/projeto2-SD/cpu/module_mini_cpu.v Line: 84
-Warning (10230): Verilog HDL assignment warning at module_alu.v(15): truncated value with size 32 to match size of target (16) File: D:/Users/flg/projeto2-SD/ula/module_alu.v Line: 15
-Info (12128): Elaborating entity "lcd_controller_top" for hierarchy "lcd_controller_top:LCD" File: D:/Users/flg/projeto2-SD/cpu/module_mini_cpu.v Line: 101
-Warning (10230): Verilog HDL assignment warning at lcd_controller_top.v(404): truncated value with size 32 to match size of target (5) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 404
-Warning (10230): Verilog HDL assignment warning at lcd_controller_top.v(408): truncated value with size 32 to match size of target (5) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 408
-Info (10264): Verilog HDL Case Statement information at lcd_controller_top.v(465): all case item expressions in this case statement are onehot File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 465
-Info (10041): Inferred latch for "message[31][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[31][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[31][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[31][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[31][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[31][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[31][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[31][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[30][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[30][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[30][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[30][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[30][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[30][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[30][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[30][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[29][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[29][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[29][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[29][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[29][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[29][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[29][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[29][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[28][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[28][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[28][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[28][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[28][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[28][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[28][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[28][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[27][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[27][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[27][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[27][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[27][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[27][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[27][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[27][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[26][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[26][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[26][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[26][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[26][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[26][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[26][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[26][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[25][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[25][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[25][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[25][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[25][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[25][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[25][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[25][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[24][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[24][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[24][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[24][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[24][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[24][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[24][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[24][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[23][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[23][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[23][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[23][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[23][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[23][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[23][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[23][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[22][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[22][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[22][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[22][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[22][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[22][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[22][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[22][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[21][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[21][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[21][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[21][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[21][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[21][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[21][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[21][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[20][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[20][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[20][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[20][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[20][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[20][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[20][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[20][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[19][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[19][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[19][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[19][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[19][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[19][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[19][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[19][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[18][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[18][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[18][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[18][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[18][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[18][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[18][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[18][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[17][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[17][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[17][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[17][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[17][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[17][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[17][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[17][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[16][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[16][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[16][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[16][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[16][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[16][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[16][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[16][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[15][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[15][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[15][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[15][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[15][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[15][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[15][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[15][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[14][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[14][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[14][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[14][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[14][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[14][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[14][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[14][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[13][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[13][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[13][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[13][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[13][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[13][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[13][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[13][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[12][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[12][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[12][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[12][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[12][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[12][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[12][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[12][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[11][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[11][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[11][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[11][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[11][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[11][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[11][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[11][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[10][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[10][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[10][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[10][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[10][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[10][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[10][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[10][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[9][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[9][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[9][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[9][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[9][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[9][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[9][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[9][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[8][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[8][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[8][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[8][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[8][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[8][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[8][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[8][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[7][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[7][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[7][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[7][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[7][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[7][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[7][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[7][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[6][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[6][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[6][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[6][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[6][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[6][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[6][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[6][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[5][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[5][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[5][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[5][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[5][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[5][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[5][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[5][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[4][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[4][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[4][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[4][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[4][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[4][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[4][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[4][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[3][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[3][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[3][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[3][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[3][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[3][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[3][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[3][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[2][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[2][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[2][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[2][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[2][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[2][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[2][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[2][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[1][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[1][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[1][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[1][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[1][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[1][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[1][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[1][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[0][0]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[0][1]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[0][2]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[0][3]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[0][4]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[0][5]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[0][6]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (10041): Inferred latch for "message[0][7]" at lcd_controller_top.v(235) File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-Info (12128): Elaborating entity "lcd_init_hd44780" for hierarchy "lcd_controller_top:LCD|lcd_init_hd44780:lcd_init" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 62
-Warning (10230): Verilog HDL assignment warning at lcd_init_hd44780.v(163): truncated value with size 32 to match size of target (3) File: D:/Users/flg/projeto2-SD/lcd/lcd_init_hd44780.v Line: 163
-Warning (10030): Net "cmd_rom.data_a" at lcd_init_hd44780.v(64) has no driver or initial value, using a default initial value '0' File: D:/Users/flg/projeto2-SD/lcd/lcd_init_hd44780.v Line: 64
-Warning (10030): Net "cmd_rom.waddr_a" at lcd_init_hd44780.v(64) has no driver or initial value, using a default initial value '0' File: D:/Users/flg/projeto2-SD/lcd/lcd_init_hd44780.v Line: 64
-Warning (10030): Net "cmd_delay_rom.data_a" at lcd_init_hd44780.v(65) has no driver or initial value, using a default initial value '0' File: D:/Users/flg/projeto2-SD/lcd/lcd_init_hd44780.v Line: 65
-Warning (10030): Net "cmd_delay_rom.waddr_a" at lcd_init_hd44780.v(65) has no driver or initial value, using a default initial value '0' File: D:/Users/flg/projeto2-SD/lcd/lcd_init_hd44780.v Line: 65
-Warning (10030): Net "cmd_rom.we_a" at lcd_init_hd44780.v(64) has no driver or initial value, using a default initial value '0' File: D:/Users/flg/projeto2-SD/lcd/lcd_init_hd44780.v Line: 64
-Warning (10030): Net "cmd_delay_rom.we_a" at lcd_init_hd44780.v(65) has no driver or initial value, using a default initial value '0' File: D:/Users/flg/projeto2-SD/lcd/lcd_init_hd44780.v Line: 65
-Info (12128): Elaborating entity "decimal_conversor" for hierarchy "lcd_controller_top:LCD|decimal_conversor:conversor" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 73
-Warning (10764): Verilog HDL warning at decimal_conversor.v(62): converting signed shift amount to unsigned File: D:/Users/flg/projeto2-SD/lcd/decimal_conversor.v Line: 62
-Info (12128): Elaborating entity "bin_conversor" for hierarchy "lcd_controller_top:LCD|bin_conversor:conversorBin" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 84
+Warning (10230): Verilog HDL assignment warning at module_mini_cpu.v(132): truncated value with size 4 to match size of target (3) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/cpu/module_mini_cpu.v Line: 132
+Warning (10230): Verilog HDL assignment warning at module_mini_cpu.v(144): truncated value with size 4 to match size of target (3) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/cpu/module_mini_cpu.v Line: 144
+Info (12128): Elaborating entity "memory" for hierarchy "memory:MEM" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/cpu/module_mini_cpu.v Line: 71
+Info (12128): Elaborating entity "module_alu" for hierarchy "module_alu:ULA" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/cpu/module_mini_cpu.v Line: 82
+Warning (10230): Verilog HDL assignment warning at module_alu.v(15): truncated value with size 32 to match size of target (16) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/ula/module_alu.v Line: 15
+Info (12128): Elaborating entity "lcd_controller_top" for hierarchy "lcd_controller_top:LCD" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/cpu/module_mini_cpu.v Line: 99
+Warning (10230): Verilog HDL assignment warning at lcd_controller_top.v(404): truncated value with size 32 to match size of target (5) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 404
+Warning (10230): Verilog HDL assignment warning at lcd_controller_top.v(408): truncated value with size 32 to match size of target (5) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 408
+Info (10264): Verilog HDL Case Statement information at lcd_controller_top.v(465): all case item expressions in this case statement are onehot File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 465
+Info (10041): Inferred latch for "message[31][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[31][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[31][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[31][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[31][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[31][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[31][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[31][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[30][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[30][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[30][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[30][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[30][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[30][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[30][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[30][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[29][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[29][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[29][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[29][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[29][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[29][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[29][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[29][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[28][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[28][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[28][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[28][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[28][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[28][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[28][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[28][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[27][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[27][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[27][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[27][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[27][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[27][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[27][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[27][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[26][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[26][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[26][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[26][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[26][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[26][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[26][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[26][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[25][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[25][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[25][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[25][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[25][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[25][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[25][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[25][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[24][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[24][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[24][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[24][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[24][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[24][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[24][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[24][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[23][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[23][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[23][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[23][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[23][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[23][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[23][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[23][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[22][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[22][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[22][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[22][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[22][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[22][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[22][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[22][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[21][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[21][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[21][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[21][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[21][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[21][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[21][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[21][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[20][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[20][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[20][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[20][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[20][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[20][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[20][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[20][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[19][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[19][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[19][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[19][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[19][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[19][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[19][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[19][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[18][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[18][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[18][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[18][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[18][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[18][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[18][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[18][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[17][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[17][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[17][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[17][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[17][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[17][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[17][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[17][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[16][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[16][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[16][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[16][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[16][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[16][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[16][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[16][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[15][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[15][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[15][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[15][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[15][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[15][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[15][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[15][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[14][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[14][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[14][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[14][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[14][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[14][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[14][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[14][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[13][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[13][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[13][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[13][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[13][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[13][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[13][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[13][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[12][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[12][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[12][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[12][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[12][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[12][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[12][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[12][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[11][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[11][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[11][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[11][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[11][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[11][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[11][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[11][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[10][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[10][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[10][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[10][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[10][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[10][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[10][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[10][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[9][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[9][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[9][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[9][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[9][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[9][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[9][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[9][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[8][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[8][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[8][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[8][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[8][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[8][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[8][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[8][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[7][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[7][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[7][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[7][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[7][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[7][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[7][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[7][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[6][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[6][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[6][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[6][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[6][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[6][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[6][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[6][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[5][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[5][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[5][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[5][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[5][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[5][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[5][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[5][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[4][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[4][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[4][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[4][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[4][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[4][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[4][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[4][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[3][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[3][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[3][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[3][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[3][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[3][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[3][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[3][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[2][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[2][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[2][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[2][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[2][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[2][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[2][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[2][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[1][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[1][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[1][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[1][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[1][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[1][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[1][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[1][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[0][0]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[0][1]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[0][2]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[0][3]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[0][4]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[0][5]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[0][6]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (10041): Inferred latch for "message[0][7]" at lcd_controller_top.v(235) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+Info (12128): Elaborating entity "lcd_init_hd44780" for hierarchy "lcd_controller_top:LCD|lcd_init_hd44780:lcd_init" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 62
+Warning (10230): Verilog HDL assignment warning at lcd_init_hd44780.v(163): truncated value with size 32 to match size of target (3) File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_init_hd44780.v Line: 163
+Warning (10030): Net "cmd_rom.data_a" at lcd_init_hd44780.v(64) has no driver or initial value, using a default initial value '0' File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_init_hd44780.v Line: 64
+Warning (10030): Net "cmd_rom.waddr_a" at lcd_init_hd44780.v(64) has no driver or initial value, using a default initial value '0' File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_init_hd44780.v Line: 64
+Warning (10030): Net "cmd_delay_rom.data_a" at lcd_init_hd44780.v(65) has no driver or initial value, using a default initial value '0' File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_init_hd44780.v Line: 65
+Warning (10030): Net "cmd_delay_rom.waddr_a" at lcd_init_hd44780.v(65) has no driver or initial value, using a default initial value '0' File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_init_hd44780.v Line: 65
+Warning (10030): Net "cmd_rom.we_a" at lcd_init_hd44780.v(64) has no driver or initial value, using a default initial value '0' File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_init_hd44780.v Line: 64
+Warning (10030): Net "cmd_delay_rom.we_a" at lcd_init_hd44780.v(65) has no driver or initial value, using a default initial value '0' File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_init_hd44780.v Line: 65
+Info (12128): Elaborating entity "decimal_conversor" for hierarchy "lcd_controller_top:LCD|decimal_conversor:conversor" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 73
+Warning (10764): Verilog HDL warning at decimal_conversor.v(62): converting signed shift amount to unsigned File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 62
+Info (12128): Elaborating entity "bin_conversor" for hierarchy "lcd_controller_top:LCD|bin_conversor:conversorBin" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 84
 Info (276014): Found 2 instances of uninferred RAM logic
-    Info (276004): RAM logic "lcd_controller_top:LCD|lcd_init_hd44780:lcd_init|cmd_rom" is uninferred due to inappropriate RAM size File: D:/Users/flg/projeto2-SD/lcd/lcd_init_hd44780.v Line: 64
-    Info (276004): RAM logic "lcd_controller_top:LCD|lcd_init_hd44780:lcd_init|cmd_delay_rom" is uninferred due to inappropriate RAM size File: D:/Users/flg/projeto2-SD/lcd/lcd_init_hd44780.v Line: 65
+    Info (276004): RAM logic "lcd_controller_top:LCD|lcd_init_hd44780:lcd_init|cmd_rom" is uninferred due to inappropriate RAM size File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_init_hd44780.v Line: 64
+    Info (276004): RAM logic "lcd_controller_top:LCD|lcd_init_hd44780:lcd_init|cmd_delay_rom" is uninferred due to inappropriate RAM size File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_init_hd44780.v Line: 65
 Info (278001): Inferred 3 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_controller_top:LCD|decimal_conversor:conversor|Mod0" File: D:/Users/flg/projeto2-SD/lcd/decimal_conversor.v Line: 73
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_controller_top:LCD|decimal_conversor:conversor|Div0" File: D:/Users/flg/projeto2-SD/lcd/decimal_conversor.v Line: 88
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "module_alu:ULA|Mult0" File: D:/Users/flg/projeto2-SD/ula/module_alu.v Line: 10
-Info (12130): Elaborated megafunction instantiation "lcd_controller_top:LCD|decimal_conversor:conversor|lpm_divide:Mod0" File: D:/Users/flg/projeto2-SD/lcd/decimal_conversor.v Line: 73
-Info (12133): Instantiated megafunction "lcd_controller_top:LCD|decimal_conversor:conversor|lpm_divide:Mod0" with the following parameter: File: D:/Users/flg/projeto2-SD/lcd/decimal_conversor.v Line: 73
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_controller_top:LCD|decimal_conversor:conversor|Mod0" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 73
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "lcd_controller_top:LCD|decimal_conversor:conversor|Div0" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 88
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "module_alu:ULA|Mult0" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/ula/module_alu.v Line: 10
+Info (12130): Elaborated megafunction instantiation "lcd_controller_top:LCD|decimal_conversor:conversor|lpm_divide:Mod0" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 73
+Info (12133): Instantiated megafunction "lcd_controller_top:LCD|decimal_conversor:conversor|lpm_divide:Mod0" with the following parameter: File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 73
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_soo.tdf
-    Info (12023): Found entity 1: lpm_divide_soo File: D:/Users/flg/projeto2-SD/miniCPU/db/lpm_divide_soo.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_soo File: D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/lpm_divide_soo.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
-    Info (12023): Found entity 1: abs_divider_kbg File: D:/Users/flg/projeto2-SD/miniCPU/db/abs_divider_kbg.tdf Line: 29
+    Info (12023): Found entity 1: abs_divider_kbg File: D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/abs_divider_kbg.tdf Line: 29
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_67f.tdf
-    Info (12023): Found entity 1: alt_u_div_67f File: D:/Users/flg/projeto2-SD/miniCPU/db/alt_u_div_67f.tdf Line: 27
+    Info (12023): Found entity 1: alt_u_div_67f File: D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/alt_u_div_67f.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: D:/Users/flg/projeto2-SD/miniCPU/db/add_sub_7pc.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_7pc File: D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/add_sub_7pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: D:/Users/flg/projeto2-SD/miniCPU/db/add_sub_8pc.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_8pc File: D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/add_sub_8pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2v9.tdf
-    Info (12023): Found entity 1: lpm_abs_2v9 File: D:/Users/flg/projeto2-SD/miniCPU/db/lpm_abs_2v9.tdf Line: 25
+    Info (12023): Found entity 1: lpm_abs_2v9 File: D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/lpm_abs_2v9.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_i0a.tdf
-    Info (12023): Found entity 1: lpm_abs_i0a File: D:/Users/flg/projeto2-SD/miniCPU/db/lpm_abs_i0a.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "lcd_controller_top:LCD|decimal_conversor:conversor|lpm_divide:Div0" File: D:/Users/flg/projeto2-SD/lcd/decimal_conversor.v Line: 88
-Info (12133): Instantiated megafunction "lcd_controller_top:LCD|decimal_conversor:conversor|lpm_divide:Div0" with the following parameter: File: D:/Users/flg/projeto2-SD/lcd/decimal_conversor.v Line: 88
+    Info (12023): Found entity 1: lpm_abs_i0a File: D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/lpm_abs_i0a.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lcd_controller_top:LCD|decimal_conversor:conversor|lpm_divide:Div0" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 88
+Info (12133): Instantiated megafunction "lcd_controller_top:LCD|decimal_conversor:conversor|lpm_divide:Div0" with the following parameter: File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/decimal_conversor.v Line: 88
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "5"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_p0p.tdf
-    Info (12023): Found entity 1: lpm_divide_p0p File: D:/Users/flg/projeto2-SD/miniCPU/db/lpm_divide_p0p.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "module_alu:ULA|lpm_mult:Mult0" File: D:/Users/flg/projeto2-SD/ula/module_alu.v Line: 10
-Info (12133): Instantiated megafunction "module_alu:ULA|lpm_mult:Mult0" with the following parameter: File: D:/Users/flg/projeto2-SD/ula/module_alu.v Line: 10
+    Info (12023): Found entity 1: lpm_divide_p0p File: D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/lpm_divide_p0p.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "module_alu:ULA|lpm_mult:Mult0" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/ula/module_alu.v Line: 10
+Info (12133): Instantiated megafunction "module_alu:ULA|lpm_mult:Mult0" with the following parameter: File: D:/Users/jfag/Downloads/projeto/projeto2-SD/ula/module_alu.v Line: 10
     Info (12134): Parameter "LPM_WIDTHA" = "16"
     Info (12134): Parameter "LPM_WIDTHB" = "16"
     Info (12134): Parameter "LPM_WIDTHP" = "32"
@@ -1108,42 +1107,42 @@ Info (12133): Instantiated megafunction "module_alu:ULA|lpm_mult:Mult0" with the
     Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
     Info (12134): Parameter "MAXIMIZE_SPEED" = "6"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_7dt.tdf
-    Info (12023): Found entity 1: mult_7dt File: D:/Users/flg/projeto2-SD/miniCPU/db/mult_7dt.tdf Line: 29
+    Info (12023): Found entity 1: mult_7dt File: D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/db/mult_7dt.tdf Line: 29
 Info (13014): Ignored 62 buffer(s)
     Info (13016): Ignored 62 CARRY_SUM buffer(s)
 Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[3][2]" merged with LATCH primitive "lcd_controller_top:LCD|message[2][0]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[3][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[3][0]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[15][0]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[10][6]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[10][4]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[10][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[10][1]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[15][6]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[15][4]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[15][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[15][2]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[2][1]" merged with LATCH primitive "lcd_controller_top:LCD|message[0][1]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[11][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[12][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[12][2]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[13][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[13][2]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[14][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[14][2]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[12][4]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][4]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[13][4]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][4]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[14][4]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][4]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[0][5]" merged with LATCH primitive "lcd_controller_top:LCD|message[2][5]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[1][5]" merged with LATCH primitive "lcd_controller_top:LCD|message[2][5]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[15][5]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][5]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[0][6]" merged with LATCH primitive "lcd_controller_top:LCD|message[2][6]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
-    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[1][6]" merged with LATCH primitive "lcd_controller_top:LCD|message[2][6]" File: D:/Users/flg/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[3][2]" merged with LATCH primitive "lcd_controller_top:LCD|message[2][0]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[3][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[3][0]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[15][0]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[10][6]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[10][4]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[10][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[10][1]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[15][6]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[15][4]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[15][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[15][2]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][0]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[2][1]" merged with LATCH primitive "lcd_controller_top:LCD|message[0][1]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[11][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[12][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[12][2]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[13][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[13][2]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[14][3]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[14][2]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][2]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[12][4]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][4]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[13][4]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][4]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[14][4]" merged with LATCH primitive "lcd_controller_top:LCD|message[11][4]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[0][5]" merged with LATCH primitive "lcd_controller_top:LCD|message[2][5]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[1][5]" merged with LATCH primitive "lcd_controller_top:LCD|message[2][5]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[15][5]" merged with LATCH primitive "lcd_controller_top:LCD|message[10][5]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[0][6]" merged with LATCH primitive "lcd_controller_top:LCD|message[2][6]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
+    Info (13026): Duplicate LATCH primitive "lcd_controller_top:LCD|message[1][6]" merged with LATCH primitive "lcd_controller_top:LCD|message[2][6]" File: D:/Users/jfag/Downloads/projeto/projeto2-SD/lcd/lcd_controller_top.v Line: 235
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "lcd_rw" is stuck at GND File: D:/Users/flg/projeto2-SD/cpu/module_mini_cpu.v Line: 11
+    Warning (13410): Pin "lcd_rw" is stuck at GND File: D:/Users/jfag/Downloads/projeto/projeto2-SD/cpu/module_mini_cpu.v Line: 9
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 9 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file D:/Users/flg/projeto2-SD/miniCPU/output_files/miniCPU.map.smsg
+Info (144001): Generated suppressed messages file D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/output_files/miniCPU.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Info (21057): Implemented 3044 device resources after synthesis - the final resource count might be different
@@ -1151,16 +1150,16 @@ Info (21057): Implemented 3044 device resources after synthesis - the final reso
     Info (21059): Implemented 11 output pins
     Info (21061): Implemented 3010 logic cells
     Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
-    Info: Peak virtual memory: 4896 megabytes
-    Info: Processing ended: Wed Nov 18 16:44:14 2026
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:23
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 4897 megabytes
+    Info: Processing ended: Wed Nov 18 17:21:10 2026
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:24
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in D:/Users/flg/projeto2-SD/miniCPU/output_files/miniCPU.map.smsg.
+The suppressed messages can be found in D:/Users/jfag/Downloads/projeto/projeto2-SD/miniCPU/output_files/miniCPU.map.smsg.
 
 

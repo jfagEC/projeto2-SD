@@ -326,17 +326,17 @@ clk => oldState[0].CLK
 clk => oldState[1].CLK
 clk => oldState[2].CLK
 clk => estadoAtual~10.DATAIN
-lcd_data[0] << lcd_controller_top:LCD.lcd_data[0]
-lcd_data[1] << lcd_controller_top:LCD.lcd_data[1]
-lcd_data[2] << lcd_controller_top:LCD.lcd_data[2]
-lcd_data[3] << lcd_controller_top:LCD.lcd_data[3]
-lcd_data[4] << lcd_controller_top:LCD.lcd_data[4]
-lcd_data[5] << lcd_controller_top:LCD.lcd_data[5]
-lcd_data[6] << lcd_controller_top:LCD.lcd_data[6]
-lcd_data[7] << lcd_controller_top:LCD.lcd_data[7]
-lcd_rs << lcd_controller_top:LCD.lcd_rs
-lcd_rw << lcd_controller_top:LCD.lcd_rw
-lcd_e << lcd_controller_top:LCD.lcd_e
+lcd_data[0] <= lcd_controller_top:LCD.lcd_data[0]
+lcd_data[1] <= lcd_controller_top:LCD.lcd_data[1]
+lcd_data[2] <= lcd_controller_top:LCD.lcd_data[2]
+lcd_data[3] <= lcd_controller_top:LCD.lcd_data[3]
+lcd_data[4] <= lcd_controller_top:LCD.lcd_data[4]
+lcd_data[5] <= lcd_controller_top:LCD.lcd_data[5]
+lcd_data[6] <= lcd_controller_top:LCD.lcd_data[6]
+lcd_data[7] <= lcd_controller_top:LCD.lcd_data[7]
+lcd_rs <= lcd_controller_top:LCD.lcd_rs
+lcd_rw <= lcd_controller_top:LCD.lcd_rw
+lcd_e <= lcd_controller_top:LCD.lcd_e
 
 
 |module_mini_cpu|memory:MEM
