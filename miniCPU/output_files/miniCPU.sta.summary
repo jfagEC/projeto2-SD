@@ -3,104 +3,104 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -85.973
-TNS   : -8755.782
+Slack : -87.775
+TNS   : -8648.040
 
 Type  : Slow 1200mV 85C Model Setup 'lcdWrite'
-Slack : -3.085
-TNS   : -156.527
+Slack : -3.569
+TNS   : -156.231
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.384
+Slack : 0.386
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'lcdWrite'
-Slack : 1.052
+Slack : 1.105
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'lcdWrite'
-Slack : -2.263
-TNS   : -88.835
+Slack : -2.298
+TNS   : -87.420
 
 Type  : Slow 1200mV 85C Model Recovery 'clk'
-Slack : 0.181
+Slack : 0.183
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'clk'
 Slack : -0.187
-TNS   : -15.614
+TNS   : -15.588
 
 Type  : Slow 1200mV 85C Model Removal 'lcdWrite'
-Slack : 0.871
+Slack : 0.578
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -1043.068
+TNS   : -1034.073
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'lcdWrite'
-Slack : 0.464
+Slack : 0.462
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -77.710
-TNS   : -7901.510
+Slack : -79.395
+TNS   : -7793.393
 
 Type  : Slow 1200mV 0C Model Setup 'lcdWrite'
-Slack : -2.798
-TNS   : -138.044
+Slack : -3.207
+TNS   : -137.777
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.337
+Slack : 0.338
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'lcdWrite'
-Slack : 1.003
+Slack : 1.051
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'lcdWrite'
-Slack : -2.028
-TNS   : -75.811
+Slack : -2.033
+TNS   : -74.096
 
 Type  : Slow 1200mV 0C Model Recovery 'clk'
-Slack : 0.272
+Slack : 0.274
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'clk'
 Slack : -0.196
-TNS   : -16.391
+TNS   : -16.368
 
 Type  : Slow 1200mV 0C Model Removal 'lcdWrite'
-Slack : 0.835
+Slack : 0.556
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -1043.020
+TNS   : -1034.025
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'lcdWrite'
-Slack : 0.457
+Slack : 0.455
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -41.196
-TNS   : -3903.430
+Slack : -42.294
+TNS   : -3861.499
 
 Type  : Fast 1200mV 0C Model Setup 'lcdWrite'
-Slack : -1.133
-TNS   : -49.252
+Slack : -1.324
+TNS   : -48.753
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.172
+Slack : 0.173
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'lcdWrite'
-Slack : 0.510
+Slack : 0.540
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'lcdWrite'
-Slack : -0.726
-TNS   : -16.859
+Slack : -0.770
+TNS   : -16.318
 
 Type  : Fast 1200mV 0C Model Recovery 'clk'
 Slack : 0.308
@@ -108,15 +108,15 @@ TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'clk'
 Slack : -0.158
-TNS   : -13.191
+TNS   : -13.204
 
 Type  : Fast 1200mV 0C Model Removal 'lcdWrite'
-Slack : 0.432
+Slack : 0.294
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -840.891
+TNS   : -832.570
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'lcdWrite'
 Slack : 0.406

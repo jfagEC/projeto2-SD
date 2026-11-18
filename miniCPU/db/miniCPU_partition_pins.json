@@ -4,34 +4,6 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "valor_mem[0]",
-					"strict" : false
-				},
-				{
-					"name" : "valor_mem[1]",
-					"strict" : false
-				},
-				{
-					"name" : "valor_mem[2]",
-					"strict" : false
-				},
-				{
-					"name" : "valor_mem[3]",
-					"strict" : false
-				},
-				{
-					"name" : "valor_mem[4]",
-					"strict" : false
-				},
-				{
-					"name" : "valor_mem[5]",
-					"strict" : false
-				},
-				{
-					"name" : "valor_mem[6]",
-					"strict" : false
-				},
-				{
 					"name" : "lcd_data[0]",
 					"strict" : false
 				},
@@ -80,19 +52,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[15]",
-					"strict" : false
-				},
-				{
 					"name" : "instrucao[17]",
 					"strict" : false
 				},
 				{
-					"name" : "send",
+					"name" : "instrucao[15]",
 					"strict" : false
 				},
 				{
 					"name" : "on",
+					"strict" : false
+				},
+				{
+					"name" : "send",
 					"strict" : false
 				},
 				{
@@ -112,19 +84,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[0]",
-					"strict" : false
-				},
-				{
 					"name" : "instrucao[6]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[3]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[7]",
+					"name" : "instrucao[5]",
 					"strict" : false
 				},
 				{
@@ -132,11 +96,27 @@
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[8]",
+					"name" : "instrucao[3]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[5]",
+					"name" : "instrucao[2]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[1]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[0]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[7]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[8]",
 					"strict" : false
 				},
 				{
@@ -145,14 +125,6 @@
 				},
 				{
 					"name" : "instrucao[10]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[1]",
-					"strict" : false
-				},
-				{
-					"name" : "instrucao[2]",
 					"strict" : false
 				}
 			]
