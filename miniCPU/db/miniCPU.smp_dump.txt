@@ -1,4 +1,16 @@
 
+State Machine - |module_mini_cpu|estadoAtual
+Name estadoAtual.LCD_UPD estadoAtual.PROCESS_SEND estadoAtual.PROCESS_RESET estadoAtual.STORE estadoAtual.SEND estadoAtual.DECODE estadoAtual.SEND_WAIT estadoAtual.0000 estadoAtual.BOOT 
+estadoAtual.0000 0 0 0 0 0 0 0 0 0 
+estadoAtual.SEND_WAIT 0 0 0 0 0 0 1 1 0 
+estadoAtual.DECODE 0 0 0 0 0 1 0 1 0 
+estadoAtual.SEND 0 0 0 0 1 0 0 1 0 
+estadoAtual.STORE 0 0 0 1 0 0 0 1 0 
+estadoAtual.PROCESS_RESET 0 0 1 0 0 0 0 1 0 
+estadoAtual.PROCESS_SEND 0 1 0 0 0 0 0 1 0 
+estadoAtual.LCD_UPD 1 0 0 0 0 0 0 1 0 
+estadoAtual.BOOT 0 0 0 0 0 0 0 1 1 
+
 State Machine - |module_mini_cpu|lcd_controller_top:LCD|state
 Name state.S_JUMP state.S_DONE state.S_WAIT state.S_PULSE_E state.S_PREPARE state.S_WAIT_INIT 
 state.S_WAIT_INIT 0 0 0 0 0 0 

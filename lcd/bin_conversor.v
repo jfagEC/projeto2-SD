@@ -42,6 +42,7 @@ always @(posedge clk)begin
 			end
 		end
 		WAIT: begin
+			cont <= 0;
 			if(rst) currState <= READ;
 			else begin
 				currState <= WAIT;
