@@ -3,10 +3,6 @@ input wire[17:0] instrucao,
 input wire on, //liga/desliga
 input wire send, //botao p enviar 
 input wire clk,
-//saidas de debug, remover depois, PRECISAM SER COLOCADOS COMO REGISTRADORES INTERNOS
-
-output reg [6:0] valor_mem, //Debuggar o que mexe na memória isso NAO precisa virar registrador interno, pode expurgar
-//output reg lcdWrite,
 //saidas do lcd
 output wire  [7:0] lcd_data,
 output wire        lcd_rs,
@@ -85,7 +81,7 @@ module_alu ULA(
 	.out(out)
 );
 
-reg[15:0] numLcd; //valor q entra no lcd
+
 integer contadorBoot;
 
 lcd_controller_top LCD(
@@ -141,29 +137,27 @@ always @(posedge clk)begin //alternancia dos estados, sensivel ao clk e aos boto
 					end
 			  end
 			  BOOT: begin
-					if(contadorBoot > 23) estadoAtual <= SEND_WAIT;
+					if(contadorBoot > 40) estadoAtual <= SEND_WAIT;
 					else estadoAtual <= BOOT;
 			  end
 			  SEND_WAIT: begin
 					 oldState <= estadoAtual;
-					 if(~on) estadoAtual <= PROCESS_RESET;
+					 if(~on) estadoAtual <= PROCESS_RESET; 
 					 else if(send) estadoAtual <= SEND_WAIT;
 					else estadoAtual <= PROCESS_SEND; //para garantir que so sai quando soltar o botao
 			  end
 			  DECODE: begin
-					/*if(opcode != CLEAR)*/ estadoAtual <= SEND; //passa somente um pulso para fazer o decode
-					//else estadoAtual <= SEND_WAIT; //volta direto p receber outras instrucoes, nao precisa esperar o decode do lcd
-					//AVISO: CASO NAO ESTEJA DANDO CLEAR DIREITO NA MEMORIA, FAZ PASSAR PELO LCD_UPD QUE TEM TEMPO SUFICIENTE
+					estadoAtual <= SEND; //vai diretamente para send
 			  end 
 				SEND: begin
 					 if(contadorSEND > 8) estadoAtual <= STORE;
 					 else estadoAtual <= SEND;
 				end
-			  STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware, sao necessarias no max 5 operacoes
+			  STORE: begin //sao necessarias no max 5 operacoes
 				if(contadorSTORE>3) estadoAtual <= LCD_UPD;
 			  end
 			  LCD_UPD: begin
-					if(contadorLcd > 22)estadoAtual <= SEND_WAIT; //precisa ficar a quantidade de pulsos p decodificar os valores
+					if(contadorLcd > 22)estadoAtual <= SEND_WAIT; //considerando o tempo de espera do lcd
 					else estadoAtual <= LCD_UPD;
 			  end
 		 endcase
@@ -199,6 +193,7 @@ always @(posedge clk)begin //manipulacao dos valores numericos
 			  imm <= 7'd0;
 			  n1 <= 0;
 			  n2 <= 0;
+			  data <= 0;
 			  lcdWrite <= 0;
 		 end else if(contadorBoot >= 0)begin
 				lcdBlank <= 0;
@@ -212,16 +207,11 @@ always @(posedge clk)begin //manipulacao dos valores numericos
     DECODE: begin
         opcode = instrucao[17:15];
         case(opcode) //bloco para decodificar
-            ADD: begin
+            ADD, SUB: begin
                 regDestino <= instrucao[14:11];
                 reg1 <= instrucao[10:7];
                 reg2 <= instrucao[6:3];
                 //os ultimos 3 bits ficam sobrando
-            end
-            SUB: begin
-                regDestino <= instrucao[14:11];
-                reg1 <= instrucao[10:7];
-					 //Os outros bits ficam sobrando
             end
             ADDI, SUBI, MUL: begin
                 regDestino <= instrucao[14:11];
@@ -233,10 +223,10 @@ always @(posedge clk)begin //manipulacao dos valores numericos
                 imm <= instrucao[6:0]; //bit 6 -> sinal; "SWs[6:0]"
             end
             DISPLAY: begin
-                regDestino <= instrucao[14:11]; ////coloca em reg destino pq eh oq vai p o lcd, mas nao vai p store
+                regDestino <= instrucao[14:11]; //coloca em reg destino pq eh oq vai p o lcd, mas nao vai p store
             end
 				CLEAR: begin
-					lcdWrite = 1; //nao vai passar pelo LCD_UPD, pq n precisa decodificar nada
+					lcdWrite = 1; //nao vai escrever na memoria
 					memClear = 1;
 				end
         endcase
@@ -255,7 +245,7 @@ always @(posedge clk)begin //manipulacao dos valores numericos
 		memClear=0;
 	 end
 	 //Pegar o valor na memória
-	  SEND: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
+	  SEND: begin 
 			we<=0;
 			case(opcode)
 					 ADD, SUB: begin
@@ -282,45 +272,36 @@ always @(posedge clk)begin //manipulacao dos valores numericos
 			
 			contadorSEND<=contadorSEND+1;
 			
-			if(contadorSEND == 3 && opcode == DISPLAY) lcdWrite <= 1; //display n vai p o store, precisa escrever aq
+			if(contadorSEND == 3 && opcode == DISPLAY) lcdWrite <= 1;
 	  end
 	//Guardar na memória
-	  STORE: begin //talvez passar mais tempo aq, ver as limitacoes de hardware
-			//lcdWrite = 0;
+	  STORE: begin
 			contadorSEND<=0;
-			//verificar se precisa desses 2 estagios de debug
-			if (contadorSTORE>=4) begin //Isso aqui é pra ver se o valor guardado na memória tá certo
-				valor_mem <= q[6:0];
-			end
 			if(contadorSTORE>=2) begin
-				if(opcode != DISPLAY)we<=1; //ESSE WE PRECISA SER MANTIDO, MESMO DEPOIS DE TIRAR AS PARADA DE DEBUG
-				 
-				if (opcode == SUB) valor_mem <= q[6:0]; //Debuggar o sub
+				if(opcode != DISPLAY)we<=1; //permite escrever na memoria
 			end
 			else if(contadorSTORE>=1)begin
-				//addr <= regDestino;
-				//numLcd = data;
+				//somente espera
 			end
       else if(contadorSTORE>=0) begin
 				addr <= regDestino;
-				 if (opcode == SUB) 
-					  data <= n1;
-				 else if (opcode == LOAD) begin
+				 if (opcode == LOAD) begin
 					  if (imm[6] == 1)
 							data <= -{10'd0, imm[5:0]};//Coloca o bit de sinal na frente
 					  else 
 							data <= {10'd0, imm[5:0]};//pega os 5bits de valor do immediato e completa com 10 bits de valor 0
 				 end //fim do else if interno
+			
 				 else if(opcode!= DISPLAY)
 					  data <= out;
 				
 			end //fim do else if  
-			
+
 			contadorSTORE<=contadorSTORE+1;	
 		end //fim do case de store
 		LCD_UPD: begin
 			if(contadorLcd >=1) lcdWrite = 1;
-			else if(contadorLcd >= 0) numLcd <= (opcode == DISPLAY)? n1: data; //o display n manda dnv p memoria, fica em n1
+			else if(contadorLcd >= 0) data <= data; //valor que vai para o lcd
 			contadorLcd <= contadorLcd + 1;
 			
 		end
