@@ -180,6 +180,7 @@ always @(posedge clk)begin //manipulacao dos valores numericos
 		  memClear <= 0;
 		  lcdBlank <= 1;
 		  contadorBoot <= 0;
+		  tempoLigado <= 0;
 		  contadorDebounce <= 0;
     end
 	 BOOT: begin
